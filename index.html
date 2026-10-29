@@ -1,137 +1,26 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <title>بَيْت اللِّسَان</title>
+  <title>FushaFlow</title>
   
   <!-- iOS Viewport & Web App Optimizations -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="بَيْت اللِّسَان">
-  <meta name="application-name" content="بَيْت اللِّسَان">
+  <meta name="apple-mobile-web-app-title" content="FushaFlow">
+  <meta name="application-name" content="FushaFlow">
   <meta name="theme-color" content="#022c22" id="metaThemeColor">
 
-  <!-- Dynamic PNG Apple Touch Icon Generator for iOS -->
-  <link rel="apple-touch-icon" id="dynamicAppleIcon">
-  <link rel="icon" id="dynamicFavicon" type="image/png">
+  <!-- Static Pre-Compiled 512x512 High-Res PNG Icon (Sanctuary Arch & Golden Portal) -->
+  <!-- Safari reads this immediately without executing any JavaScript -->
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23022c22'/%3E%3Cstop offset='50%25' stop-color='%23064e3b'/%3E%3Cstop offset='100%25' stop-color='%2301140f'/%3E%3C/linearGradient%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='90%25'%3E%3Cstop offset='0%25' stop-color='%23fef08a'/%3E%3Cstop offset='35%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3CradialGradient id='halo' cx='50%25' cy='52%25' r='48%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b' stop-opacity='0.45'/%3E%3Cstop offset='65%25' stop-color='%2310b981' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23000000' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cfilter id='glow' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='10' result='blur'/%3E%3CfeComposite in='SourceGraphic' in2='blur' operator='over'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='512' height='512' rx='115' fill='url(%23bg)'/%3E%3Ccircle cx='256' cy='270' r='210' fill='url(%23halo)'/%3E%3Crect x='32' y='32' width='448' height='448' rx='88' fill='none' stroke='url(%23gold)' stroke-width='4' stroke-opacity='0.45'/%3E%3Crect x='46' y='46' width='420' height='420' rx='76' fill='none' stroke='url(%23gold)' stroke-width='2' stroke-dasharray='10 6' stroke-opacity='0.6'/%3E%3Cpath d='M135 415 L135 250 C135 125 377 125 377 250 L377 415' fill='none' stroke='url(%23gold)' stroke-width='12' stroke-linecap='round' filter='url(%23glow)'/%3E%3Cpath d='M160 415 L160 255 C160 160 352 160 352 255 L352 415' fill='%23031b15' fill-opacity='0.75' stroke='url(%23gold)' stroke-width='3' stroke-opacity='0.8'/%3E%3Cpolygon points='256,76 264,96 286,96 268,108 275,128 256,116 237,128 244,108 226,96 248,96' fill='%23fef08a' filter='url(%23glow)'/%3E%3Cline x1='100' y1='415' x2='412' y2='415' stroke='url(%23gold)' stroke-width='10' stroke-linecap='round'/%3E%3Ctext x='256' y='352' font-size='200' font-family='Geeza Pro, Amiri, Traditional Arabic, Arial' font-weight='bold' fill='url(%23gold)' text-anchor='middle' filter='url(%23glow)'%3E%D9%84%3C/text%3E%3C/svg%3E">
 
-  <script>
-    // Generate true 512x512 PNG data URI so iOS Safari never renders a blank fallback box
-    (function generateIconPNG() {
-      try {
-        const size = 512;
-        const canvas = document.createElement('canvas');
-        canvas.width = size;
-        canvas.height = size;
-        const ctx = canvas.getContext('2d');
-
-        // Background Gradient (Midnight Emerald)
-        const bgGrad = ctx.createLinearGradient(0, 0, size, size);
-        bgGrad.addColorStop(0, '#022c22');
-        bgGrad.addColorStop(0.55, '#064e3b');
-        bgGrad.addColorStop(1, '#01140f');
-        ctx.fillStyle = bgGrad;
-        ctx.fillRect(0, 0, size, size);
-
-        // Ambient Center Glow
-        const radGlow = ctx.createRadialGradient(size/2, size*0.52, 10, size/2, size*0.52, size*0.45);
-        radGlow.addColorStop(0, 'rgba(245, 158, 11, 0.45)');
-        radGlow.addColorStop(0.65, 'rgba(16, 185, 129, 0.12)');
-        radGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
-        ctx.fillStyle = radGlow;
-        ctx.beginPath();
-        ctx.arc(size/2, size*0.52, size*0.45, 0, Math.PI * 2);
-        ctx.fill();
-
-        // 24k Gold Gradient
-        const gold = ctx.createLinearGradient(0, 0, size, size);
-        gold.addColorStop(0, '#fef08a');
-        gold.addColorStop(0.35, '#f59e0b');
-        gold.addColorStop(1, '#b45309');
-
-        // Outer Decorative Border
-        ctx.lineWidth = 4;
-        ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)';
-        ctx.strokeRect(32, 32, size - 64, size - 64);
-
-        // Inner Dashed Border
-        ctx.lineWidth = 2;
-        ctx.setLineDash([10, 8]);
-        ctx.strokeStyle = 'rgba(254, 240, 138, 0.6)';
-        ctx.strokeRect(46, 46, size - 92, size - 92);
-        ctx.setLineDash([]); // Reset dash
-
-        // Outer Sanctuary Arch (Mihrab)
-        ctx.lineWidth = 12;
-        ctx.strokeStyle = gold;
-        ctx.lineCap = 'round';
-        ctx.beginPath();
-        ctx.moveTo(135, 415);
-        ctx.lineTo(135, 250);
-        ctx.bezierCurveTo(135, 125, 377, 125, 377, 250);
-        ctx.lineTo(377, 415);
-        ctx.stroke();
-
-        // Inner Arch Fill
-        ctx.fillStyle = 'rgba(3, 27, 21, 0.72)';
-        ctx.beginPath();
-        ctx.moveTo(158, 415);
-        ctx.lineTo(158, 255);
-        ctx.bezierCurveTo(158, 155, 354, 155, 354, 255);
-        ctx.lineTo(354, 415);
-        ctx.closePath();
-        ctx.fill();
-        ctx.lineWidth = 3;
-        ctx.strokeStyle = 'rgba(254, 240, 138, 0.8)';
-        ctx.stroke();
-
-        // Threshold Base Line
-        ctx.lineWidth = 10;
-        ctx.strokeStyle = gold;
-        ctx.beginPath();
-        ctx.moveTo(105, 415);
-        ctx.lineTo(407, 415);
-        ctx.stroke();
-
-        // Apex Star on Mihrab
-        ctx.fillStyle = '#fef08a';
-        ctx.beginPath();
-        const cx = 256, cy = 96, spikes = 8, outerR = 24, innerR = 10;
-        let rot = Math.PI / 2 * 3;
-        let step = Math.PI / spikes;
-        ctx.moveTo(cx, cy - outerR);
-        for (let i = 0; i < spikes; i++) {
-          ctx.lineTo(cx + Math.cos(rot) * outerR, cy + Math.sin(rot) * outerR);
-          rot += step;
-          ctx.lineTo(cx + Math.cos(rot) * innerR, cy + Math.sin(rot) * innerR);
-          rot += step;
-        }
-        ctx.closePath();
-        ctx.fill();
-
-        // Central Illuminated 'ل' Glyph
-        ctx.font = 'bold 210px "Geeza Pro", "Amiri", "Traditional Arabic", serif';
-        ctx.fillStyle = gold;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.shadowColor = 'rgba(245, 158, 11, 0.8)';
-        ctx.shadowBlur = 18;
-        ctx.fillText('ل', size / 2, 280);
-
-        // Convert canvas to PNG data URI and inject into head
-        const pngURI = canvas.toDataURL('image/png');
-        document.getElementById('dynamicAppleIcon').setAttribute('href', pngURI);
-        document.getElementById('dynamicFavicon').setAttribute('href', pngURI);
-      } catch (err) {
-        console.error('Failed generating PNG icon:', err);
-      }
-    })();
-  </script>
+  <!-- Manifest with FushaFlow naming -->
+  <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22FushaFlow%22%2C%22short_name%22%3A%22FushaFlow%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23090d16%22%2C%22theme_color%22%3A%22%23022c22%22%7D">
 
   <style>
-    /* CSS Variables for Dynamic Dark / Light Themes */
     :root {
       --bg-body: #090d16;
       --text-main: #f1f5f9;
@@ -227,7 +116,7 @@
       padding-top: env(safe-area-inset-top);
       padding-bottom: calc(env(safe-area-inset-bottom) + 80px);
       transition: background-color 0.25s ease, color 0.25s ease;
-      direction: ltr; /* English structural navigation layout */
+      direction: ltr;
     }
 
     .ar {
@@ -255,18 +144,21 @@
 
     .brand-title {
       font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+      font-weight: 800;
+      letter-spacing: -0.02em;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
-    .brand-title span.ar-main {
-      font-size: 1.45rem;
-      color: #fef08a;
-      font-family: "Geeza Pro", "Amiri", "Traditional Arabic", serif;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    .brand-title span.app-badge {
+      background: linear-gradient(135deg, #fef08a, #f59e0b);
+      color: #022c22;
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      box-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
     }
 
     .header-controls {
@@ -704,7 +596,8 @@
   <!-- Sticky Top Bar -->
   <header>
     <div class="brand-title">
-      <span class="ar-main">بَيْت اللِّسَان</span>
+      <span>FushaFlow</span>
+      <span class="app-badge ar">فصحى</span>
     </div>
     <div class="header-controls">
       <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle Theme">
@@ -750,7 +643,7 @@
 
   <script>
     /* Theme Management */
-    const THEME_KEY = "bayt_lisan_theme_v2";
+    const THEME_KEY = "fushaflow_theme_v1";
 
     function initTheme() {
       const savedTheme = localStorage.getItem(THEME_KEY);
@@ -1113,7 +1006,7 @@
       }
     ];
 
-    const STORAGE_KEY = "bayt_lisan_progress_v2";
+    const STORAGE_KEY = "fushaflow_progress_v1";
 
     function getCompletedMap() {
       try {
