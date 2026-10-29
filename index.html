@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>العربية في البيت - Classical Arabic</title>
+  
+  <!-- iOS Viewport & Web App Optimizations -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="العربية">
+  <meta name="theme-color" content="#064e3b">
+
+  <!-- Embedded Apple Touch Icon (Gold Kufic style 'ض' on Deep Emerald Green) -->
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='115' fill='%23064e3b'/%3E%3Ccircle cx='256' cy='256' r='210' stroke='%23f59e0b' stroke-width='12' fill='none' stroke-dasharray='12 8'/%3E%3Ccircle cx='340' cy='155' r='24' fill='%23f59e0b'/%3E%3Ctext x='256' y='360' font-size='270' font-family='Geeza Pro, Amiri, Arial' font-weight='bold' fill='%23fef3c7' text-anchor='middle'%3E%D8%B6%3C/text%3E%3C/svg%3E">
+
+  <style>
+    /* Reset & Prevent Horizontal Scrolling Entirely */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      position: relative;
+      background-color: #f8fafc;
+      color: #0f172a;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: calc(env(safe-area-inset-bottom) + 80px);
+    }
+
+    /* Arabic Typography Class */
+    .ar {
+      font-family: "Geeza Pro", "Amiri", "Traditional Arabic", "DecoType Naskh", serif;
+      direction: rtl;
+      unicode-bidi: isolate;
+      font-weight: 600;
+    }
+
+    /* Header Bar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(6, 78, 59, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #fff;
+      padding: calc(env(safe-area-inset-top) + 12px) 16px 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-title span.ar-badge {
+      background: #f59e0b;
+      color: #064e3b;
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+    }
+
+    .stats-badge {
+      font-size: 0.82rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.18);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* Main Container */
+    main {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 16px 14px;
+    }
+
+    /* Floating / Fixed Action Button for Activity Drawer */
+    .fab-btn {
+      position: fixed;
+      right: 18px;
+      bottom: calc(env(safe-area-inset-bottom) + 20px);
+      z-index: 60;
+      background: #f59e0b;
+      color: #064e3b;
+      border: none;
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+      border-radius: 30px;
+      padding: 12px 18px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .fab-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Week Accordion (Parent) */
+    .week-card {
+      background: #ffffff;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+    }
+
+    .week-header {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background: #ffffff;
+      user-select: none;
+    }
+
+    .week-header:active {
+      background: #f1f5f9;
+    }
+
+    .week-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      max-width: 78%;
+    }
+
+    .week-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #059669;
+    }
+
+    .week-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .week-arabic-theme {
+      font-size: 1.15rem;
+      color: #065f46;
+      margin-top: 2px;
+    }
+
+    .week-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pill-counter {
+      font-size: 0.78rem;
+      background: #f1f5f9;
+      color: #64748b;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .pill-counter.completed {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .chevron {
+      transition: transform 0.25s ease;
+      color: #94a3b8;
+    }
+
+    .week-card.open > .week-header .chevron {
+      transform: rotate(90deg);
+    }
+
+    .week-content {
+      display: none;
+      border-top: 1px solid #f1f5f9;
+      background: #fafaf9;
+      padding: 10px 12px 14px 12px;
+    }
+
+    .week-card.open > .week-content {
+      display: block;
+    }
+
+    /* Day Card (Child Accordion) */
+    .day-card {
+      background: #ffffff;
+      border-radius: 10px;
+      margin-top: 8px;
+      border: 1px solid #e5e7eb;
+      overflow: hidden;
+    }
+
+    .day-header {
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      user-select: none;
+    }
+
+    .day-header:active {
+      background: #f8fafc;
+    }
+
+    .day-checkbox-wrap {
+      display: flex;
+      align-items: center;
+      padding: 4px;
+    }
+
+    .day-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border: 2px solid #cbd5e1;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+      display: grid;
+      place-content: center;
+      transition: all 0.2s ease;
+      background: #fff;
+    }
+
+    .day-checkbox:checked {
+      background-color: #10b981;
+      border-color: #10b981;
+    }
+
+    .day-checkbox:checked::before {
+      content: "✓";
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .day-main-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .day-number {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+    }
+
+    .day-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: #1e293b;
+      transition: all 0.2s ease;
+    }
+
+    /* Scratch-off effect when completed */
+    .day-card.is-done .day-title {
+      text-decoration: line-through;
+      color: #94a3b8;
+    }
+    .day-card.is-done {
+      background: #f8fafc;
+      opacity: 0.85;
+    }
+
+    .day-toggle-icon {
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      padding-right: 4px;
+      cursor: pointer;
+    }
+
+    .day-card.open .day-toggle-icon {
+      transform: rotate(90deg);
+      color: #64748b;
+    }
+
+    /* Day Detail Content */
+    .day-detail {
+      display: none;
+      padding: 14px 16px 18px 16px;
+      background: #ffffff;
+      border-top: 1px dashed #e2e8f0;
+      font-size: 0.92rem;
+      color: #334155;
+    }
+
+    .day-card.open .day-detail {
+      display: block;
+    }
+
+    .detail-section {
+      margin-bottom: 14px;
+    }
+
+    .detail-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #065f46;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .arabic-display-box {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 1.25rem;
+      color: #064e3b;
+      line-height: 1.8;
+      margin: 6px 0;
+      text-align: right;
+    }
+
+    .item-list {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: 4px;
+    }
+
+    .item-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Drawer / Modal: Activity Ideas */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      z-index: 80;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .drawer-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .drawer-panel {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-height: 85vh;
+      background: #ffffff;
+      border-radius: 20px 20px 0 0;
+      z-index: 90;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
+      overflow-y: auto;
+      padding: 20px 18px calc(env(safe-area-inset-bottom) + 24px) 18px;
+    }
+
+    .drawer-overlay.active .drawer-panel {
+      transform: translateY(0);
+    }
+
+    .drawer-drag-pill {
+      width: 44px;
+      height: 5px;
+      background: #cbd5e1;
+      border-radius: 3px;
+      margin: 0 auto 16px auto;
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .btn-close {
+      background: #f1f5f9;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 16px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+    }
+
+    .game-generator-box {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .btn-generate {
+      background: #f59e0b;
+      color: #78350f;
+      border: none;
+      padding: 10px 18px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .btn-generate:active {
+      transform: scale(0.97);
+    }
+
+    .random-game-result {
+      margin-top: 14px;
+      text-align: left;
+      border-top: 1px dashed #fcd34d;
+      padding-top: 12px;
+    }
+
+    .game-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #92400e;
+    }
+
+    .game-body {
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Top Bar -->
+  <header>
+    <div class="brand-title">
+      <span class="ar ar-badge">العربية</span>
+      <span>Classical Arabic</span>
+    </div>
+    <div class="stats-badge" id="progressSummary">0 / 260 Days</div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main id="appContainer">
+    <!-- Rendered dynamically by JavaScript -->
+  </main>
+
+  <!-- Side Drawer / Floating Trigger for Game & Activity Ideas -->
+  <button class="fab-btn" onclick="openActivityDrawer()">
+    <span>🎲</span>
+    <span>Activity Ideas</span>
+  </button>
+
+  <!-- Slide-out Drawer Overlay & Modal -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawerOnOutside(event)">
+    <div class="drawer-panel" id="drawerPanel">
+      <div class="drawer-drag-pill"></div>
+      <div class="drawer-header">
+        <h2 class="drawer-title">Activity & Game Ideas</h2>
+        <button class="btn-close" onclick="closeActivityDrawer()">✕</button>
+      </div>
+
+      <div class="game-generator-box">
+        <p style="font-size: 0.92rem; color: #92400e; font-weight: 600;">Need a quick 3-minute game to break monotony?</p>
+        <button class="btn-generate" onclick="spinNewActivity()">⚡ Spin a Random Game</button>
+        <div class="random-game-result" id="randomGameOutput">
+          <div class="game-title" id="outputGameTitle">The Mystery Bag (صندوق المفاجآت)</div>
+          <div class="game-body" id="outputGameDesc">Put 3 everyday objects inside an opaque bag. Child reaches in, feels the item without looking, and guesses in Arabic before pulling it out.</div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 8px;">
+        Core High-Yield Games Collection
+      </div>
+      <div id="staticGamesList"></div>
+    </div>
+  </div>
+
+  <script>
+    /* Complete Database for All 52 Weeks (5 Days Each = 260 Structured 10-Min Micro-Lessons) */
+    const CURRICULUM = [
+      {
+        week: 1,
+        title: "Names & Arrival",
+        arabicTheme: "الاسم والتحية",
+        days: [
+          {
+            day: 1,
+            title: "Reveal: My Name & Hello",
+            targetWords: "اسْم (Name), أَنَا (I), مَرْحَبًا (Hello)",
+            targetPhrase: "مَرْحَبًا! اِسْمِي [الاسم].",
+            teachingTip: "Use a small stuffed animal. Have the animal wave, look at the children and say: 'مَرْحَبًا! اِسْمِي فُسْتُق'. Hand the animal to each child to introduce themselves using the frame.",
+            integrationTip: "Use 'مَرْحَبًا' at the bedroom door every morning when waking the children.",
+            miscAdvice: "Never force the 4-year-old to recite alone. Model it with an older sibling first."
+          },
+          {
+            day: 2,
+            title: "Action: The Microphone Pass",
+            targetWords: "أَنْتَ / أَنْتِ (You)",
+            targetPhrase: "مَا اسْمُكَ؟ / مَا اسْمُكِ؟",
+            teachingTip: "Use a toy microphone or whisk. Walk in a circle chanting 'مَا اسْمُكَ؟' to the beat of clapping hands. Stop abruptly at a child who answers: 'اِسْمِي...'",
+            integrationTip: "When meeting family or neighbors, prompt the kids: 'Say مَرْحَبًا'.",
+            miscAdvice: "Keep the rhythm brisk. Total lesson duration should not exceed 10 minutes."
+          },
+          {
+            day: 3,
+            title: "Creative: Name Badges & Pointers",
+            targetWords: "مَنْ؟ (Who?)",
+            targetPhrase: "مَنْ أَنْتَ؟ — أَنَا [الاسم].",
+            teachingTip: "Draw large stickers with their Arabic names. Stick them on chests. Tap your chest firmly while speaking: 'أَنَا...' then point gently: 'أَنْتَ...'",
+            integrationTip: "Knock on the door before entering rooms and ask: 'مَنْ هُنَا؟'",
+            miscAdvice: "Physical touch (hand on heart) helps lock in the first-person pronoun 'أَنَا'."
+          },
+          {
+            day: 4,
+            title: "Dialogue: Role-Play at the Border Gate",
+            targetWords: "مَرْحَبًا، اِسْمِي",
+            targetPhrase: "— مَرْحَبًا! مَا اسْمُكَ؟ — اِسْمِي زَيْد.",
+            teachingTip: "Two chairs make a gate. The child cannot pass through the gate to get their snack until they complete the 2-line mini exchange with the gatekeeper.",
+            integrationTip: "Before turning on any car engine, have each passenger state their name in Arabic.",
+            miscAdvice: "Keep it playful; if a child freezes, whisper the prompt into their ear."
+          },
+          {
+            day: 5,
+            title: "Celebration: Puppet Show & Progress Check",
+            targetWords: "Review of Week 1",
+            targetPhrase: "مَرْحَبًا، اِسْمِي...، مَا اسْمُكَ؟",
+            teachingTip: "Put on a 2-minute puppet show where two toy characters meet, introduce themselves, and celebrate finding a new friend.",
+            integrationTip: "Video call a relative and let the children introduce themselves in Arabic.",
+            miscAdvice: "Give a gold star or sticker for completing the first week of Arabic!"
+          }
+        ]
+      },
+      {
+        week: 2,
+        title: "Well-being & Courtesies",
+        arabicTheme: "الحال والشكر",
+        days: [
+          {
+            day: 1,
+            title: "Reveal: How are you?",
+            targetWords: "كَيْفَ (How), حَال (State), بِخَيْر (Fine)",
+            targetPhrase: "كَيْفَ حَالُكَ؟ — بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ.",
+            teachingTip: "Use exaggerated thumbs-up and smiling faces. Model the question with open palms, then chest touch for 'بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ'.",
+            integrationTip: "Ask this at the breakfast table every morning as the very first question.",
+            miscAdvice: "Do not explain grammatical endings; let them absorb the melody of the phrase."
+          },
+          {
+            day: 2,
+            title: "Action: The Emoji Faces Game",
+            targetWords: "بِخَيْر (Fine), حَمْد (Praise)",
+            targetPhrase: "أَنَا بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ.",
+            teachingTip: "Draw happy and neutral smiley faces on cards. When you hold up a smiley face, they jump and shout: 'بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ!'",
+            integrationTip: "Whenever anyone trips or bumps lightly, ask: 'كَيْفَ حَالُك؟' expecting 'بِخَيْر'.",
+            miscAdvice: "Repetition with physical humor beats passive memorization every time."
+          },
+          {
+            day: 3,
+            title: "Creative: Thank You & You're Welcome",
+            targetWords: "شُكْرًا (Thank you), عَفْوًا (You are welcome)",
+            targetPhrase: "شُكْرًا جَزِيلًا — عَفْوًا.",
+            teachingTip: "Hand out small building blocks one by one. The child must say 'شُكْرًا' before placing it on the tower, and you respond 'عَفْوًا'. Build a tall tower together.",
+            integrationTip: "Make 'شُكْرًا' mandatory before receiving water, snacks, or juice all day.",
+            miscAdvice: "If they say 'thank you' in English, smile and gently tap your ear until they pivot."
+          },
+          {
+            day: 4,
+            title: "Dialogue: Tea Party Exchange",
+            targetWords: "شُكْرًا، عَفْوًا، بِخَيْر",
+            targetPhrase: "تَفَضَّلْ — شُكْرًا — عَفْوًا.",
+            teachingTip: "Serve pretend or real water cups. Practice passing cups around the table using only the courtesies.",
+            integrationTip: "Pass salt, spoons, or napkins at dinner with 'تَفَضَّلْ' and 'شُكْرًا'.",
+            miscAdvice: "Polite phrases are the easiest habit to cement in children."
+          },
+          {
+            day: 5,
+            title: "Celebration: Freeze & Reply",
+            targetWords: "Full Week 2 Review",
+            targetPhrase: "كَيْفَ حَالُكَ؟ — بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ. شُكْرًا!",
+            teachingTip: "Kids dance or jump until you shout freeze and point to someone: 'كَيْفَ حَالُكَ؟' If they reply in Arabic, the dance resumes.",
+            integrationTip: "Bedtime reflection: ask how they feel using the target phrase.",
+            miscAdvice: "Keep energy high and end the week on an enthusiastic high note."
+          }
+        ]
+      },
+      {
+        week: 3,
+        title: "Commands & Movement I",
+        arabicTheme: "أوامر الحركة",
+        days: [
+          {
+            day: 1,
+            title: "Reveal: Stand & Sit",
+            targetWords: "قِفْ (Stand!), اِجْلِسْ (Sit!)",
+            targetPhrase: "يَا [الاسم]، قِفْ! / يَا [الاسم]، اِجْلِسْ!",
+            teachingTip: "Pure Total Physical Response (TPR). Never translate. Say 'قِفْ' while springing to your feet. Say 'اِجْلِسْ' while sitting down quickly.",
+            integrationTip: "Use 'اِجْلِسْ' when sitting down for dinner or tying shoes.",
+            miscAdvice: "Speed up and slow down like a funny elevator to make them laugh."
+          },
+          {
+            day: 2,
+            title: "Action: Simon Says (سيدنا يعقوب يقول)",
+            targetWords: "قِفْ، اِجْلِسْ",
+            targetPhrase: "سَيِّدُنَا يَعْقُوب يَقُول: قِفْ!",
+            teachingTip: "Play classic Simon Says in Arabic. If you say 'سَيِّدُنَا يَعْقُوب يَقُول: قِفْ', they stand. If you just say 'قِفْ', they must stay still.",
+            integrationTip: "Give commands before getting out of the car: 'قِفْ'.",
+            miscAdvice: "Allow the children to take turns being Simon."
+          },
+          {
+            day: 3,
+            title: "Creative: Come & Go",
+            targetWords: "تَعَالَ (Come here!), اِذْهَبْ (Go!)",
+            targetPhrase: "تَعَالَ هُنَا! / اِذْهَبْ هُنَاكَ!",
+            teachingTip: "Use clear arm beckoning for 'تَعَالَ هُنَا' and a sweeping point away for 'اِذْهَبْ هُنَاكَ'. Race between two cushions.",
+            integrationTip: "Call the kids from another room: 'يَا أَوْلَاد، تَعَالَوْا هُنَا!'",
+            miscAdvice: "Motion and spatial cues make prepositions natural."
+          },
+          {
+            day: 4,
+            title: "Dialogue: The Traffic Officer",
+            targetWords: "قِفْ، تَعَالَ، اِذْهَبْ",
+            targetPhrase: "قِفْ مَكَانَكَ! / اِذْهَبْ إِلَى الْغُرْفَة.",
+            teachingTip: "One child is the officer with a toy sign directing where siblings walk or stop.",
+            integrationTip: "Walking through parking lots or crossing streets: enforce 'قِفْ' as a safety command.",
+            miscAdvice: "Safety commands in Arabic build instinctive comprehension."
+          },
+          {
+            day: 5,
+            title: "Celebration: Obstacle Course Run",
+            targetWords: "Movement verbs combined",
+            targetPhrase: "قِفْ — تَعَالَ هُنَا — اِجْلِسْ هُنَاكَ!",
+            teachingTip: "Design a living room obstacle course navigated entirely by parent voice commands.",
+            integrationTip: "Reward successful course completion with an Arabic celebratory chant: 'أَحْسَنْتَ!'",
+            miscAdvice: "Record a 15-second clip for your family memories."
+          }
+        ]
+      },
+      {
+        week: 4,
+        title: "Doors, Windows & Objects",
+        arabicTheme: "الباب والنافذة",
+        days: [
+          {
+            day: 1,
+            title: "Reveal: Open & Close",
+            targetWords: "اِفْتَحْ (Open!), أَغْلِقْ (Close!), الْبَاب (The door)",
+            targetPhrase: "اِفْتَحِ الْبَابَ! / أَغْلِقِ الْبَابَ!",
+            teachingTip: "Walk directly to the door. Demonstrate opening and closing with dramatic sound effects while repeating the verbs clearly.",
+            integrationTip: "Permanent house rule: never say 'close the door' in English again.",
+            miscAdvice: "Arabic imperative sounds very crisp; emphasize the consonant endings."
+          },
+          {
+            day: 2,
+            title: "Action: The Window Guard",
+            targetWords: "النَّافِذَة (The window)",
+            targetPhrase: "اِفْتَحِ النَّافِذَةَ / أَغْلِقِ النَّافِذَةَ.",
+            teachingTip: "Have the kids open and shut curtains or blinds matching your commands: 'اِفْتَحِ النَّافِذَةَ'.",
+            integrationTip: "Car windows: use 'اِفْتَحْ' and 'أَغْلِقْ' for rolling up/down windows.",
+            miscAdvice: "Feminine nouns like 'نافذة' introduce soft phonetics naturally."
+          },
+          {
+            day: 3,
+            title: "Creative: The Secret Box",
+            targetWords: "الصُّنْدُوق (The box), كِتَاب (Book)",
+            targetPhrase: "اِفْتَحِ الصُّنْدُوقَ! / اِفْتَحِ الْكِتَابَ!",
+            teachingTip: "Place a small toy inside a lidded container. Child must say 'اِفْتَحِ الصُّنْدُوقَ' before opening to reveal the surprise.",
+            integrationTip: "Bedtime reading: command 'اِفْتَحِ الْكِتَابَ' before starting stories.",
+            miscAdvice: "Using real objects bridges the gap from abstract words to daily life."
+          },
+          {
+            day: 4,
+            title: "Dialogue: Polite Requests",
+            targetWords: "مِنْ فَضْلِكَ (Please)",
+            targetPhrase: "أَغْلِقِ الْبَابَ مِنْ فَضْلِكَ.",
+            teachingTip: "Practice the whisper-tone request. Exaggerate politeness with hands clasped together.",
+            integrationTip: "Teach siblings to ask each other: 'اِفْتَحِ الْبَابَ مِنْ فَضْلِكِ'.",
+            miscAdvice: "Point out the difference between 'فَضْلِكَ' (boy) and 'فَضْلِكِ' (girl) naturally."
+          },
+          {
+            day: 5,
+            title: "Celebration: Fast House Relay",
+            targetWords: "Week 4 combined verbs",
+            targetPhrase: "اِذْهَبْ وَأَغْلِقِ الْبَابَ سَرِيعًا!",
+            teachingTip: "Time each child with a phone stopwatch to see how fast they can run, touch, and close the door upon command.",
+            integrationTip: "Celebrate the fastest time with high fives.",
+            miscAdvice: "Milestone: 1 full month completed! 20 daily lessons in the books."
+          }
+        ]
+      }
+    ];
+
+    /* Procedurally Generate Weeks 5 to 52 for a Full Year of Real Functional Arabic */
+    const TOPIC_ROADMAP = [
+      { w: 5, t: "Pointers & Identity", ar: "هذا وهذه", base: ["هَذَا", "هَذِهِ", "مَا هَذَا؟"], frame: "مَا هَذَا؟ — هَذَا قَلَمٌ." },
+      { w: 6, t: "Primary Colors", ar: "الألوان الأساسية", base: ["أَحْمَر", "أَزْرَق", "أَصْفَر"], frame: "هَذَا قَلَمٌ أَحْمَرُ." },
+      { w: 7, t: "Secondary Colors", ar: "بقية الألوان", base: ["أَخْضَر", "أَبْيَض", "أَسْوَد"], frame: "اللَّوْنُ هُنَا أَخْضَرُ." },
+      { w: 8, t: "Sizes & Opposites", ar: "الكبير والصغير", base: ["كَبِير", "صَغِير", "جِدًّا"], frame: "هَذَا بَيْتٌ كَبِيرٌ." },
+      { w: 9, t: "Active Play Verbs", ar: "أفعال اللعب", base: ["اِجْرِ", "اِمْشِ", "اِقْفِزْ"], frame: "هَيَّا نَجْرِي مَعًا!" },
+      { w: 10, t: "Locations & Hiding", ar: "أين الشيء؟", base: ["أَيْنَ", "هُنَا", "هُنَاكَ"], frame: "أَيْنَ الْحِذَاءُ؟ — هَا هُوَ هُنَا!" },
+      { w: 11, t: "Possession & Mine", ar: "الملكية", base: ["لِي", "لَكَ", "كِتَابِي"], frame: "هَذَا كِتَابِي وَهَذَا لَكَ." },
+      { w: 12, t: "Quarter 1 Integration", ar: "مراجعة شاملة", base: ["تَعَالَ", "اِفْتَحْ", "شُكْرًا"], frame: "تَعَالَ هُنَا وَافْتَحِ الْبَابَ الْكَبِيرَ." },
+      { w: 13, t: "I Want & Desires", ar: "أريد وأطلب", base: ["أُرِيدُ", "مَاذَا", "شَيْئًا"], frame: "مَاذَا تُرِيدُ؟ — أُرِيدُ مَاءً." },
+      { w: 14, t: "Breakfast Essentials", ar: "طعام الفطور", base: ["مَاء", "حَلِيب", "خُبْز", "بَيْض"], frame: "أُرِيدُ خُبْزًا وَحَلِيبًا مِنْ فَضْلِكَ." },
+      { w: 15, t: "Fruits & Snacks", ar: "الفواكه اللذيذة", base: ["تُفَّاح", "مَوْز", "تَمْر", "عَصِير"], frame: "هَلْ تُرِيدُ تُفَّاحَةً؟ — نَعَمْ." },
+      { w: 16, t: "Tableware & Utensils", ar: "أدوات المائدة", base: ["مِلْعَقَة", "شَوْكَة", "صَحْن", "كُوب"], frame: "أَعْطِنِي الْمِلْعَقَةَ مِنْ فَضْلِكَ." },
+      { w: 17, t: "Hungry & Thirsty", ar: "الجوع والعطش", base: ["جَائِع", "عَطْشَان", "شَبْعَان"], frame: "أَنَا جَائِعٌ جِدًّا! أُرِيدُ طَعَامًا." },
+      { w: 18, t: "Taste & Compliments", ar: "طعم الطعام", base: ["لَذِيذ", "حُلْو", "حَامِض"], frame: "هَذَا الطَّعَامُ لَذِيذٌ جِدًّا!" },
+      { w: 19, t: "House & Rooms", ar: "غرف البيت", base: ["غُرْفَة", "مَطْبَخ", "حَمَّام"], frame: "اِذْهَبْ إِلَى الْمَطْبَخِ وَاغْسِلْ يَدَيْكَ." },
+      { w: 20, t: "Living Room Setup", ar: "أثاث الجلوس", base: ["كُرْسِيّ", "طَاوِلَة", "أَرِيكَة"], frame: "اِجْلِسْ عَلَى الْكُرْسِيِّ بِهُدُوءٍ." },
+      { w: 21, t: "Bedtime & Sleep", ar: "وقت النوم", base: ["سَرِير", "وِسَادَة", "نَوْم"], frame: "حَانَ وَقْتُ النَّوْمِ! إِلَى السَّرِيرِ." },
+      { w: 22, t: "Tidying Up Toys", ar: "ترتيب الألعاب", base: ["نَظِّفْ", "رَتِّبْ", "لُعْبَة"], frame: "رَتِّبِ الأَلْعَابَ فِي الصُّنْدُوقِ." },
+      { w: 23, t: "Family Members", ar: "أفراد العائلة", base: ["أَبِي", "أُمِّي", "أَخِي", "أُخْتِي"], frame: "هَذَا أَخِي الْحَبِيبُ." },
+      { w: 24, t: "Feelings & Moods", ar: "المشاعر والوجدان", base: ["سَعِيد", "حَزِين", "تَعْبَان"], frame: "أَنَا سَعِيدٌ الْيَوْمَ وَالْحَمْدُ لِلَّهِ." },
+      { w: 25, t: "Daily Action Verbs", ar: "أفعال اليوم", base: ["آكُلُ", "أَشْرَبُ", "أَلْعَبُ"], frame: "أَنَا آكُلُ التُّفَّاحَ الآنَ." },
+      { w: 26, t: "Mid-Year Milestone", ar: "حصاد نصف السنة", base: ["كُلّ الكَلِمَات", "حِوَار"], frame: "أَنَا جَائِعٌ، أُرِيدُ خُبْزًا لَذِيذًا." },
+      { w: 27, t: "Face & Head", ar: "الرأس والوجه", base: ["رَأْس", "عَيْن", "أَنْف", "فَم"], frame: "اِلْمِسْ رَأْسَكَ وَأَنْفَكَ!" },
+      { w: 28, t: "Hands & Feet", ar: "اليد والرجل", base: ["يَد", "رِجْل", "بَطْن"], frame: "اِغْسِلْ يَدَيْكَ بِالْمَاءِ وَالصَّابُونِ." },
+      { w: 29, t: "Clothes to Wear", ar: "الملابس اليومية", base: ["قَمِيص", "سِرْوَال", "حِذَاء"], frame: "اِلْبَسْ حِذَاءَكَ سَرِيعًا!" },
+      { w: 30, t: "Coats & Bags", ar: "الخروج من البيت", base: ["مِعْطَف", "قُبَّعَة", "حَقِيبَة"], frame: "خُذْ حَقِيبَتَكَ قَبْلَ أَنْ تَخْرُجَ." },
+      { w: 31, t: "Pets & Birds", ar: "حيوانات أليفة", base: ["قِطَّة", "كَلْب", "عُصْفُور"], frame: "اُنْظُرْ إِلَى الْقِطَّةِ الصَّغِيرَةِ!" },
+      { w: 32, t: "Farm Animals", ar: "حيوانات المزرعة", base: ["بَقَرَة", "خِرَاف", "حِصَان"], frame: "الْحِصَانُ يَجْرِي بِسُرْعَةٍ." },
+      { w: 33, t: "Sky & Celestial", ar: "السماء والنجوم", base: ["شَمْس", "قَمَر", "نَجْم"], frame: "الشَّمْسُ طَالِعَةٌ فِي السَّمَاءِ." },
+      { w: 34, t: "Weather Reports", ar: "حالة الطقس", base: ["حَارّ", "بَارِد", "مَطَر"], frame: "الطَّقْسُ الْيَوْمَ بَارِدٌ وَمُمْطِرٌ." },
+      { w: 35, t: "Prepositions: In & On", ar: "في وعلى", base: ["فِي", "عَلَى", "دَاخِل"], frame: "الْكِتَابُ عَلَى الطَّاوِلَةِ." },
+      { w: 36, t: "Prepositions: Under", ar: "تحت وخلف", base: ["تَحْتَ", "أَمَامَ", "خَلْفَ"], frame: "الْكُرَةُ تَحْتَ السَّرِيرِ." },
+      { w: 37, t: "Times of the Day", ar: "الصباح والمساء", base: ["صَبَاح", "مَسَاء", "لَيْل"], frame: "صَبَاحُ الْخَيْرِ يَا أَبِي!" },
+      { w: 38, t: "Sensory Perception", ar: "الحواس الخمس", base: ["اُنْظُرْ", "اِسْمَعْ", "شُمَّ"], frame: "اِسْمَعْ صَوْتَ الْعُصْفُورِ!" },
+      { w: 39, t: "Speed & Manner", ar: "السرعة والهدوء", base: ["بِسُرْعَة", "بِبُطْء", "بِهُدُوء"], frame: "تَكَلَّمْ بِهُدُوءٍ مِنْ فَضْلِكَ." },
+      { w: 40, t: "Numbers: 1 to 3", ar: "الأرقام الأولى", base: ["وَاحِد", "اِثْنَان", "ثَلاثَة"], frame: "كَمْ تُفَّاحَةً هُنَا؟ — ثَلاثَة!" },
+      { w: 41, t: "Numbers: 4 to 7", ar: "الأرقام المتوسطة", base: ["أَرْبَعَة", "خَمْسَة", "سِتَّة", "سَبْعَة"], frame: "عِنْدِي خَمْسُ كُرَاتٍ صَغِيرَةٍ." },
+      { w: 42, t: "Numbers: 8 to 10", ar: "التمام إلى عشرة", base: ["ثَمَانِيَة", "تِسْعَة", "عَشَرَة"], frame: "عُدَّ مَعِي حَتَّى عَشَرَة!" },
+      { w: 43, t: "Places in Town", ar: "الأماكن حولنا", base: ["مَسْجِد", "مَدْرَسَة", "حَدِيقَة"], frame: "نَحْنُ نَذْهَبُ إِلَى الْمَسْجِدِ." },
+      { w: 44, t: "Vehicles & Rides", ar: "وسائل النقل", base: ["سَيَّارَة", "حَافِلَة", "طَائِرَة"], frame: "اِرْكَبِ السَّيَّارَةَ وَارْبِطِ الْحِزَامَ." },
+      { w: 45, t: "Connecting Sentences", ar: "أدوات الربط", base: ["وَ", "ثُمَّ", "لَكِنْ"], frame: "آكُلُ ثُمَّ أَشْرَبُ الْمَاءَ." },
+      { w: 46, t: "Curious Questions", ar: "أسئلة الاستكشاف", base: ["مَنْ؟", "مَاذَا؟", "لِمَاذَا؟"], frame: "مَنْ فِي الْبَابِ؟ — اِفْتَحْ وَانْظُرْ." },
+      { w: 47, t: "Days of Gathering", ar: "أيام الأسبوع", base: ["الْجُمُعَة", "السَّبْت", "الأَحَد"], frame: "الْيَوْمَ يَوْمُ الْجُمُعَةِ الْمُبَارَك." },
+      { w: 48, t: "Sharing & Turns", ar: "اللعب المشترك", base: ["دَوْرِي", "دَوْرُكَ", "مَعًا"], frame: "الآنَ دَوْرِي، ثُمَّ دَوْرُكَ أَنْتَ." },
+      { w: 49, t: "Asking for Help", ar: "طلب المساعدة", base: ["سَاعِدْنِي", "لا أَعْرِفُ", "أَسْتَطِيعُ"], frame: "يَا أَبِي، سَاعِدْنِي مِنْ فَضْلِكَ!" },
+      { w: 50, t: "Story Beginning", ar: "سرد الحكاية", base: ["كَانَ", "مَرَّة", "ذَهَبَ"], frame: "كَانَ هُنَاكَ أَرْنَبٌ صَغِيرٌ يَجْرِي." },
+      { w: 51, t: "My Full Day", ar: "يومي الكامل", base: ["أَسْتَيْقِظُ", "أُصَلِّي", "أَرْجِعُ"], frame: "أَسْتَيْقِظُ فِي الصَّبَاحِ وَأُصَلِّي." },
+      { w: 52, t: "The Home Immersion", ar: "عام كامل من الفصحى", base: ["مُبَارَك", "أَحْسَنْتَ", "تَكَلَّمْ"], frame: "نَحْنُ نَتَكَلَّمُ بِالْعَرَبِيَّةِ فِي بَيْتِنَا!" }
+    ];
+
+    // Populate remaining weeks 5 through 52
+    TOPIC_ROADMAP.forEach(meta => {
+      const dayThemes = [
+        { d: 1, type: "Reveal & Object Association", note: "Introduce the core physical objects and verbs without translating." },
+        { d: 2, type: "Movement & Physical Action", note: "Tie the words to jumping, touching, or racing across the living room." },
+        { d: 3, type: "Sensory & Mystery Challenge", note: "Use blindfolds, boxes, or hide-and-seek to discover target items." },
+        { d: 4, type: "Role-Play & Real Dialogue", note: "Staged interactions where one person orders or requests and the other fulfills." },
+        { d: 5, type: "Review & Celebration", note: "End-of-week sticker award and short showcase performance." }
+      ];
+
+      const daysArr = dayThemes.map(item => ({
+        day: item.d,
+        title: `${item.d === 1 ? 'Reveal' : item.d === 2 ? 'Action' : item.d === 3 ? 'Sensory' : item.d === 4 ? 'Dialogue' : 'Review'}: ${meta.t}`,
+        targetWords: meta.base.join("، "),
+        targetPhrase: meta.frame,
+        teachingTip: `${item.note} Drill the target frame '${meta.frame}' using call-and-response rhythm.`,
+        integrationTip: `Replace the corresponding English words with Arabic throughout today's family routine.`,
+        miscAdvice: `Keep it under 10 minutes. If the kids laugh, the language is being absorbed.`
+      }));
+
+      CURRICULUM.push({
+        week: meta.w,
+        title: meta.t,
+        arabicTheme: meta.ar,
+        days: daysArr
+      });
+    });
+
+    /* Game Ideas Library */
+    const GAMES_POOL = [
+      {
+        title: "The Mystery Bag (صندوق المفاجآت)",
+        desc: "Put 3 everyday objects inside an opaque bag. The child reaches in, feels the item without looking, and guesses in Arabic before pulling it out."
+      },
+      {
+        title: "Simon Says (سيدنا يعقوب يقول)",
+        desc: "Give command verbs: stand, sit, jump, freeze. If preceded by 'سَيِّدُنَا يَعْقُوب يَقُول', they obey; otherwise, freeze!"
+      },
+      {
+        title: "Flyswatter Slap (ضرب البطاقات)",
+        desc: "Tape two pictures or paper sketches to the wall. Shout an Arabic word. Two siblings race to tap the correct card with a flyswatter or hand."
+      },
+      {
+        title: "Living Room Scavenger Hunt (أبحث عن...)",
+        desc: "Say 'أَبْحَثُ عَنْ شَيْءٍ أَحْمَرَ' (I am looking for something red) or name an object. The children race to bring it to you."
+      },
+      {
+        title: "The Animal Puppet Clinic",
+        desc: "Stuffed animals only speak Arabic. A child must ask the animal 'كَيْفَ حَالُكَ؟' or feed it toy food using polite Arabic phrases."
+      },
+      {
+        title: "Hot and Cold (حار وبارد)",
+        desc: "Hide an Arabic target object. As the child searches around the room, guide them by calling 'بَارِد' (cold) or 'حَارّ' (hot)."
+      },
+      {
+        title: "The Living Room Toll Gate",
+        desc: "Block the doorway between kitchen and hallway with a broomstick. The 'toll' to pass is producing the week's target phrase in Arabic."
+      }
+    ];
+
+    /* LocalStorage Completion State Management */
+    const STORAGE_KEY = "arabic_app_progress_v1";
+
+    function getCompletedMap() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function toggleDayStatus(weekNum, dayNum, isChecked, event) {
+      if (event) event.stopPropagation();
+      const comp = getCompletedMap();
+      const key = `w${weekNum}_d${dayNum}`;
+      if (isChecked) {
+        comp[key] = true;
+      } else {
+        delete comp[key];
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(comp));
+      updateCardUI(weekNum, dayNum, isChecked);
+      updateTotalProgress();
+    }
+
+    function updateCardUI(weekNum, dayNum, isChecked) {
+      const card = document.getElementById(`dayCard_${weekNum}_${dayNum}`);
+      if (!card) return;
+      if (isChecked) {
+        card.classList.add("is-done");
+      } else {
+        card.classList.remove("is-done");
+      }
+
+      // Update Week level badge counter
+      const weekCard = document.getElementById(`weekCard_${weekNum}`);
+      if (weekCard) {
+        const checkedCount = weekCard.querySelectorAll('.day-checkbox:checked').length;
+        const pill = document.getElementById(`weekPill_${weekNum}`);
+        if (pill) {
+          pill.textContent = `${checkedCount}/5 Done`;
+          if (checkedCount === 5) {
+            pill.classList.add('completed');
+          } else {
+            pill.classList.remove('completed');
+          }
+        }
+      }
+    }
+
+    function updateTotalProgress() {
+      const comp = getCompletedMap();
+      const count = Object.keys(comp).length;
+      document.getElementById("progressSummary").textContent = `${count} / 260 Days`;
+    }
+
+    /* Accordion Toggle Handlers */
+    function toggleWeekAccordion(weekNum) {
+      const card = document.getElementById(`weekCard_${weekNum}`);
+      if (card) {
+        card.classList.toggle("open");
+      }
+    }
+
+    function toggleDayAccordion(weekNum, dayNum) {
+      const card = document.getElementById(`dayCard_${weekNum}_${dayNum}`);
+      if (card) {
+        card.classList.toggle("open");
+      }
+    }
+
+    /* Render the Entire App */
+    function renderApp() {
+      const container = document.getElementById("appContainer");
+      const comp = getCompletedMap();
+      let html = "";
+
+      CURRICULUM.forEach(w => {
+        let weekCompletedDays = 0;
+        w.days.forEach(d => {
+          if (comp[`w${w.week}_d${d.day}`]) weekCompletedDays++;
+        });
+
+        // Automatically open Week 1 by default
+        const isDefaultWeekOpen = w.week === 1 ? "open" : "";
+
+        html += `
+          <div class="week-card ${isDefaultWeekOpen}" id="weekCard_${w.week}">
+            <div class="week-header" onclick="toggleWeekAccordion(${w.week})">
+              <div class="week-info">
+                <span class="week-label">Week ${w.week}</span>
+                <span class="week-title">${w.title}</span>
+                <span class="week-arabic-theme ar">${w.arabicTheme}</span>
+              </div>
+              <div class="week-meta">
+                <span class="pill-counter ${weekCompletedDays === 5 ? 'completed' : ''}" id="weekPill_${w.week}">
+                  ${weekCompletedDays}/5 Done
+                </span>
+                <span class="chevron">▶</span>
+              </div>
+            </div>
+            
+            <div class="week-content">
+        `;
+
+        w.days.forEach(d => {
+          const isDone = !!comp[`w${w.week}_d${d.day}`];
+          const doneClass = isDone ? "is-done" : "";
+          const checkedAttr = isDone ? "checked" : "";
+
+          html += `
+            <div class="day-card ${doneClass}" id="dayCard_${w.week}_${d.day}">
+              <div class="day-header">
+                <div class="day-checkbox-wrap" onclick="event.stopPropagation()">
+                  <input type="checkbox" 
+                         class="day-checkbox" 
+                         ${checkedAttr} 
+                         onchange="toggleDayStatus(${w.week}, ${d.day}, this.checked, event)" 
+                         aria-label="Mark Day Complete" />
+                </div>
+                <div class="day-main-info" onclick="toggleDayAccordion(${w.week}, ${d.day})">
+                  <span class="day-number">Day ${d.day}</span>
+                  <span class="day-title">${d.title}</span>
+                </div>
+                <div class="day-toggle-icon" onclick="toggleDayAccordion(${w.week}, ${d.day})">▶</div>
+              </div>
+
+              <div class="day-detail">
+                <div class="detail-section">
+                  <span class="section-tag">Target Items (Arabic Script)</span>
+                  <div class="arabic-display-box ar">${d.targetWords}</div>
+                </div>
+
+                <div class="detail-section">
+                  <span class="section-tag">Sentence Frame</span>
+                  <div class="arabic-display-box ar">${d.targetPhrase}</div>
+                </div>
+
+                <div class="detail-section">
+                  <span class="section-tag">How to Teach (10-Min Session)</span>
+                  <p>${d.teachingTip}</p>
+                </div>
+
+                <div class="detail-section">
+                  <span class="section-tag">Everyday Home Integration</span>
+                  <p>${d.integrationTip}</p>
+                </div>
+
+                <div class="detail-section">
+                  <span class="section-tag">Facilitator Tip</span>
+                  <p style="font-size:0.88rem; color:#64748b; font-style:italic;">${d.miscAdvice}</p>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        html += `
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+      updateTotalProgress();
+      renderStaticGames();
+    }
+
+    /* Activity Drawer Logic */
+    function openActivityDrawer() {
+      document.getElementById("drawerOverlay").classList.add("active");
+    }
+
+    function closeActivityDrawer() {
+      document.getElementById("drawerOverlay").classList.remove("active");
+    }
+
+    function closeDrawerOnOutside(e) {
+      if (e.target.id === "drawerOverlay") {
+        closeActivityDrawer();
+      }
+    }
+
+    function spinNewActivity() {
+      const idx = Math.floor(Math.random() * GAMES_POOL.length);
+      const game = GAMES_POOL[idx];
+      document.getElementById("outputGameTitle").textContent = game.title;
+      document.getElementById("outputGameDesc").textContent = game.desc;
+    }
+
+    function renderStaticGames() {
+      const list = document.getElementById("staticGamesList");
+      let h = "";
+      GAMES_POOL.forEach(g => {
+        h += `
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px; margin-bottom:10px;">
+            <div style="font-weight:700; color:#065f46; font-size:0.95rem;">${g.title}</div>
+            <div style="font-size:0.87rem; color:#475569; margin-top:4px;">${g.desc}</div>
+          </div>
+        `;
+      });
+      list.innerHTML = h;
+    }
+
+    // Initialize when DOM loads
+    document.addEventListener("DOMContentLoaded", renderApp);
+  </script>
+</body>
+</html>
