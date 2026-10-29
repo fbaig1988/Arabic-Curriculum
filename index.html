@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <title>العربية في البيت - Classical Arabic</title>
@@ -9,12 +9,91 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="العربية">
-  <meta name="theme-color" content="#064e3b">
+  <meta name="theme-color" content="#022c22" id="metaThemeColor">
 
   <!-- Embedded Apple Touch Icon (Gold Kufic style 'ض' on Deep Emerald Green) -->
-  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='115' fill='%23064e3b'/%3E%3Ccircle cx='256' cy='256' r='210' stroke='%23f59e0b' stroke-width='12' fill='none' stroke-dasharray='12 8'/%3E%3Ccircle cx='340' cy='155' r='24' fill='%23f59e0b'/%3E%3Ctext x='256' y='360' font-size='270' font-family='Geeza Pro, Amiri, Arial' font-weight='bold' fill='%23fef3c7' text-anchor='middle'%3E%D8%B6%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='115' fill='%23022c22'/%3E%3Ccircle cx='256' cy='256' r='210' stroke='%23f59e0b' stroke-width='12' fill='none' stroke-dasharray='12 8'/%3E%3Ccircle cx='340' cy='155' r='24' fill='%23f59e0b'/%3E%3Ctext x='256' y='360' font-size='270' font-family='Geeza Pro, Amiri, Arial' font-weight='bold' fill='%23fef3c7' text-anchor='middle'%3E%D8%B6%3C/text%3E%3C/svg%3E">
 
   <style>
+    /* CSS Variables for Dynamic Dark / Light Themes */
+    :root {
+      /* Dark Theme Defaults */
+      --bg-body: #090d16;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --header-bg: rgba(2, 44, 34, 0.92);
+      --header-border: rgba(255, 255, 255, 0.08);
+      
+      --card-bg: #111827;
+      --card-border: #1f2937;
+      --card-active: #1a2234;
+      
+      --day-card-bg: #172033;
+      --day-card-border: #232f48;
+      --day-card-active: #1e293b;
+      --day-detail-bg: #141c2e;
+      --day-done-bg: #0f1626;
+      --day-done-border: #1e293b;
+
+      --accent-green: #34d399;
+      --accent-green-text: #6ee7b7;
+      --ar-box-bg: #06281e;
+      --ar-box-border: #065f46;
+      --ar-box-text: #a7f3d0;
+
+      --pill-bg: #1e293b;
+      --pill-text: #94a3b8;
+      --pill-border: #334155;
+
+      --drawer-bg: #111827;
+      --drawer-border: #1f2937;
+      --drawer-overlay: rgba(0, 0, 0, 0.75);
+      
+      --game-box-bg: #231d10;
+      --game-box-border: #78350f;
+      --game-title: #fde68a;
+      --game-text: #fcd34d;
+    }
+
+    [data-theme="light"] {
+      /* Light Theme Overrides */
+      --bg-body: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --header-bg: rgba(6, 78, 59, 0.94);
+      --header-border: rgba(255, 255, 255, 0.12);
+      
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --card-active: #f1f5f9;
+      
+      --day-card-bg: #ffffff;
+      --day-card-border: #e5e7eb;
+      --day-card-active: #f8fafc;
+      --day-detail-bg: #ffffff;
+      --day-done-bg: #f8fafc;
+      --day-done-border: #e2e8f0;
+
+      --accent-green: #059669;
+      --accent-green-text: #065f46;
+      --ar-box-bg: #ecfdf5;
+      --ar-box-border: #a7f3d0;
+      --ar-box-text: #064e3b;
+
+      --pill-bg: #f1f5f9;
+      --pill-text: #64748b;
+      --pill-border: #e2e8f0;
+
+      --drawer-bg: #ffffff;
+      --drawer-border: #e2e8f0;
+      --drawer-overlay: rgba(15, 23, 42, 0.45);
+      
+      --game-box-bg: #fffbeb;
+      --game-box-border: #fde68a;
+      --game-title: #92400e;
+      --game-text: #78350f;
+    }
+
     /* Reset & Prevent Horizontal Scrolling Entirely */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -28,12 +107,13 @@
       max-width: 100vw;
       overflow-x: hidden;
       position: relative;
-      background-color: #f8fafc;
-      color: #0f172a;
+      background-color: var(--bg-body);
+      color: var(--text-main);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.5;
       padding-top: env(safe-area-inset-top);
       padding-bottom: calc(env(safe-area-inset-bottom) + 80px);
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     /* Arabic Typography Class */
@@ -49,19 +129,20 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(6, 78, 59, 0.94);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      color: #fff;
+      background: var(--header-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      color: #f8fafc;
       padding: calc(env(safe-area-inset-top) + 12px) 16px 14px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 1px solid var(--header-border);
+      transition: background 0.25s ease;
     }
 
     .brand-title {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       display: flex;
@@ -71,18 +152,44 @@
 
     .brand-title span.ar-badge {
       background: #f59e0b;
-      color: #064e3b;
+      color: #022c22;
       padding: 2px 8px;
       border-radius: 8px;
       font-size: 1.05rem;
     }
 
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme-toggle-btn {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #f8fafc;
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .theme-toggle-btn:active {
+      transform: scale(0.92);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
     .stats-badge {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.14);
+      color: #f1f5f9;
       padding: 4px 10px;
       border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     /* Main Container */
@@ -93,16 +200,16 @@
       padding: 16px 14px;
     }
 
-    /* Floating / Fixed Action Button for Activity Drawer */
+    /* Floating Action Button for Activity Drawer */
     .fab-btn {
       position: fixed;
       right: 18px;
       bottom: calc(env(safe-area-inset-bottom) + 20px);
       z-index: 60;
       background: #f59e0b;
-      color: #064e3b;
+      color: #022c22;
       border: none;
-      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
       border-radius: 30px;
       padding: 12px 18px;
       font-weight: 700;
@@ -119,12 +226,13 @@
 
     /* Week Accordion (Parent) */
     .week-card {
-      background: #ffffff;
+      background: var(--card-bg);
       border-radius: 14px;
       margin-bottom: 14px;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
       overflow: hidden;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--card-border);
+      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
     .week-header {
@@ -133,12 +241,12 @@
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-      background: #ffffff;
+      background: var(--card-bg);
       user-select: none;
     }
 
     .week-header:active {
-      background: #f1f5f9;
+      background: var(--card-active);
     }
 
     .week-info {
@@ -153,18 +261,18 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: #059669;
+      color: var(--accent-green);
     }
 
     .week-title {
       font-size: 1.05rem;
       font-weight: 700;
-      color: #1e293b;
+      color: var(--text-main);
     }
 
     .week-arabic-theme {
       font-size: 1.15rem;
-      color: #065f46;
+      color: var(--accent-green-text);
       margin-top: 2px;
     }
 
@@ -176,31 +284,34 @@
 
     .pill-counter {
       font-size: 0.78rem;
-      background: #f1f5f9;
-      color: #64748b;
+      background: var(--pill-bg);
+      color: var(--pill-text);
       padding: 3px 8px;
       border-radius: 12px;
       font-weight: 600;
+      border: 1px solid var(--pill-border);
     }
 
     .pill-counter.completed {
-      background: #dcfce7;
-      color: #15803d;
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border-color: #059669;
     }
 
     .chevron {
       transition: transform 0.25s ease;
-      color: #94a3b8;
+      color: var(--text-muted);
     }
 
     .week-card.open > .week-header .chevron {
       transform: rotate(90deg);
+      color: var(--accent-green);
     }
 
     .week-content {
       display: none;
-      border-top: 1px solid #f1f5f9;
-      background: #fafaf9;
+      border-top: 1px solid var(--card-border);
+      background: var(--bg-body);
       padding: 10px 12px 14px 12px;
     }
 
@@ -210,11 +321,12 @@
 
     /* Day Card (Child Accordion) */
     .day-card {
-      background: #ffffff;
+      background: var(--day-card-bg);
       border-radius: 10px;
       margin-top: 8px;
-      border: 1px solid #e5e7eb;
+      border: 1px solid var(--day-card-border);
       overflow: hidden;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
     .day-header {
@@ -227,7 +339,7 @@
     }
 
     .day-header:active {
-      background: #f8fafc;
+      background: var(--day-card-active);
     }
 
     .day-checkbox-wrap {
@@ -241,14 +353,14 @@
       -webkit-appearance: none;
       width: 24px;
       height: 24px;
-      border: 2px solid #cbd5e1;
+      border: 2px solid var(--text-muted);
       border-radius: 6px;
       outline: none;
       cursor: pointer;
       display: grid;
       place-content: center;
       transition: all 0.2s ease;
-      background: #fff;
+      background: var(--card-bg);
     }
 
     .day-checkbox:checked {
@@ -273,29 +385,30 @@
     .day-number {
       font-size: 0.72rem;
       font-weight: 700;
-      color: #64748b;
+      color: var(--text-muted);
       text-transform: uppercase;
     }
 
     .day-title {
       font-size: 0.96rem;
       font-weight: 600;
-      color: #1e293b;
+      color: var(--text-main);
       transition: all 0.2s ease;
     }
 
     /* Scratch-off effect when completed */
     .day-card.is-done .day-title {
       text-decoration: line-through;
-      color: #94a3b8;
+      color: var(--text-muted);
     }
     .day-card.is-done {
-      background: #f8fafc;
-      opacity: 0.85;
+      background: var(--day-done-bg);
+      border-color: var(--day-done-border);
+      opacity: 0.75;
     }
 
     .day-toggle-icon {
-      color: #cbd5e1;
+      color: var(--text-muted);
       font-size: 0.85rem;
       padding-right: 4px;
       cursor: pointer;
@@ -303,17 +416,17 @@
 
     .day-card.open .day-toggle-icon {
       transform: rotate(90deg);
-      color: #64748b;
+      color: var(--accent-green);
     }
 
     /* Day Detail Content */
     .day-detail {
       display: none;
       padding: 14px 16px 18px 16px;
-      background: #ffffff;
-      border-top: 1px dashed #e2e8f0;
+      background: var(--day-detail-bg);
+      border-top: 1px dashed var(--day-card-border);
       font-size: 0.92rem;
-      color: #334155;
+      color: var(--text-main);
     }
 
     .day-card.open .day-detail {
@@ -333,38 +446,28 @@
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: #065f46;
+      color: var(--accent-green);
       margin-bottom: 4px;
       display: block;
     }
 
     .arabic-display-box {
-      background: #ecfdf5;
-      border: 1px solid #a7f3d0;
+      background: var(--ar-box-bg);
+      border: 1px solid var(--ar-box-border);
       border-radius: 8px;
       padding: 10px 14px;
       font-size: 1.25rem;
-      color: #064e3b;
+      color: var(--ar-box-text);
       line-height: 1.8;
       margin: 6px 0;
       text-align: right;
-    }
-
-    .item-list {
-      list-style-type: disc;
-      padding-left: 20px;
-      margin-top: 4px;
-    }
-
-    .item-list li {
-      margin-bottom: 4px;
     }
 
     /* Drawer / Modal: Activity Ideas */
     .drawer-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.45);
+      background: var(--drawer-overlay);
       z-index: 80;
       display: none;
       opacity: 0;
@@ -382,12 +485,13 @@
       left: 0;
       right: 0;
       max-height: 85vh;
-      background: #ffffff;
+      background: var(--drawer-bg);
+      border-top: 1px solid var(--drawer-border);
       border-radius: 20px 20px 0 0;
       z-index: 90;
       transform: translateY(100%);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
       overflow-y: auto;
       padding: 20px 18px calc(env(safe-area-inset-bottom) + 24px) 18px;
     }
@@ -399,9 +503,10 @@
     .drawer-drag-pill {
       width: 44px;
       height: 5px;
-      background: #cbd5e1;
+      background: var(--text-muted);
       border-radius: 3px;
       margin: 0 auto 16px auto;
+      opacity: 0.4;
     }
 
     .drawer-header {
@@ -414,24 +519,24 @@
     .drawer-title {
       font-size: 1.2rem;
       font-weight: 700;
-      color: #0f172a;
+      color: var(--text-main);
     }
 
     .btn-close {
-      background: #f1f5f9;
-      border: none;
+      background: var(--pill-bg);
+      border: 1px solid var(--card-border);
       width: 32px;
       height: 32px;
       border-radius: 16px;
       font-size: 1.1rem;
       font-weight: 700;
-      color: #475569;
+      color: var(--text-muted);
       cursor: pointer;
     }
 
     .game-generator-box {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
+      background: var(--game-box-bg);
+      border: 1px solid var(--game-box-border);
       border-radius: 12px;
       padding: 16px;
       text-align: center;
@@ -440,7 +545,7 @@
 
     .btn-generate {
       background: #f59e0b;
-      color: #78350f;
+      color: #022c22;
       border: none;
       padding: 10px 18px;
       font-size: 0.92rem;
@@ -457,20 +562,40 @@
     .random-game-result {
       margin-top: 14px;
       text-align: left;
-      border-top: 1px dashed #fcd34d;
+      border-top: 1px dashed var(--game-box-border);
       padding-top: 12px;
     }
 
     .game-title {
       font-size: 1.05rem;
       font-weight: 700;
-      color: #92400e;
+      color: var(--game-title);
     }
 
     .game-body {
       font-size: 0.92rem;
-      color: #78350f;
+      color: var(--game-text);
       margin-top: 6px;
+    }
+
+    .static-game-card {
+      background: var(--day-card-bg);
+      border: 1px solid var(--day-card-border);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+    .static-game-title {
+      font-weight: 700;
+      color: var(--accent-green);
+      font-size: 0.95rem;
+    }
+
+    .static-game-body {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      margin-top: 4px;
     }
   </style>
 </head>
@@ -482,13 +607,17 @@
       <span class="ar ar-badge">العربية</span>
       <span>Classical Arabic</span>
     </div>
-    <div class="stats-badge" id="progressSummary">0 / 260 Days</div>
+    <div class="header-controls">
+      <!-- Theme Switch Button -->
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle Theme">
+        <span id="themeIcon">☀️</span>
+      </button>
+      <div class="stats-badge" id="progressSummary">0 / 260</div>
+    </div>
   </header>
 
   <!-- Main Content Area -->
-  <main id="appContainer">
-    <!-- Rendered dynamically by JavaScript -->
-  </main>
+  <main id="appContainer"></main>
 
   <!-- Side Drawer / Floating Trigger for Game & Activity Ideas -->
   <button class="fab-btn" onclick="openActivityDrawer()">
@@ -506,7 +635,7 @@
       </div>
 
       <div class="game-generator-box">
-        <p style="font-size: 0.92rem; color: #92400e; font-weight: 600;">Need a quick 3-minute game to break monotony?</p>
+        <p style="font-size: 0.92rem; color: var(--game-title); font-weight: 600;">Need a quick 3-minute game to break monotony?</p>
         <button class="btn-generate" onclick="spinNewActivity()">⚡ Spin a Random Game</button>
         <div class="random-game-result" id="randomGameOutput">
           <div class="game-title" id="outputGameTitle">The Mystery Bag (صندوق المفاجآت)</div>
@@ -514,7 +643,7 @@
         </div>
       </div>
 
-      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 8px;">
+      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">
         Core High-Yield Games Collection
       </div>
       <div id="staticGamesList"></div>
@@ -522,6 +651,52 @@
   </div>
 
   <script>
+    /* Theme Management with System Preference and LocalStorage */
+    const THEME_KEY = "arabic_app_theme_mode";
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      if (savedTheme === "light" || savedTheme === "dark") {
+        applyTheme(savedTheme);
+      } else {
+        // Automatic detection based on device system preference
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? "dark" : "light");
+      }
+
+      // Listen for runtime OS theme shifts if the user hasn't explicitly set a custom override
+      if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+          if (!localStorage.getItem(THEME_KEY)) {
+            applyTheme(e.matches ? "dark" : "light");
+          }
+        });
+      }
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      const icon = document.getElementById("themeIcon");
+      const meta = document.getElementById("metaThemeColor");
+      if (theme === "dark") {
+        if (icon) icon.textContent = "☀️"; // Clicking sun turns to light
+        if (meta) meta.setAttribute("content", "#022c22");
+      } else {
+        if (icon) icon.textContent = "🌙"; // Clicking moon turns to dark
+        if (meta) meta.setAttribute("content", "#064e3b");
+      }
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+    }
+
+    // Run theme initialization immediately before layout renders
+    initTheme();
+
     /* Complete Database for All 52 Weeks (5 Days Each = 260 Structured 10-Min Micro-Lessons) */
     const CURRICULUM = [
       {
@@ -734,7 +909,7 @@
       }
     ];
 
-    /* Procedurally Generate Weeks 5 to 52 for a Full Year of Real Functional Arabic */
+    /* Procedurally Generate Weeks 5 to 52 */
     const TOPIC_ROADMAP = [
       { w: 5, t: "Pointers & Identity", ar: "هذا وهذه", base: ["هَذَا", "هَذِهِ", "مَا هَذَا؟"], frame: "مَا هَذَا؟ — هَذَا قَلَمٌ." },
       { w: 6, t: "Primary Colors", ar: "الألوان الأساسية", base: ["أَحْمَر", "أَزْرَق", "أَصْفَر"], frame: "هَذَا قَلَمٌ أَحْمَرُ." },
@@ -786,7 +961,6 @@
       { w: 52, t: "The Home Immersion", ar: "عام كامل من الفصحى", base: ["مُبَارَك", "أَحْسَنْتَ", "تَكَلَّمْ"], frame: "نَحْنُ نَتَكَلَّمُ بِالْعَرَبِيَّةِ فِي بَيْتِنَا!" }
     ];
 
-    // Populate remaining weeks 5 through 52
     TOPIC_ROADMAP.forEach(meta => {
       const dayThemes = [
         { d: 1, type: "Reveal & Object Association", note: "Introduce the core physical objects and verbs without translating." },
@@ -899,7 +1073,7 @@
     function updateTotalProgress() {
       const comp = getCompletedMap();
       const count = Object.keys(comp).length;
-      document.getElementById("progressSummary").textContent = `${count} / 260 Days`;
+      document.getElementById("progressSummary").textContent = `${count} / 260`;
     }
 
     /* Accordion Toggle Handlers */
@@ -929,7 +1103,7 @@
           if (comp[`w${w.week}_d${d.day}`]) weekCompletedDays++;
         });
 
-        // Automatically open Week 1 by default
+        // Open Week 1 by default
         const isDefaultWeekOpen = w.week === 1 ? "open" : "";
 
         html += `
@@ -996,7 +1170,7 @@
 
                 <div class="detail-section">
                   <span class="section-tag">Facilitator Tip</span>
-                  <p style="font-size:0.88rem; color:#64748b; font-style:italic;">${d.miscAdvice}</p>
+                  <p style="font-size:0.88rem; color:var(--text-muted); font-style:italic;">${d.miscAdvice}</p>
                 </div>
               </div>
             </div>
@@ -1041,9 +1215,9 @@
       let h = "";
       GAMES_POOL.forEach(g => {
         h += `
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px; margin-bottom:10px;">
-            <div style="font-weight:700; color:#065f46; font-size:0.95rem;">${g.title}</div>
-            <div style="font-size:0.87rem; color:#475569; margin-top:4px;">${g.desc}</div>
+          <div class="static-game-card">
+            <div class="static-game-title">${g.title}</div>
+            <div class="static-game-body">${g.desc}</div>
           </div>
         `;
       });
