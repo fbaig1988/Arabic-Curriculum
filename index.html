@@ -1,30 +1,142 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <title>بَيْت اللِّسَان • Classical Arabic at Home</title>
+  <title>بَيْت اللِّسَان</title>
   
   <!-- iOS Viewport & Web App Optimizations -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="بَيْت اللِّسَان">
+  <meta name="application-name" content="بَيْت اللِّسَان">
   <meta name="theme-color" content="#022c22" id="metaThemeColor">
 
-  <!-- Concept 1 Embedded HD Icon: The Illuminated Sanctuary Arch (Mihrab Portal with Golden 'ل') -->
-  <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='bgGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23022c22'/%3E%3Cstop offset='55%25' stop-color='%23064e3b'/%3E%3Cstop offset='100%25' stop-color='%2301140f'/%3E%3C/linearGradient%3E%3ClinearGradient id='goldGrad' x1='0%25' y1='0%25' x2='100%25' y2='90%25'%3E%3Cstop offset='0%25' stop-color='%23fef08a'/%3E%3Cstop offset='35%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3CradialGradient id='portalGlow' cx='50%25' cy='52%25' r='48%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b' stop-opacity='0.42'/%3E%3Cstop offset='65%25' stop-color='%2310b981' stop-opacity='0.12'/%3E%3Cstop offset='100%25' stop-color='%23000000' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cfilter id='glow' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='10' result='blur'/%3E%3CfeComposite in='SourceGraphic' in2='blur' operator='over'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='512' height='512' rx='115' fill='url(%23bgGrad)'/%3E%3Ccircle cx='256' cy='270' r='210' fill='url(%23portalGlow)'/%3E%3Crect x='28' y='28' width='456' height='456' rx='90' fill='none' stroke='url(%23goldGrad)' stroke-width='3.5' stroke-opacity='0.4'/%3E%3Crect x='42' y='42' width='428' height='428' rx='76' fill='none' stroke='url(%23goldGrad)' stroke-width='1.5' stroke-dasharray='10 6' stroke-opacity='0.55'/%3E%3Cpath d='M132 415 L132 250 C132 130 380 130 380 250 L380 415' fill='none' stroke='url(%23goldGrad)' stroke-width='10' stroke-linecap='round' filter='url(%23glow)'/%3E%3Cpath d='M162 415 L162 255 C162 165 350 165 350 255 L350 415' fill='%23031b15' fill-opacity='0.7' stroke='url(%23goldGrad)' stroke-width='3' stroke-opacity='0.75'/%3E%3Cpolygon points='256,76 264,96 286,96 268,108 275,128 256,116 237,128 244,108 226,96 248,96' fill='%23fef08a' filter='url(%23glow)'/%3E%3Cline x1='100' y1='415' x2='412' y2='415' stroke='url(%23goldGrad)' stroke-width='8' stroke-linecap='round'/%3E%3Ctext x='256' y='350' font-size='200' font-family='Geeza Pro, Amiri, Traditional Arabic, Arial' font-weight='bold' fill='url(%23goldGrad)' text-anchor='middle' filter='url(%23glow)'%3E%D9%84%3C/text%3E%3C/svg%3E">
+  <!-- Dynamic PNG Apple Touch Icon Generator for iOS -->
+  <link rel="apple-touch-icon" id="dynamicAppleIcon">
+  <link rel="icon" id="dynamicFavicon" type="image/png">
 
-  <!-- Embedded Web App Manifest for iOS Standalone Installation -->
-  <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22%D8%A8%D9%8E%D9%8A%D9%9Ext%20%D8%A7%D9%84%D9%84%D9%90%D9%91%D8%B3%D9%8E%D8%A7%D9%86%22%2C%22short_name%22%3A%22%D8%A8%D9%8E%D9%8A%D9%9Ext%20%D8%A7%D9%84%D9%84%D9%90%D9%91%D8%B3%D9%8E%D8%A7%D9%86%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23090d16%22%2C%22theme_color%22%3A%22%23022c22%22%7D">
+  <script>
+    // Generate true 512x512 PNG data URI so iOS Safari never renders a blank fallback box
+    (function generateIconPNG() {
+      try {
+        const size = 512;
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
+
+        // Background Gradient (Midnight Emerald)
+        const bgGrad = ctx.createLinearGradient(0, 0, size, size);
+        bgGrad.addColorStop(0, '#022c22');
+        bgGrad.addColorStop(0.55, '#064e3b');
+        bgGrad.addColorStop(1, '#01140f');
+        ctx.fillStyle = bgGrad;
+        ctx.fillRect(0, 0, size, size);
+
+        // Ambient Center Glow
+        const radGlow = ctx.createRadialGradient(size/2, size*0.52, 10, size/2, size*0.52, size*0.45);
+        radGlow.addColorStop(0, 'rgba(245, 158, 11, 0.45)');
+        radGlow.addColorStop(0.65, 'rgba(16, 185, 129, 0.12)');
+        radGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = radGlow;
+        ctx.beginPath();
+        ctx.arc(size/2, size*0.52, size*0.45, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 24k Gold Gradient
+        const gold = ctx.createLinearGradient(0, 0, size, size);
+        gold.addColorStop(0, '#fef08a');
+        gold.addColorStop(0.35, '#f59e0b');
+        gold.addColorStop(1, '#b45309');
+
+        // Outer Decorative Border
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)';
+        ctx.strokeRect(32, 32, size - 64, size - 64);
+
+        // Inner Dashed Border
+        ctx.lineWidth = 2;
+        ctx.setLineDash([10, 8]);
+        ctx.strokeStyle = 'rgba(254, 240, 138, 0.6)';
+        ctx.strokeRect(46, 46, size - 92, size - 92);
+        ctx.setLineDash([]); // Reset dash
+
+        // Outer Sanctuary Arch (Mihrab)
+        ctx.lineWidth = 12;
+        ctx.strokeStyle = gold;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(135, 415);
+        ctx.lineTo(135, 250);
+        ctx.bezierCurveTo(135, 125, 377, 125, 377, 250);
+        ctx.lineTo(377, 415);
+        ctx.stroke();
+
+        // Inner Arch Fill
+        ctx.fillStyle = 'rgba(3, 27, 21, 0.72)';
+        ctx.beginPath();
+        ctx.moveTo(158, 415);
+        ctx.lineTo(158, 255);
+        ctx.bezierCurveTo(158, 155, 354, 155, 354, 255);
+        ctx.lineTo(354, 415);
+        ctx.closePath();
+        ctx.fill();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = 'rgba(254, 240, 138, 0.8)';
+        ctx.stroke();
+
+        // Threshold Base Line
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = gold;
+        ctx.beginPath();
+        ctx.moveTo(105, 415);
+        ctx.lineTo(407, 415);
+        ctx.stroke();
+
+        // Apex Star on Mihrab
+        ctx.fillStyle = '#fef08a';
+        ctx.beginPath();
+        const cx = 256, cy = 96, spikes = 8, outerR = 24, innerR = 10;
+        let rot = Math.PI / 2 * 3;
+        let step = Math.PI / spikes;
+        ctx.moveTo(cx, cy - outerR);
+        for (let i = 0; i < spikes; i++) {
+          ctx.lineTo(cx + Math.cos(rot) * outerR, cy + Math.sin(rot) * outerR);
+          rot += step;
+          ctx.lineTo(cx + Math.cos(rot) * innerR, cy + Math.sin(rot) * innerR);
+          rot += step;
+        }
+        ctx.closePath();
+        ctx.fill();
+
+        // Central Illuminated 'ل' Glyph
+        ctx.font = 'bold 210px "Geeza Pro", "Amiri", "Traditional Arabic", serif';
+        ctx.fillStyle = gold;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.shadowColor = 'rgba(245, 158, 11, 0.8)';
+        ctx.shadowBlur = 18;
+        ctx.fillText('ل', size / 2, 280);
+
+        // Convert canvas to PNG data URI and inject into head
+        const pngURI = canvas.toDataURL('image/png');
+        document.getElementById('dynamicAppleIcon').setAttribute('href', pngURI);
+        document.getElementById('dynamicFavicon').setAttribute('href', pngURI);
+      } catch (err) {
+        console.error('Failed generating PNG icon:', err);
+      }
+    })();
+  </script>
 
   <style>
     /* CSS Variables for Dynamic Dark / Light Themes */
     :root {
-      /* Dark Theme Defaults */
       --bg-body: #090d16;
       --text-main: #f1f5f9;
       --text-muted: #94a3b8;
-      --header-bg: rgba(2, 44, 34, 0.92);
+      --header-bg: rgba(2, 44, 34, 0.94);
       --header-border: rgba(255, 255, 255, 0.08);
       
       --card-bg: #111827;
@@ -59,7 +171,6 @@
     }
 
     [data-theme="light"] {
-      /* Light Theme Overrides */
       --bg-body: #f8fafc;
       --text-main: #0f172a;
       --text-muted: #64748b;
@@ -97,7 +208,6 @@
       --game-text: #78350f;
     }
 
-    /* Reset & Prevent Horizontal Scrolling Entirely */
     *, *::before, *::after {
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
@@ -117,17 +227,17 @@
       padding-top: env(safe-area-inset-top);
       padding-bottom: calc(env(safe-area-inset-bottom) + 80px);
       transition: background-color 0.25s ease, color 0.25s ease;
+      direction: ltr; /* English structural navigation layout */
     }
 
-    /* Arabic Typography Class */
     .ar {
-      font-family: "Geeza Pro", "Amiri", "Traditional Arabic", "DecoType Naskh", serif;
+      font-family: "Geeza Pro", "Amiri", "Traditional Arabic", serif;
       direction: rtl;
       unicode-bidi: isolate;
       font-weight: 600;
     }
 
-    /* Header Bar */
+    /* Top Sticky Header */
     header {
       position: sticky;
       top: 0;
@@ -141,11 +251,10 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid var(--header-border);
-      transition: background 0.25s ease;
     }
 
     .brand-title {
-      font-size: 1.22rem;
+      font-size: 1.25rem;
       font-weight: 700;
       letter-spacing: -0.01em;
       display: flex;
@@ -154,9 +263,10 @@
     }
 
     .brand-title span.ar-main {
-      font-size: 1.35rem;
+      font-size: 1.45rem;
       color: #fef08a;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      font-family: "Geeza Pro", "Amiri", "Traditional Arabic", serif;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     }
 
     .header-controls {
@@ -175,7 +285,6 @@
       display: flex;
       align-items: center;
       cursor: pointer;
-      transition: background 0.15s ease, transform 0.15s ease;
     }
 
     .theme-toggle-btn:active {
@@ -193,7 +302,6 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Main Container */
     main {
       width: 100%;
       max-width: 680px;
@@ -201,7 +309,6 @@
       padding: 16px 14px;
     }
 
-    /* Floating Action Button for Activity Drawer */
     .fab-btn {
       position: fixed;
       right: 18px;
@@ -219,13 +326,12 @@
       align-items: center;
       gap: 8px;
       cursor: pointer;
-      transition: transform 0.15s ease;
     }
+
     .fab-btn:active {
       transform: scale(0.95);
     }
 
-    /* Week Accordion (Parent) */
     .week-card {
       background: var(--card-bg);
       border-radius: 14px;
@@ -233,7 +339,6 @@
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
       overflow: hidden;
       border: 1px solid var(--card-border);
-      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
     .week-header {
@@ -320,14 +425,12 @@
       display: block;
     }
 
-    /* Day Card (Child Accordion) */
     .day-card {
       background: var(--day-card-bg);
       border-radius: 10px;
       margin-top: 8px;
       border: 1px solid var(--day-card-border);
       overflow: hidden;
-      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
     .day-header {
@@ -360,7 +463,6 @@
       cursor: pointer;
       display: grid;
       place-content: center;
-      transition: all 0.2s ease;
       background: var(--card-bg);
     }
 
@@ -394,10 +496,8 @@
       font-size: 0.96rem;
       font-weight: 600;
       color: var(--text-main);
-      transition: all 0.2s ease;
     }
 
-    /* Scratch-off effect when completed */
     .day-card.is-done .day-title {
       text-decoration: line-through;
       color: var(--text-muted);
@@ -420,7 +520,6 @@
       color: var(--accent-green);
     }
 
-    /* Day Detail Content */
     .day-detail {
       display: none;
       padding: 14px 16px 18px 16px;
@@ -602,10 +701,10 @@
 </head>
 <body>
 
-  <!-- Sticky Top Bar with "بَيْت اللِّسَان" -->
+  <!-- Sticky Top Bar -->
   <header>
     <div class="brand-title">
-      <span class="ar ar-main">بَيْت اللِّسَان</span>
+      <span class="ar-main">بَيْت اللِّسَان</span>
     </div>
     <div class="header-controls">
       <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle Theme">
@@ -618,13 +717,13 @@
   <!-- Main Content Area -->
   <main id="appContainer"></main>
 
-  <!-- Side Drawer / Floating Trigger for Game & Activity Ideas -->
+  <!-- Floating Trigger for Activity Ideas -->
   <button class="fab-btn" onclick="openActivityDrawer()">
     <span>🎲</span>
     <span>Activity Ideas</span>
   </button>
 
-  <!-- Slide-out Drawer Overlay & Modal -->
+  <!-- Activity Drawer Modal -->
   <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawerOnOutside(event)">
     <div class="drawer-panel" id="drawerPanel">
       <div class="drawer-drag-pill"></div>
@@ -650,8 +749,8 @@
   </div>
 
   <script>
-    /* Theme Management with System Preference and LocalStorage */
-    const THEME_KEY = "bayt_lisan_theme";
+    /* Theme Management */
+    const THEME_KEY = "bayt_lisan_theme_v2";
 
     function initTheme() {
       const savedTheme = localStorage.getItem(THEME_KEY);
@@ -693,7 +792,7 @@
 
     initTheme();
 
-    /* Complete Database for All 52 Weeks (5 Days Each = 260 Structured 10-Min Micro-Lessons) */
+    /* Complete Database for All 52 Weeks */
     const CURRICULUM = [
       {
         week: 1,
@@ -905,7 +1004,6 @@
       }
     ];
 
-    /* Procedurally Generate Weeks 5 to 52 */
     const TOPIC_ROADMAP = [
       { w: 5, t: "Pointers & Identity", ar: "هذا وهذه", base: ["هَذَا", "هَذِهِ", "مَا هَذَا؟"], frame: "مَا هَذَا؟ — هَذَا قَلَمٌ." },
       { w: 6, t: "Primary Colors", ar: "الألوان الأساسية", base: ["أَحْمَر", "أَزْرَق", "أَصْفَر"], frame: "هَذَا قَلَمٌ أَحْمَرُ." },
@@ -984,7 +1082,6 @@
       });
     });
 
-    /* Game Ideas Library */
     const GAMES_POOL = [
       {
         title: "The Mystery Bag (صندوق المفاجآت)",
@@ -1016,8 +1113,7 @@
       }
     ];
 
-    /* LocalStorage Completion State Management */
-    const STORAGE_KEY = "bayt_lisan_progress_v1";
+    const STORAGE_KEY = "bayt_lisan_progress_v2";
 
     function getCompletedMap() {
       try {
@@ -1071,7 +1167,6 @@
       document.getElementById("progressSummary").textContent = `${count} / 260`;
     }
 
-    /* Accordion Toggle Handlers */
     function toggleWeekAccordion(weekNum) {
       const card = document.getElementById(`weekCard_${weekNum}`);
       if (card) {
@@ -1086,7 +1181,6 @@
       }
     }
 
-    /* Render the Entire App */
     function renderApp() {
       const container = document.getElementById("appContainer");
       const comp = getCompletedMap();
@@ -1182,7 +1276,6 @@
       renderStaticGames();
     }
 
-    /* Activity Drawer Logic */
     function openActivityDrawer() {
       document.getElementById("drawerOverlay").classList.add("active");
     }
