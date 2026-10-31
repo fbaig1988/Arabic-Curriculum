@@ -120,7 +120,6 @@
         ctx.shadowBlur = 18;
         ctx.fillText('ل', size / 2, 280);
 
-        // Convert the rendered canvas into a true raster PNG data URL
         const pngUrl = canvas.toDataURL('image/png');
         document.getElementById('appleTouchIcon').href = pngUrl;
         document.getElementById('faviconIcon').href = pngUrl;
@@ -721,7 +720,7 @@
   <!-- Floating Trigger for Activity Ideas -->
   <button class="fab-btn" onclick="openActivityDrawer()">
     <span>🎲</span>
-    <span>Activity Ideas</span>
+    <span>Ops & Scavenger Hunts</span>
   </button>
 
   <!-- Activity Drawer Modal -->
@@ -729,21 +728,21 @@
     <div class="drawer-panel" id="drawerPanel">
       <div class="drawer-drag-pill"></div>
       <div class="drawer-header">
-        <h2 class="drawer-title">Ops & Game Generator</h2>
+        <h2 class="drawer-title">Ops & Scavenger Generator</h2>
         <button class="btn-close" onclick="closeActivityDrawer()">✕</button>
       </div>
 
       <div class="game-generator-box">
-        <p style="font-size: 0.92rem; color: var(--game-title); font-weight: 600;">Launch a 3-minute competitive drill for the boys</p>
-        <button class="btn-generate" onclick="spinNewActivity()">⚡ Spin Quick Operation</button>
+        <p style="font-size: 0.92rem; color: var(--game-title); font-weight: 600;">Launch a 3-minute search operation or scavenger drill</p>
+        <button class="btn-generate" onclick="spinNewActivity()">⚡ Spin Scavenger Mission</button>
         <div class="random-game-result" id="randomGameOutput">
-          <div class="game-title" id="outputGameTitle">Fast-Draw Duel (المبارزة السريعة)</div>
-          <div class="game-body" id="outputGameDesc">Two boys stand back-to-back. On the count of 3, they spin, lock eyes, and shout the target frame. First clean execution earns the bounty point.</div>
+          <div class="game-title" id="outputGameTitle">Tactical Hot & Cold Radar (رادار حار وبارد)</div>
+          <div class="game-body" id="outputGameDesc">Hide an object in the room. As the operative searches, guide his distance entirely in Arabic: 'بَارِد' (cold), 'دَافِئ' (warm), or 'حَارّ' (hot/fire!).</div>
         </div>
       </div>
 
       <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">
-        High-Intensity Game Roster
+        High-Intensity Scavenger & Search Roster
       </div>
       <div id="staticGamesList"></div>
     </div>
@@ -751,7 +750,7 @@
 
   <script>
     /* Theme Management */
-    const THEME_KEY = "fushaflow_theme_boys_v1";
+    const THEME_KEY = "fushaflow_theme_scavenger_v1";
 
     function initTheme() {
       const savedTheme = localStorage.getItem(THEME_KEY);
@@ -793,7 +792,7 @@
 
     initTheme();
 
-    /* Complete 52-Week Curriculum Tailored for 7-10 Year Old Boys */
+    /* Complete 52-Week Curriculum with Embedded Scavenger Hunts & Search Operations */
     const CURRICULUM = [
       {
         week: 1,
@@ -805,34 +804,34 @@
             title: "Fast-Draw Duel: Identity Clearance",
             targetWords: "اسْم (Name), أَنَا (I), مَرْحَبًا (Hello)",
             targetPhrase: "مَرْحَبًا! اِسْمِي [الاسم].",
-            teachingTip: "Duel format: Two boys stand back-to-back. On your count '1... 2... Spin!', they whirl around, lock eyes, stand at attention, and deliver the clearance phrase. First clear voice claims the bounty point. Run best 3 of 5.",
-            integrationTip: "Declare the front door an identity checkpoint. No one enters from outside or the car without giving the clearance frame in Arabic.",
-            miscAdvice: "Keep delivery crisp and military-firm. If the 4-year-old participates, let him be the gate sentry."
+            teachingTip: "Duel format: Two boys stand back-to-back. On '1... 2... Spin!', they whirl around, lock eyes, and fire the clearance phrase. First clean voice claims the bounty point. Run best 3 of 5.",
+            integrationTip: "Declare the front door an identity checkpoint. No one enters without giving the clearance frame in Arabic.",
+            miscAdvice: "Keep delivery crisp. If the younger sibling plays, make him the gatekeeper."
           },
           {
             day: 2,
             title: "The Speed Interrogation Challenge",
             targetWords: "أَنْتَ / أَنْتِ (You)",
             targetPhrase: "مَا اسْمُكَ؟ — اِسْمِي [الاسم].",
-            teachingTip: "Use a phone timer set to 45 seconds. One boy plays the Inspector holding a flashlight or notepad. He rushes to his brother, fires 'مَا اسْمُكَ؟', gets the reply, and must sprint across the room to interrogate you next. Count how many clean exchanges happen before the buzzer.",
-            integrationTip: "Before turning on screens or starting a movie, run a rapid-fire interrogation on every viewer in Arabic.",
-            miscAdvice: "Speed and pressure lock in pronoun reflex much faster than passive repetition."
+            teachingTip: "Set timer for 45 seconds. The Inspector holds a flashlight, rushes to his brother, fires 'مَا اسْمُكَ؟', gets the reply, and sprints to interrogate you next. Count total valid interrogations.",
+            integrationTip: "Before turning on any screen, run a rapid-fire interrogation on every viewer in Arabic.",
+            miscAdvice: "Speed eliminates translation lag."
           },
           {
             day: 3,
-            title: "Infiltrator Detection (Bounty Hunt)",
+            title: "Scavenger Hunt: The Secret Agent Badge Hunt",
             targetWords: "مَنْ؟ (Who?)",
             targetPhrase: "مَنْ أَنْتَ؟ — أَنَا [الاسم].",
-            teachingTip: "One boy blindfolds himself in the center of the rug. The other sneaks up silently from anywhere in the room. When the blindfolded guard detects a floor creak, he points and demands: 'مَنْ أَنْتَ؟' The sneaker must halt and identify himself in Arabic.",
-            integrationTip: "Knock on closed bedroom and bathroom doors and mandate 'مَنْ هُنَا؟' before turning any handle.",
-            miscAdvice: "Stealth mechanics turn simple question words into an engaging spy exercise."
+            teachingTip: "Hide 3 name badges with Arabic codenames in the room. Turn off the lights and hand them flashlights. When a boy finds a badge, he must shine the light on his brother and demand: 'مَنْ أَنْتَ؟' Brother must respond using the badge identity.",
+            integrationTip: "Knock on closed bedroom and bathroom doors and mandate 'مَنْ هُنَا؟' before turning the handle.",
+            miscAdvice: "Flashlights turn simple questions into an adrenaline game."
           },
           {
             day: 4,
             title: "The Checkpoint Gate Latch",
             targetWords: "مَرْحَبًا، اِسْمِي",
             targetPhrase: "— مَرْحَبًا! مَا اسْمُكَ؟ — اِسْمِي زَيْد.",
-            teachingTip: "Set a physical broomstick across the hallway. To cross from bedrooms to dinner, each boy must stop, salute, and complete the full 2-way identity exchange with the border guard.",
+            teachingTip: "Set a physical broomstick across the hallway. To pass from rooms to dinner, each boy must stop, salute, and complete the full 2-way identity exchange with the border guard.",
             integrationTip: "Before backing the car out of the driveway, conduct a radio-style identity check with every passenger.",
             miscAdvice: "Stakes matter: no password, no passage."
           },
@@ -841,9 +840,9 @@
             title: "The 60-Second Blitz & Badge Award",
             targetWords: "Review of Week 1",
             targetPhrase: "مَرْحَبًا، اِسْمِي...، مَا اسْمُكَ؟",
-            teachingTip: "Set a stopwatch for 60 seconds. The boys run a relay: sprint around the sofa, slide to a halt, exchange full introductions with you, high-five, and tag their brother. Track their record time on a whiteboard.",
+            teachingTip: "Set a stopwatch for 60 seconds. The boys run a relay: sprint around the sofa, slide to a halt, exchange full introductions with you, high-five, and tag their brother. Track their record time.",
             integrationTip: "Award them an official Arabic agent rank/sticker on their chart upon completion.",
-            miscAdvice: "Boys love tracking high scores. Beat yesterday's time."
+            miscAdvice: "Boys love tracking personal bests."
           }
         ]
       },
@@ -857,7 +856,7 @@
             title: "Status Check Sprint",
             targetWords: "كَيْفَ (How), حَال (State), بِخَيْر (Fine)",
             targetPhrase: "كَيْفَ حَالُكَ؟ — بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ.",
-            teachingTip: "Boys do 5 quick jumping jacks or pushups, sprint to the line, and report status. You bark: 'كَيْفَ حَالُكَ؟' They snap back: 'بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ!'",
+            teachingTip: "Boys do 5 jumping jacks or burpees, sprint to the line, and report status. You bark: 'كَيْفَ حَالُكَ؟' They snap back: 'بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ!'",
             integrationTip: "First question at the breakfast table every morning: mandatory Arabic status report.",
             miscAdvice: "Deliver it with energy and a crisp voice."
           },
@@ -866,17 +865,17 @@
             title: "The Reflex Slap Match",
             targetWords: "بِخَيْر (Fine), حَمْد (Praise)",
             targetPhrase: "أَنَا بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ.",
-            teachingTip: "Place two green foam balls or coasters on opposite sides of a table. Shout 'حَال!' Both boys race to slam their hand down on their marker. The fastest hand gets to demand status and the other must report in Arabic.",
-            integrationTip: "Whenever anyone trips, drops a ball, or bumps into something, ask: 'كَيْفَ حَالُكَ؟' expecting an immediate Arabic reply.",
-            miscAdvice: "Physical competition channels their competitive focus."
+            teachingTip: "Place two green foam balls or coasters on opposite sides of a table. Shout 'حَال!' Both boys race to slam their hand down on their marker. Fastest hand demands status and the other reports in Arabic.",
+            integrationTip: "Whenever anyone trips or drops something, ask: 'كَيْفَ حَالُكَ؟' expecting an immediate Arabic reply.",
+            miscAdvice: "Physical competition channels their focus."
           },
           {
             day: 3,
-            title: "The Supply Depot Exchange",
+            title: "Scavenger Hunt: Supply Depot Ration Search",
             targetWords: "شُكْرًا (Thank you), عَفْوًا (You are welcome)",
             targetPhrase: "شُكْرًا جَزِيلًا — عَفْوًا.",
-            teachingTip: "Ration out building bricks, target darts, or markers one by one. The operative cannot receive the piece without saying 'شُكْرًا جَزِيلًا' and receiving your 'عَفْوًا'. Race to build the highest 10-piece tower.",
-            integrationTip: "Total house ban on English 'thanks'. All water, snacks, and phone handoffs require the Arabic exchange.",
+            teachingTip: "Hide 6 supply tokens (Lego blocks, Nerf darts, or snack packs) around the room. On 'انْطَلِقْ' (Go!), they search and retrieve one at a time. To deposit a token in the depot, they must hand it to you saying 'شُكْرًا جَزِيلًا' and wait for 'عَفْوًا'. First to bank 3 tokens wins.",
+            integrationTip: "Total house ban on English 'thanks'. All water, snacks, and tool handoffs require the Arabic exchange.",
             miscAdvice: "Condition polite habits through high-tempo resource trading."
           },
           {
@@ -924,12 +923,12 @@
           },
           {
             day: 3,
-            title: "The Spatial Tag Duel",
-            targetWords: "تَعَالَ (Come!), اِذْهَبْ (Go!)",
-            targetPhrase: "تَعَالَ هُنَا! / اِذْهَبْ هُنَاكَ!",
-            teachingTip: "Set two target base cushions at opposite ends of the room. When you shout 'تَعَالَ هُنَا!' they sprint to your base. When you point and shout 'اِذْهَبْ هُنَاكَ!' they scramble to the opposite base. Last one to touch base loses a point.",
+            title: "Scavenger Hunt: Blindfold Radar Beacon Search",
+            targetWords: "تَعَالَ (Come!), اِذْهَبْ (Go!), قِفْ (Stop!)",
+            targetPhrase: "تَعَالَ هُنَا! / اِذْهَبْ إِلَى هُنَاكَ!",
+            teachingTip: "One boy is blindfolded and must search for a hidden beacon (a soft ball). The other brother cannot touch him and must guide his search across the room using only vocal Arabic navigation: 'تَعَالَ هُنَا', 'اِذْهَبْ هُنَاكَ', 'قِفْ!'. Time how fast they locate the item.",
             integrationTip: "Call the kids from other rooms: 'يَا أَوْلَاد، تَعَالَوْا هُنَا!'",
-            miscAdvice: "Movement commands burn boy energy while hardwiring verb meaning."
+            miscAdvice: "Blind navigation forces hyper-attentive listening."
           },
           {
             day: 4,
@@ -938,7 +937,7 @@
             targetPhrase: "قِفْ مَكَانَكَ! / اِذْهَبْ إِلَى هُنَاكَ.",
             teachingTip: "Set up masking tape or yarn 'laser beams' in the hallway. One brother is blindfolded; the other guides him safely through the laser maze using strictly Arabic directional commands: 'تَعَالَ هُنَا', 'اِذْهَبْ', 'قِفْ مَكَانَكَ'.",
             integrationTip: "Direct them around the house using the commands instead of pointing.",
-            miscAdvice: "Blind navigation forces hyper-attentive listening."
+            miscAdvice: "Clear vocal articulation is key to avoiding laser penalties."
           },
           {
             day: 5,
@@ -976,12 +975,12 @@
           },
           {
             day: 3,
-            title: "Safe Cracker: The Secret Chest",
+            title: "Scavenger Hunt: Lockbox Intel Hunt",
             targetWords: "الصُّنْدُوق (The box), كِتَاب (Book)",
             targetPhrase: "اِفْتَحِ الصُّنْدُوقَ! / اِفْتَحِ الْكِتَابَ!",
-            teachingTip: "Place an exciting reward (snack, card, or toy) inside a locked toolbox or container. The combination opens only when the operative clearly shouts the exact command: 'اِفْتَحِ الصُّنْدُوقَ!'",
+            teachingTip: "Hide a small lockbox and a specific book in opposite rooms. Give the mission: 'Find الصُّنْدُوق'. When located and brought back, they cannot peek inside until shouting: 'اِفْتَحِ الصُّنْدُوقَ!'. Inside is a clue card pointing to the book ('اِفْتَحِ الْكِتَابَ!').",
             integrationTip: "Bedtime reading: command 'اِفْتَحِ الْكِتَابَ' before opening any book pages.",
-            miscAdvice: "Real rewards heighten focus and pronunciation clarity."
+            miscAdvice: "Physical searches with reveal sequences build anticipation."
           },
           {
             day: 4,
@@ -990,7 +989,7 @@
             targetPhrase: "أَغْلِقِ الْبَابَ مِنْ فَضْلِكَ.",
             teachingTip: "Set up a negotiation scene where screaming commands gets doors slammed shut, but delivering the polite request 'مِنْ فَضْلِكَ' with composure grants instant clearance.",
             integrationTip: "Siblings must use 'مِنْ فَضْلِكَ' when asking each other to close doors or hand over controllers.",
-            miscAdvice: "Teach them that tone of voice is part of mastery."
+            miscAdvice: "Tone of voice is part of mastery."
           },
           {
             day: 5,
@@ -1005,70 +1004,70 @@
       }
     ];
 
-    /* Procedurally Generate Weeks 5 to 52 for Boys 7-10 */
+    /* Procedurally Generate Weeks 5 to 52 with Integrated Scavenger Hunts & Search Operations */
     const TOPIC_ROADMAP = [
-      { w: 5, t: "Target Scanner & Identification", ar: "هذا وهذه", base: ["هَذَا", "هَذِهِ", "مَا هَذَا؟"], frame: "مَا هَذَا؟ — هَذَا قَلَمٌ.", drill: "Flashcard Fast-Draw Duel", game: "Hold up mystery tools or objects in dim light. First to scan and identify 'هَذَا...' wins the card." },
-      { w: 6, t: "Color Code Laser Targeting", ar: "الألوان الأساسية", base: ["أَحْمَر", "أَزْرَق", "أَصْفَر"], frame: "هَذَا هَدَفٌ أَحْمَرُ.", drill: "Laser Pointer Strike", game: "Flash a laser or flashlight beam onto red, blue, or yellow targets. First boy to tag and shout the color scores." },
-      { w: 7, t: "Secondary Camouflage Codes", ar: "بقية الألوان", base: ["أَخْضَر", "أَبْيَض", "أَسْوَد"], frame: "اللَّوْنُ هُنَا أَخْضَرُ.", drill: "Camouflage Tag", game: "Call out a camo color. Boys have 5 seconds to sprint and touch an object of that exact color in the room." },
-      { w: 8, t: "Payload & Scale Analysis", ar: "الكبير والصغير", base: ["كَبِير", "صَغِير", "جِدًّا"], frame: "هَذَا شَيْءٌ كَبِيرٌ جِدًّا.", drill: "Heavy vs Light Sizing", game: "Present contrasting items (giant dumbbell vs tiny pebble). Boys categorize scale rapidly under time pressure." },
-      { w: 9, t: "Combat Action Verbs", ar: "أفعال اللعب", base: ["اِجْرِ", "اِمْشِ", "اِقْفِزْ"], frame: "هَيَّا نَجْرِي بِسُرْعَةٍ!", drill: "Sprint & Vault Course", game: "Set an indoor obstacle track. Shout movement verbs that dictate sprinting, walking silently, or leaping." },
-      { w: 10, t: "Radar Beacon Search", ar: "أين الشيء؟", base: ["أَيْنَ", "هُنَا", "هُنَاكَ"], frame: "أَيْنَ الْهَدَفُ؟ — هَا هُوَ هُنَا!", drill: "Sonar Search Challenge", game: "Hide a target tracker in the room. Guide the operative purely using spatial queries and declarations." },
-      { w: 11, t: "Gear Confiscation & Ownership", ar: "الملكية", base: ["لِي", "لَكَ", "كِتَابِي"], frame: "هَذَا عَتَادِي وَهَذَا لَكَ.", drill: "Gear Stash Challenge", game: "Divide sports gear and toys. Settle claims rapidly using 'هَذَا لِي' and 'هَذَا لَكَ'." },
-      { w: 12, t: "Q1 Special Operations Gauntlet", ar: "مراجعة شاملة", base: ["تَعَالَ", "اِفْتَحْ", "شُكْرًا"], frame: "تَعَالَ هُنَا وَافْتَحِ الْبَابَ الْكَبِيرَ.", drill: "The Full Base Sweep", game: "Run a continuous 3-room mission combining every command, pointer, and color learned so far." },
-      { w: 13, t: "Rations Request & Requisition", ar: "أريد وأطلب", base: ["أُرِيدُ", "مَاذَا", "شَيْئًا"], frame: "مَاذَا تُرِيدُ؟ — أُرِيدُ مَاءً.", drill: "Quartermaster Requisition", game: "Pantry locked until the operative files a verbal requisition starting with 'أُرِيدُ...'." },
-      { w: 14, t: "High-Energy Field Fuel", ar: "طعام الفطور", base: ["مَاء", "حَلِيب", "خُبْز", "بَيْض"], frame: "أُرِيدُ خُبْزًا وَبَيْضًا مِنْ فَضْلِكَ.", drill: "Mess Hall Speed Order", game: "Breakfast components served only when requested by exact Arabic tactical names." },
-      { w: 15, t: "Energy Boosters & Fruits", ar: "الفواكه اللذيذة", base: ["تُفَّاح", "مَوْز", "تَمْر", "عَصِير"], frame: "هَلْ تُرِيدُ تُفَّاحَةً؟ — نَعَمْ.", drill: "Blindfold Taste Test", game: "Blindfolded taste test. Operative takes a bite and must identify the fruit in Arabic script." },
-      { w: 16, t: "Mess Hall Arsenal", ar: "أدوات المائدة", base: ["مِلْعَقَة", "شَوْكَة", "صَحْن", "كُوب"], frame: "أَعْطِنِي السِّكِّينَ أَوِ الْمِلْعَقَةَ.", drill: "Table Setting Sprint", game: "Time how fast they can assemble plates, cups, forks, and spoons matching spoken Arabic calls." },
-      { w: 17, t: "Endurance & Fuel Reserves", ar: "الجوع والعطش", base: ["جَائِع", "عَطْشَان", "شَبْعَان"], frame: "أَنَا جَائِعٌ جِدًّا! أُرِيدُ طَعَامًا.", drill: "Post-Workout Fuel Check", game: "Check in after running outside or workouts. Require full energy reports before snacks." },
-      { w: 18, t: "Ration Taste Rating", ar: "طعم الطعام", base: ["لَذِيذ", "حُلْو", "حَامِض"], frame: "هَذَا الطَّعَامُ لَذِيذٌ جِدًّا!", drill: "The Food Critic Judge", game: "Rate every dish at dinner with a 1-to-5 star verdict using target taste adjectives." },
-      { w: 19, t: "Base Sector Navigation", ar: "غرف البيت", base: ["غُرْفَة", "مَطْبَخ", "حَمَّام"], frame: "اِذْهَبْ إِلَى الْمَطْبَخِ سَرِيعًا.", drill: "Sector Infiltration Run", game: "Dispatch operatives to specific sectors of the house against a 10-second timer." },
-      { w: 20, t: "Command Post Furniture", ar: "أثاث الجلوس", base: ["كُرْسِيّ", "طَاوِلَة", "أَرِيكَة"], frame: "اِجْلِسْ عَلَى الْكُرْسِيِّ لِلْمُهِمَّةِ.", drill: "Musical Chairs Lockdown", game: "Play high-energy nasheed/beats. When stopped, shout the target furniture item to scramble onto." },
-      { w: 21, t: "Bivouac & Sleep Protocol", ar: "وقت النوم", base: ["سَرِير", "وِسَادَة", "نَوْم"], frame: "حَانَ وَقْتُ النَّوْمِ! إِلَى السَّرِيرِ.", drill: "Nightfall Evacuation", game: "Timer set for 3 minutes to clear shoes, brush teeth, and reach bed stations on command." },
-      { w: 22, t: "Equipment Armory Cleanup", ar: "ترتيب الألعاب", base: ["نَظِّفْ", "رَتِّبْ", "عَتَاد"], frame: "رَتِّبِ الأَلْعَابَ فِي الصُّنْدُوقِ.", drill: "60-Second Armory Scramble", game: "Beat the clock putting all gear, balls, and books into storage crates." },
-      { w: 23, t: "Operative Squad Hierarchy", ar: "أفراد العائلة", base: ["أَبِي", "أُمِّي", "أَخِي", "أُخْتِي"], frame: "هَذَا أَخِي فِي فَرِيقِي.", drill: "Squad Roster Roll Call", game: "Line up for squad inspection; declare family roles and allies in full frames." },
-      { w: 24, t: "Combat Readiness & Morale", ar: "المشاعر والوجدان", base: ["سَعِيد", "حَزِين", "تَعْبَان"], frame: "أَنَا سَعِيدٌ الْيَوْمَ وَمُسْتَعِدٌّ.", drill: "Morale Interrogation", game: "Act out extreme fatigue, anger, or victory poses. Sibling must diagnose status in Arabic." },
-      { w: 25, t: "Live Action Bodycam Log", ar: "أفعال اليوم", base: ["آكُلُ", "أَشْرَبُ", "أَلْعَبُ"], frame: "أَنَا أَلْعَبُ الآنَ مَعَ أَخِي.", drill: "Bodycam Narration Duel", game: "Shadow each other's movements around the room, narrating the live actions out loud." },
-      { w: 26, t: "Mid-Year Tactical Assessment", ar: "حصاد نصف السنة", base: ["حِوَار", "كُلّ الكَلِمَات"], frame: "أَنَا جَائِعٌ، أُرِيدُ خُبْزًا لَذِيذًا.", drill: "The Solo Boss Mission", game: "Operatives must complete a 5-step unassisted household transaction completely in Arabic." },
-      { w: 27, t: "Anatomy Armor Scan: Head", ar: "الرأس والوجه", base: ["رَأْس", "عَيْن", "أَنْف", "فَم"], frame: "اِلْمِسْ رَأْسَكَ وَعَيْنَيْكَ!", drill: "Target Lock Body Tap", game: "Rapid-fire calls: touch body parts without making a single error. Speed doubles every 30 seconds." },
-      { w: 28, t: "Tactical Limbs & Agility", ar: "اليد والرجل", base: ["يَد", "رِجْل", "بَطْن"], frame: "اِغْسِلْ يَدَيْكَ بِالْمَاءِ سَرِيعًا.", drill: "The Handwash Sprint", game: "Timer-based race to the sink: wash hands thoroughly reciting the Arabic frame." },
-      { w: 29, t: "Uniform & Combat Gear", ar: "الملابس اليومية", base: ["قَمِيص", "سِرْوَال", "حِذَاء"], frame: "اِلْبَسْ حِذَاءَكَ فِي ثَوَانٍ!", drill: "Speed Dressing Championship", game: "Time who can put on socks, pants, and shoes fastest on the Arabic starting pistol." },
-      { w: 30, t: "Field Deployment Bags", ar: "الخروج من البيت", base: ["مِعْطَف", "قُبَّعَة", "حَقِيبَة"], frame: "خُذْ حَقِيبَتَكَ وَالْبَسْ مِعْطَفَكَ.", drill: "Doorway Scramble Drill", game: "Pack bags, grab coats, and report to the launch doorway in under 45 seconds." },
-      { w: 31, t: "Predators & Recon Beasts", ar: "حيوانات أليفة", base: ["قِطَّة", "كَلْب", "عُصْفُور"], frame: "اُنْظُرْ إِلَى الْقِطَّةِ السَّرِيعَةِ!", drill: "Recon Animal Hunt", game: "Spot real neighborhood animals outside and log them with Arabic calls." },
-      { w: 32, t: "Heavy Armored Beasts", ar: "حيوانات المزرعة", base: ["بَقَرَة", "خَيْل", "أَسَد"], frame: "الْخَيْلُ يَجْرِي بِسُرْعَةٍ هَائِلَةٍ.", drill: "Beast Charades Duel", game: "Act out heavy animals or fierce lions; first brother to identify scores." },
-      { w: 33, t: "Atmospheric & Celestial Grid", ar: "السماء والنجوم", base: ["شَمْس", "قَمَر", "نَجْم"], frame: "الشَّمْسُ سَاطِعَةٌ فِي السَّمَاءِ.", drill: "Stargazer Reconnaissance", game: "Step outside at sunset or night; point lasers at sky elements and declare them." },
-      { w: 34, t: "Field Weather Briefing", ar: "حالة الطقس", base: ["حَارّ", "بَارِد", "مَطَر"], frame: "الطَّقْسُ الْيَوْمَ بَارِدٌ وَمُمْطِرٌ.", drill: "Morning Weather Command", game: "One boy checks the weather report and gives the morning tactical briefing to the family." },
-      { w: 35, t: "Grid Coordinates: In & On", ar: "في وعلى", base: ["فِي", "عَلَى", "دَاخِل"], frame: "الْكِتَابُ عَلَى الطَّاوِلَةِ هُنَا.", drill: "Precision Placement Duel", game: "Call out specific drop coordinates for gear; test precision under speed." },
-      { w: 36, t: "Grid Coordinates: Under", ar: "تحت وخلف", base: ["تَحْتَ", "أَمَامَ", "خَلْفَ"], frame: "الْهَدَفُ تَحْتَ السَّرِيرِ تَمَامًا.", drill: "Cover & Concealment Hide", game: "Hide small targets under or behind furniture; navigate sibling using strictly prepositions." },
-      { w: 37, t: "Chrono Watch & Timelines", ar: "الصباح والمساء", base: ["صَبَاح", "مَسَاء", "لَيْل"], frame: "صَبَاحُ الْخَيْرِ أَيُّهَا الْقَائِدُ!", drill: "Time Check Salute", game: "Check watch hours and deliver formal time greetings to kick off study or exercise blocks." },
-      { w: 38, t: "Sensory Reconnaissance", ar: "الحواس الخمس", base: ["اُنْظُرْ", "اِسْمَعْ", "شُمَّ"], frame: "اِسْمَعْ هَذَا الصَّوْتَ الْغَرِيبَ!", drill: "The Blindfold Sound Track", game: "Make mysterious noises in the dark room; operative must track and identify using sensory verbs." },
-      { w: 39, t: "Tactical Velocity Controls", ar: "السرعة والهدوء", base: ["بِسُرْعَة", "بِبُطْء", "بِهُدُوء"], frame: "تَحَرَّكْ بِسُرْعَةٍ ثُمَّ بِهُدُوءٍ.", drill: "Stealth Infiltration Walk", game: "Walk across a floor covered with bubble wrap or squeaky boards while matching speed commands." },
-      { w: 40, t: "Cipher Numbers: 1 to 3", ar: "الأرقام الأولى", base: ["وَاحِد", "اِثْنَان", "ثَلاثَة"], frame: "كَمْ عُنْصُرًا هُنَا؟ — ثَلاثَةٌ!", drill: "Fast Math Slap (1-3)", game: "Flash fingers or cards; first boy to slam table and call Arabic count wins." },
-      { w: 41, t: "Cipher Numbers: 4 to 7", ar: "الأرقام المتوسطة", base: ["أَرْبَعَة", "خَمْسَة", "سِتَّة", "سَبْعَة"], frame: "عِنْدِي سَبْعُ طَلَقَاتٍ فِي يَدِي.", drill: "Ammo Count Scramble", game: "Count Nerf darts or lego pieces out loud in rapid-fire succession under 5 seconds." },
-      { w: 42, t: "Launch Countdown: 8 to 10", ar: "التمام إلى عشرة", base: ["ثَمَانِيَة", "تِسْعَة", "عَشَرَة"], frame: "عُدَّ تَنَازُلِيًّا: عَشَرَة، تِسْعَة...", drill: "Rocket Launch Countdown", game: "Run countdown from 10 to 1 in Arabic to trigger sprints or race starts." },
-      { w: 43, t: "Urban Sector Recon", ar: "الأماكن حولنا", base: ["مَسْجِد", "مَدْرَسَة", "حَدِيقَة"], frame: "نَحْنُ نَتَوَجَّهُ إِلَى الْمَسْجِدِ.", drill: "Navigator Car Check", game: "Announce every trip destination in the car before the vehicle puts into drive." },
-      { w: 44, t: "Mobile Transport Units", ar: "وسائل النقل", base: ["سَيَّارَة", "حَافِلَة", "طَائِرَة"], frame: "اِرْكَبِ السَّيَّارَةَ لِلانْطِلاقِ.", drill: "Vehicle Spotting Race", game: "Spot buses, airplanes, and bikes on highways and call them out first." },
-      { w: 45, t: "Tactical Sequence Linking", ar: "أدوات الربط", base: ["وَ", "ثُمَّ", "لَكِنْ"], frame: "أَجْرِي ثُمَّ أَقْفِزُ فَوْقَ الْحَاجِزِ.", drill: "Combo Move Execution", game: "Chain two athletic maneuvers together while narrating with 'ثُمَّ' (then)." },
-      { w: 46, t: "Intel Interrogation Queries", ar: "أسئلة الاستكشاف", base: ["مَنْ؟", "مَاذَا؟", "لِمَاذَا؟"], frame: "مَنْ هُنَاكَ؟ وَمَاذَا تُرِيدُ؟", drill: "The Detective Cross-Exam", game: "One boy hides evidence; the other cross-examines him using only question words." },
-      { w: 47, t: "Strategic Day Scheduling", ar: "أيام الأسبوع", base: ["الْجُمُعَة", "السَّبْت", "الأَحَد"], frame: "الْيَوْمَ يَوْمُ الْجُمُعَةِ لِلصَّلاةِ.", drill: "Calendar War Room", game: "Plan weekend sports and missions using the target Arabic day names." },
-      { w: 48, t: "Tactical Co-op & Turns", ar: "اللعب المشترك", base: ["دَوْرِي", "دَوْرُكَ", "مَعًا"], frame: "الآنَ دَوْرِي، انْتَظِرْ لَحْظَةً!", drill: "Controller & Turn Trading", game: "Video game or turn-taking rules: enforce 'دَوْرِي' and 'دَوْرُكَ' without English." },
-      { w: 49, t: "Mayday & Backup Calls", ar: "طلب المساعدة", base: ["سَاعِدْنِي", "لا أَعْرِفُ", "أَسْتَطِيعُ"], frame: "يَا أَخِي، سَاعِدْنِي فِي هَذَا!", drill: "Heavy Lift Backup Call", game: "Pick a heavy box or awkward item. Operative must hail 'سَاعِدْنِي' to get team assistance." },
-      { w: 50, t: "Mission Debrief Chronicles", ar: "سرد الحكاية", base: ["كَانَ", "مَرَّة", "ذَهَبَ"], frame: "كَانَ هُنَاكَ بَطَلٌ شُجَاعٌ انْطَلَقَ.", drill: "Epic Story Chain", game: "Build a dramatic action story sentence by sentence, each brother adding a tactical event." },
-      { w: 51, t: "Daily Recon Cycle", ar: "يومي الكامل", base: ["أَسْتَيْقِظُ", "أُصَلِّي", "أَرْجِعُ"], frame: "أَسْتَيْقِظُ فِي الصَّبَاحِ وَأَتَدَرَّبُ.", drill: "Solo Day Briefing", game: "Recite your full morning routine in Arabic like an officer giving an operations briefing." },
-      { w: 52, t: "Full Immersion Graduation", ar: "عام كامل من الفصحى", base: ["مُبَارَك", "أَحْسَنْتَ", "تَكَلَّمْ"], frame: "نَحْنُ أَبْطَالُ الْفُصْحَى فِي هَذَا الْبَيْتِ!", drill: "The Arabic-Only Dinner Gauntlet", game: "20 full minutes of family dinner completely in Arabic. Award graduation badges and rewards." }
+      { w: 5, t: "Target Scanner & Identification", ar: "هذا وهذه", base: ["هَذَا", "هَذِهِ", "مَا هَذَا؟"], frame: "مَا هَذَا؟ — هَذَا قَلَمٌ.", drill: "Flashcard Fast-Draw Duel", game: "Scavenger Scan: Scatter 8 school items in the room. Flash a flashlight on one from across the room. Boys sprint, tag it, and identify: 'هَذَا...'" },
+      { w: 6, t: "Color Code Laser Targeting", ar: "الألوان الأساسية", base: ["أَحْمَر", "أَزْرَق", "أَصْفَر"], frame: "هَذَا هَدَفٌ أَحْمَرُ.", drill: "Laser Pointer Strike", game: "Color Camo Scavenger: Call 'أَبْحَثُ عَنْ شَيْءٍ أَحْمَرَ' (I'm searching for something red!). Boys have 20 seconds to sprint, find a red object, and bring it to base." },
+      { w: 7, t: "Secondary Camouflage Codes", ar: "بقية الألوان", base: ["أَخْضَر", "أَبْيَض", "أَسْوَد"], frame: "اللَّوْنُ هُنَا أَخْضَرُ.", drill: "Camouflage Tag", game: "Black & White Recon: Hide 5 black and 5 white Legos around the room. On command 'أَسْوَد', they can only hunt and bank black Legos against the clock." },
+      { w: 8, t: "Payload & Scale Analysis", ar: "الكبير والصغير", base: ["كَبِير", "صَغِير", "جِدًّا"], frame: "هَذَا شَيْءٌ كَبِيرٌ جِدًّا.", drill: "Heavy vs Light Sizing", game: "Giant vs Micro Scavenger: Send operatives to find the biggest object (كَبِير) and the smallest object (صَغِير) in the living room in under 30 seconds." },
+      { w: 9, t: "Combat Action Verbs", ar: "أفعال اللعب", base: ["اِجْرِ", "اِمْشِ", "اِقْفِزْ"], frame: "هَيَّا نَجْرِي بِسُرْعَةٍ!", drill: "Sprint & Vault Course", game: "Action Vault Hunt: Place 3 mission cards on high/low surfaces. To reach Card 1 they must jump (اِقْفِزْ), to Card 2 crawl, to Card 3 sprint." },
+      { w: 10, t: "Radar Beacon Search", ar: "أين الشيء؟", base: ["أَيْنَ", "هُنَا", "هُنَاكَ"], frame: "أَيْنَ الْهَدَفُ؟ — هَا هُوَ هُنَا!", drill: "Sonar Search Challenge", game: "Tactical Hot & Cold Search: Hide a stopwatch or keys. As the operative searches, guide him purely with 'بَارِد' (cold) or 'حَارّ' (hot!) until he shouts 'هَا هُوَ هُنَا!'." },
+      { w: 11, t: "Gear Confiscation & Ownership", ar: "الملكية", base: ["لِي", "لَكَ", "كِتَابِي"], frame: "هَذَا عَتَادِي وَهَذَا لَكَ.", drill: "Gear Stash Challenge", game: "Loot Sort Scavenger: Dump a pile of mixed personal gear in the center. Boys race to snatch and sort items into their base while shouting 'هَذَا لِي!'." },
+      { w: 12, t: "Q1 Special Operations Gauntlet", ar: "مراجعة شاملة", base: ["تَعَالَ", "اِفْتَحْ", "شُكْرًا"], frame: "تَعَالَ هُنَا وَافْتَحِ الْبَابَ الْكَبِيرَ.", drill: "The Full Base Sweep", game: "3-Room Scavenger Gauntlet: Navigate 3 rooms, finding 1 red item, closing 1 door, and presenting 1 object to the commander in full Arabic." },
+      { w: 13, t: "Rations Request & Requisition", ar: "أريد وأطلب", base: ["أُرِيدُ", "مَاذَا", "شَيْئًا"], frame: "مَاذَا تُرِيدُ؟ — أُرِيدُ مَاءً.", drill: "Quartermaster Requisition", game: "Pantry Recon: Operative must search the pantry for a requested ration item and return declaring 'أُرِيدُ هَذَا'." },
+      { w: 14, t: "High-Energy Field Fuel", ar: "طعام الفطور", base: ["مَاء", "حَلِيب", "خُبْز", "بَيْض"], frame: "أُرِيدُ خُبْزًا وَبَيْضًا مِنْ فَضْلِكَ.", drill: "Mess Hall Speed Order", game: "Breakfast Scavenger Hunt: Hide pictures or play-food items for bread, eggs, and milk. Call out an order; first boy to locate and deliver the plate wins." },
+      { w: 15, t: "Energy Boosters & Fruits", ar: "الفواكه اللذيذة", base: ["تُفَّاح", "مَوْز", "تَمْر", "عَصِير"], frame: "هَلْ تُرِيدُ تُفَّاحَةً؟ — نَعَمْ.", drill: "Blindfold Taste Test", game: "Fruit Extraction Hunt: Hide an apple, banana, and dates in the kitchen. Call 'تُفَّاح!' and time how fast the operative extracts it." },
+      { w: 16, t: "Mess Hall Arsenal", ar: "أدوات المائدة", base: ["مِلْعَقَة", "شَوْكَة", "صَحْن", "كُوب"], frame: "أَعْطِنِي السِّكِّينَ أَوِ الْمِلْعَقَةَ.", drill: "Table Setting Sprint", game: "Utensil Scavenger Sweep: Operatives race to find and correctly set 4 forks, 4 spoons, and 4 cups matching spoken Arabic calls." },
+      { w: 17, t: "Endurance & Fuel Reserves", ar: "الجوع والعطش", base: ["جَائِع", "عَطْشَان", "شَبْعَان"], frame: "أَنَا جَائِعٌ جِدًّا! أُرِيدُ طَعَامًا.", drill: "Post-Workout Fuel Check", game: "Water Canteen Scavenger: Hide water bottles around the yard/house. Thirsty operatives must search and find their bottle before declaring status." },
+      { w: 18, t: "Ration Taste Rating", ar: "طعم الطعام", base: ["لَذِيذ", "حُلْو", "حَامِض"], frame: "هَذَا الطَّعَامُ لَذِيذٌ جِدًّا!", drill: "The Food Critic Judge", game: "Flavor Scavenger: Find one sweet item (حُلْو) and one sour item (حَامِض) in the kitchen and present them for review." },
+      { w: 19, t: "Base Sector Navigation", ar: "غرف البيت", base: ["غُرْفَة", "مَطْبَخ", "حَمَّام"], frame: "اِذْهَبْ إِلَى الْمَطْبَخِ سَرِيعًا.", drill: "Sector Infiltration Run", game: "Sector Clue Trail: Leave written or spoken clues leading from the living room to the kitchen to the bathroom in an interconnected search." },
+      { w: 20, t: "Command Post Furniture", ar: "أثاث الجلوس", base: ["كُرْسِيّ", "طَاوِلَة", "أَرِيكَة"], frame: "اِجْلِسْ عَلَى الْكُرْسِيِّ لِلْمُهِمَّةِ.", drill: "Musical Chairs Lockdown", game: "Under-Furniture Stash Hunt: Hide target tokens under chairs, on tables, and behind couches. Call coordinates to trigger search rushes." },
+      { w: 21, t: "Bivouac & Sleep Protocol", ar: "وقت النوم", base: ["سَرِير", "وِسَادَة", "نَوْم"], frame: "حَانَ وَقْتُ النَّوْمِ! إِلَى السَّرِيرِ.", drill: "Nightfall Evacuation", game: "Pillow Stash Search: Hide a mission card under one of 4 pillows in the house. Operative must search and locate the correct bed." },
+      { w: 22, t: "Equipment Armory Cleanup", ar: "ترتيب الألعاب", base: ["نَظِّفْ", "رَتِّبْ", "عَتَاد"], frame: "رَتِّبِ الأَلْعَابَ فِي الصُّنْدُوقِ.", drill: "60-Second Armory Scramble", game: "Reverse Scavenger Hunt: 10 toys scattered on the floor. Call them out in Arabic; boys must hunt each item and return it to the bin within 60 seconds." },
+      { w: 23, t: "Operative Squad Hierarchy", ar: "أفراد العائلة", base: ["أَبِي", "أُمِّي", "أَخِي", "أُخْتِي"], frame: "هَذَا أَخِي فِي فَرِيقِي.", drill: "Squad Roster Roll Call", game: "Family Photo Search: Hide 4 family photos around the room. Boys must locate them and present each family member in full Arabic." },
+      { w: 24, t: "Combat Readiness & Morale", ar: "المشاعر والوجدان", base: ["سَعِيد", "حَزِين", "تَعْبَان"], frame: "أَنَا سَعِيدٌ الْيَوْمَ وَمُسْتَعِدٌّ.", drill: "Morale Interrogation", game: "Emotion Card Hunt: Hide emoji face cards. Operatives hunt the card that matches their current energy level and justify it in Arabic." },
+      { w: 25, t: "Live Action Bodycam Log", ar: "أفعال اليوم", base: ["آكُلُ", "أَشْرَبُ", "أَلْعَبُ"], frame: "أَنَا أَلْعَبُ الآنَ مَعَ أَخِي.", drill: "Bodycam Narration Duel", game: "Action Prop Scavenger: Find an item you eat with, an item you drink from, and an item you play with in under 45 seconds." },
+      { w: 26, t: "Mid-Year Tactical Assessment", ar: "حصاد نصف السنة", base: ["حِوَار", "كُلّ الكَلِمَات"], frame: "أَنَا جَائِعٌ، أُرِيدُ خُبْزًا لَذِيذًا.", drill: "The Solo Boss Mission", game: "The Master Clue Hunt: A 5-card scavenger hunt across the house where each found card contains the next Arabic destination clue." },
+      { w: 27, t: "Anatomy Armor Scan: Head", ar: "الرأس والوجه", base: ["رَأْس", "عَيْن", "أَنْف", "فَم"], frame: "اِلْمِسْ رَأْسَكَ وَعَيْنَيْكَ!", drill: "Target Lock Body Tap", game: "Mirror Recon: Operative stands in front of a mirror; call facial features in rapid fire that must be touched under 1 second." },
+      { w: 28, t: "Tactical Limbs & Agility", ar: "اليد والرجل", base: ["يَد", "رِجْل", "بَطْن"], frame: "اِغْسِلْ يَدَيْكَ بِالْمَاءِ سَرِيعًا.", drill: "The Handwash Sprint", game: "Soap & Towel Scavenger: Hide fresh soap and towels; operatives must search, extract, and report to the sink station." },
+      { w: 29, t: "Uniform & Combat Gear", ar: "الملابس اليومية", base: ["قَمِيص", "سِرْوَال", "حِذَاء"], frame: "اِلْبَسْ حِذَاءَكَ فِي ثَوَانٍ!", drill: "Speed Dressing Championship", game: "Shoe & Sock Pair Hunt: Hide left and right shoes in separate rooms. Operatives must track and pair both shoes before putting them on." },
+      { w: 30, t: "Field Deployment Bags", ar: "الخروج من البيت", base: ["مِعْطَف", "قُبَّعَة", "حَقِيبَة"], frame: "خُذْ حَقِيبَتَكَ وَالْبَسْ مِعْطَفَكَ.", drill: "Doorway Scramble Drill", game: "Gear Extraction Race: Backpacks, jackets, and hats hidden in bedrooms. First operative to locate all 3 deployment items wins." },
+      { w: 31, t: "Predators & Recon Beasts", ar: "حيوانات أليفة", base: ["قِطَّة", "كَلْب", "عُصْفُور"], frame: "اُنْظُرْ إِلَى الْقِطَّةِ السَّرِيعَةِ!", drill: "Recon Animal Hunt", game: "Window Scavenger Watch: Set 5 minutes at the window. First boy to spot and call out a real bird (عُصْفُور) or cat (قِطَّة) scores." },
+      { w: 32, t: "Heavy Armored Beasts", ar: "حيوانات المزرعة", base: ["بَقَرَة", "خَيْل", "أَسَد"], frame: "الْخَيْلُ يَجْرِي بِسُرْعَةٍ هَائِلَةٍ.", drill: "Beast Charades Duel", game: "Toy Animal Safari Hunt: Hide 6 plastic animal figurines around the house. Call animal names in Arabic; boys race to extract them." },
+      { w: 33, t: "Atmospheric & Celestial Grid", ar: "السماء والنجوم", base: ["شَمْس", "قَمَر", "نَجْم"], frame: "الشَّمْسُ سَاطِعَةٌ فِي السَّمَاءِ.", drill: "Stargazer Reconnaissance", game: "Night Sky Target Hunt: Go outdoors after dark; use a laser pointer or binoculars to search and locate the moon and stars." },
+      { w: 34, t: "Field Weather Briefing", ar: "حالة الطقس", base: ["حَارّ", "بَارِد", "مَطَر"], frame: "الطَّقْسُ الْيَوْمَ بَارِدٌ وَمُمْطِرٌ.", drill: "Morning Weather Command", game: "Thermometer Recon: Operative searches outdoor thermometer or app, runs back, and delivers live weather reading." },
+      { w: 35, t: "Grid Coordinates: In & On", ar: "في وعلى", base: ["فِي", "عَلَى", "دَاخِل"], frame: "الْكِتَابُ عَلَى الطَّاوِلَةِ هُنَا.", drill: "Precision Placement Duel", game: "Preposition Scavenger: 'Find the pen inside (دَاخِل) the drawer' or 'Find the book on (عَلَى) the desk'. Test preposition listening." },
+      { w: 36, t: "Grid Coordinates: Under", ar: "تحت وخلف", base: ["تَحْتَ", "أَمَامَ", "خَلْفَ"], frame: "الْهَدَفُ تَحْتَ السَّرِيرِ تَمَامًا.", drill: "Cover & Concealment Hide", game: "Under & Behind Search: Hide target cards under (تَحْتَ) cushions or behind (خَلْفَ) curtains. Operative follows directional hints." },
+      { w: 37, t: "Chrono Watch & Timelines", ar: "الصباح والمساء", base: ["صَبَاح", "مَسَاء", "لَيْل"], frame: "صَبَاحُ الْخَيْرِ أَيُّهَا الْقَائِدُ!", drill: "Time Check Salute", game: "Clock Recon: Search the house to find 3 different clocks (wall, microwave, watch) and report their readings." },
+      { w: 38, t: "Sensory Reconnaissance", ar: "الحواس الخمس", base: ["اُنْظُرْ", "اِسْمَعْ", "شُمَّ"], frame: "اِسْمَعْ هَذَا الصَّوْتَ الْغَرِيبَ!", drill: "The Blindfold Sound Track", game: "Sound Source Hunt: Blindfolded operative must walk toward and locate a clicking sound or bell purely by hearing." },
+      { w: 39, t: "Tactical Velocity Controls", ar: "السرعة والهدوء", base: ["بِسُرْعَة", "بِبُطْء", "بِهُدُوء"], frame: "تَحَرَّكْ بِسُرْعَةٍ ثُمَّ بِهُدُوءٍ.", drill: "Stealth Infiltration Walk", game: "Silent Stealth Scavenger: Retrieve an item from the kitchen without making a single sound. If you hear a footstep, they restart." },
+      { w: 40, t: "Cipher Numbers: 1 to 3", ar: "الأرقام الأولى", base: ["وَاحِد", "اِثْنَان", "ثَلاثَة"], frame: "كَمْ عُنْصُرًا هُنَا؟ — ثَلاثَةٌ!", drill: "Fast Math Slap (1-3)", game: "Number Scavenger (1-3): Call 'ثَلاثَة!' Operative must sprint and bring back exactly 3 matching items in under 20 seconds." },
+      { w: 41, t: "Cipher Numbers: 4 to 7", ar: "الأرقام المتوسطة", base: ["أَرْبَعَة", "خَمْسَة", "سِتَّة", "سَبْعَة"], frame: "عِنْدِي سَبْعُ طَلَقَاتٍ فِي يَدِي.", drill: "Ammo Count Scramble", game: "Ammo Scavenger (4-7): Scatter 10 Nerf darts. Call 'خَمْسَة!' Operative must hunt and return with exactly 5 darts." },
+      { w: 42, t: "Launch Countdown: 8 to 10", ar: "التمام إلى عشرة", base: ["ثَمَانِيَة", "تِسْعَة", "عَشَرَة"], frame: "عُدَّ تَنَازُلِيًّا: عَشَرَة، تِسْعَة...", drill: "Rocket Launch Countdown", game: "10-Item Blitz Hunt: 10 different colored pens hidden in room. Hunt all 10 while counting down aloud in Arabic from 10 to 1." },
+      { w: 43, t: "Urban Sector Recon", ar: "الأماكن حولنا", base: ["مَسْجِد", "مَدْرَسَة", "حَدِيقَة"], frame: "نَحْنُ نَتَوَجَّهُ إِلَى الْمَسْجِدِ.", drill: "Navigator Car Check", game: "Landmark Scavenger Drive: During car trips, first boy to spot the mosque (مَسْجِد) or park (حَدِيقَة) out the window scores." },
+      { w: 44, t: "Mobile Transport Units", ar: "وسائل النقل", base: ["سَيَّارَة", "حَافِلَة", "طَائِرَة"], frame: "اِرْكَبِ السَّيَّارَةَ لِلانْطِلاقِ.", drill: "Vehicle Spotting Race", game: "Toy Vehicle Stash: Hide toy cars, buses, and planes. Call transport names; operatives search and park them in the garage." },
+      { w: 45, t: "Tactical Sequence Linking", ar: "أدوات الربط", base: ["وَ", "ثُمَّ", "لَكِنْ"], frame: "أَجْرِي ثُمَّ أَقْفِزُ فَوْقَ الْحَاجِزِ.", drill: "Combo Move Execution", game: "Two-Step Scavenger: 'Find the key THEN find the book' (الْمِفْتَاح ثُمَّ الْكِتَاب). Items must be found in the exact sequence." },
+      { w: 46, t: "Intel Interrogation Queries", ar: "أسئلة الاستكشاف", base: ["مَنْ؟", "مَاذَا؟", "لِمَاذَا؟"], frame: "مَنْ هُنَاكَ؟ وَمَاذَا تُرِيدُ؟", drill: "The Detective Cross-Exam", game: "Mystery Object 20 Questions: Hide an object in a bag. Operatives cross-examine you with question words to deduce what it is." },
+      { w: 47, t: "Strategic Day Scheduling", ar: "أيام الأسبوع", base: ["الْجُمُعَة", "السَّبْت", "الأَحَد"], frame: "الْيَوْمَ يَوْمُ الْجُمُعَةِ لِلصَّلاةِ.", drill: "Calendar War Room", game: "Calendar Clue Hunt: Hide clues on specific calendar days (e.g., sticky note on Friday / الْجُمُعَة). Operatives search the calendar." },
+      { w: 48, t: "Tactical Co-op & Turns", ar: "اللعب المشترك", base: ["دَوْرِي", "دَوْرُكَ", "مَعًا"], frame: "الآنَ دَوْرِي، انْتَظِرْ لَحْظَةً!", drill: "Controller & Turn Trading", game: "Co-op Relay Scavenger: Brother 1 hunts Item 1, runs back, tags Brother 2 shouting 'دَوْرُكَ!' (Your turn!), who hunts Item 2." },
+      { w: 49, t: "Mayday & Backup Calls", ar: "طلب المساعدة", base: ["سَاعِدْنِي", "لا أَعْرِفُ", "أَسْتَطِيعُ"], frame: "يَا أَخِي، سَاعِدْنِي فِي هَذَا!", drill: "Heavy Lift Backup Call", game: "Heavy Cache Recovery: Place an awkwardly heavy or high box. The operative must locate it and call 'سَاعِدْنِي' for brother backup." },
+      { w: 50, t: "Mission Debrief Chronicles", ar: "سرد الحكاية", base: ["كَانَ", "مَرَّة", "ذَهَبَ"], frame: "كَانَ هُنَاكَ بَطَلٌ شُجَاعٌ انْطَلَقَ.", drill: "Epic Story Chain", game: "Story Clue Hunt: 3 story cards hidden in sequence (Beginning, Middle, End). Operatives hunt and assemble the full tale." },
+      { w: 51, t: "Daily Recon Cycle", ar: "يومي الكامل", base: ["أَسْتَيْقِظُ", "أُصَلِّي", "أَرْجِعُ"], frame: "أَسْتَيْقِظُ فِي الصَّبَاحِ وَأَتَدَرَّبُ.", drill: "Solo Day Briefing", game: "Morning Station Run: Race between bed (أَسْتَيْقِظُ), prayer rug (أُصَلِّي), and door (أَذْهَبُ) in a live sequenced time trial." },
+      { w: 52, t: "Full Immersion Graduation", ar: "عام كامل من الفصحى", base: ["مُبَارَك", "أَحْسَنْتَ", "تَكَلَّمْ"], frame: "نَحْنُ أَبْطَالُ الْفُصْحَى فِي هَذَا الْبَيْتِ!", drill: "The Arabic-Only Dinner Gauntlet", game: "The Ultimate Graduation Scavenger Hunt: A 10-clue treasure hunt across the entire house leading to graduation certificates." }
     ];
 
     TOPIC_ROADMAP.forEach(meta => {
       const dayThemes = [
-        { d: 1, type: "Fast-Draw Reveal & Object ID", note: `Field drill: ${meta.drill}.` },
-        { d: 2, type: "High-Speed Sprint & Reflex Action", note: `Physical challenge: ${meta.game}.` },
-        { d: 3, type: "Tactical Stealth & Recon Hunt", note: `Stealth detection drill using '${meta.frame}'.` },
+        { d: 1, type: "Fast-Draw Reveal & Identification", note: `Field drill: ${meta.drill}.` },
+        { d: 2, type: "High-Speed Sprint & Reflex Action", note: `Physical challenge: ${meta.drill}.` },
+        { d: 3, type: "Tactical Scavenger Hunt & Search Op", note: `Search Mission: ${meta.game}` },
         { d: 4, type: "Head-to-Head Checkpoint Interrogation", note: `Operative face-off: exchange target phrases under pressure.` },
         { d: 5, type: "Timed Gauntlet & Bounty Score", note: `60-second obstacle run to set the weekly household record.` }
       ];
 
       const daysArr = dayThemes.map(item => ({
         day: item.d,
-        title: `${item.d === 1 ? 'Fast-Draw' : item.d === 2 ? 'Speed Drill' : item.d === 3 ? 'Stealth Recon' : item.d === 4 ? 'Checkpoint' : 'Gauntlet'}: ${meta.t}`,
+        title: `${item.d === 1 ? 'Fast-Draw' : item.d === 2 ? 'Speed Drill' : item.d === 3 ? 'Scavenger Hunt' : item.d === 4 ? 'Checkpoint' : 'Gauntlet'}: ${meta.t}`,
         targetWords: meta.base.join("، "),
         targetPhrase: meta.frame,
         teachingTip: `${item.note} Run rapid repetitions with strict rules. Keep the stopwatch running and award points for clean, confident execution.`,
@@ -1084,23 +1083,23 @@
       });
     });
 
-    /* Boy-Centric High-Intensity Games Roster */
+    /* Scavenger Hunts & Search Operations Roster */
     const GAMES_POOL = [
       {
-        title: "Fast-Draw Duel (المبارزة السريعة)",
-        desc: "Two boys stand back-to-back. On your count of 3, they spin, lock eyes, stand at attention, and deliver the target phrase. The first clean, loud execution earns the bounty point."
+        title: "30-Second Search Blitz (غارة البحث السريعة)",
+        desc: "Call out an Arabic target word (e.g., 'كِتَاب' or 'قَلَم أَحْمَر'). Operatives have exactly 30 seconds to sprint through the room, locate it, and drop it on your command desk."
       },
       {
-        title: "The Stopwatch Border Checkpoint (حاجز التفتيش)",
-        desc: "Place a broomstick across a door. Operative must sprint from the far wall, slide to a halt, stand at attention, and deliver the clearance frame before you lift the gate."
+        title: "Tactical Hot & Cold Radar (رادار حار وبارد)",
+        desc: "Hide an item in the room. As the operative searches, guide his distance entirely in Arabic: 'بَارِد' (cold), 'دَافِئ' (warm), or 'حَارّ' (hot/fire!)."
       },
       {
-        title: "Flashcard Target Slap (ضرب الأهداف)",
-        desc: "Stick two target cards on opposite walls. Shout the Arabic word. Both boys sprint and slap the correct target with their palm. First slap claims the card."
+        title: "Flashlight Target Slap (ضرب الأهداف بالكشاف)",
+        desc: "Turn off room lights. Tape 4 picture targets to opposite walls. Call an Arabic word; boys race to spot it with their flashlights and slap the card first."
       },
       {
-        title: "Laser Grid Navigation (متاهة الليزر)",
-        desc: "One boy is blindfolded in a cluttered room. His brother must guide him through the obstacle zone using only Arabic movement commands (قِفْ, تَعَالَ, اِذْهَبْ)."
+        title: "Blindfold Beacon Search (بحث المنارة بالغمامة)",
+        desc: "One boy is blindfolded in the obstacle area. His brother must guide him to find the hidden treasure using only Arabic commands: 'تَعَالَ هُنَا', 'اِذْهَبْ', 'قِفْ!'."
       },
       {
         title: "The Infiltrator Stalker (كشف المتسلل)",
@@ -1111,12 +1110,12 @@
         desc: "Scatter 5 target items across the house. Call out Arabic targets one by one. The operative has 60 seconds to find, retrieve, and deposit every single item into the command box."
       },
       {
-        title: "The Secret Password Bounty (كلمة السر اليومية)",
-        desc: "Lock access to snacks, water bottles, or the TV until the operative delivers the day's Arabic password with proper vocal projection."
+        title: "The Reverse Scavenger Clean (المداهمة العكسية)",
+        desc: "Toss 8 target objects around the room. Call them out in rapid Arabic; boys must hunt each item down and return it to its home station before the timer expires."
       }
     ];
 
-    const STORAGE_KEY = "fushaflow_progress_boys_v1";
+    const STORAGE_KEY = "fushaflow_progress_scavenger_v1";
 
     function getCompletedMap() {
       try {
