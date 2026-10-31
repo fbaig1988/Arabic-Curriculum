@@ -729,21 +729,21 @@
     <div class="drawer-panel" id="drawerPanel">
       <div class="drawer-drag-pill"></div>
       <div class="drawer-header">
-        <h2 class="drawer-title">Activity & Game Ideas</h2>
+        <h2 class="drawer-title">Ops & Game Generator</h2>
         <button class="btn-close" onclick="closeActivityDrawer()">✕</button>
       </div>
 
       <div class="game-generator-box">
-        <p style="font-size: 0.92rem; color: var(--game-title); font-weight: 600;">Need a quick 3-minute game to break monotony?</p>
-        <button class="btn-generate" onclick="spinNewActivity()">⚡ Spin a Random Game</button>
+        <p style="font-size: 0.92rem; color: var(--game-title); font-weight: 600;">Launch a 3-minute competitive drill for the boys</p>
+        <button class="btn-generate" onclick="spinNewActivity()">⚡ Spin Quick Operation</button>
         <div class="random-game-result" id="randomGameOutput">
-          <div class="game-title" id="outputGameTitle">The Mystery Bag (صندوق المفاجآت)</div>
-          <div class="game-body" id="outputGameDesc">Put 3 everyday objects inside an opaque bag. Child reaches in, feels the item without looking, and guesses in Arabic before pulling it out.</div>
+          <div class="game-title" id="outputGameTitle">Fast-Draw Duel (المبارزة السريعة)</div>
+          <div class="game-body" id="outputGameDesc">Two boys stand back-to-back. On the count of 3, they spin, lock eyes, and shout the target frame. First clean execution earns the bounty point.</div>
         </div>
       </div>
 
       <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">
-        Core High-Yield Games Collection
+        High-Intensity Game Roster
       </div>
       <div id="staticGamesList"></div>
     </div>
@@ -751,7 +751,7 @@
 
   <script>
     /* Theme Management */
-    const THEME_KEY = "fushaflow_theme_canvas";
+    const THEME_KEY = "fushaflow_theme_boys_v1";
 
     function initTheme() {
       const savedTheme = localStorage.getItem(THEME_KEY);
@@ -793,286 +793,287 @@
 
     initTheme();
 
-    /* Complete Database for All 52 Weeks */
+    /* Complete 52-Week Curriculum Tailored for 7-10 Year Old Boys */
     const CURRICULUM = [
       {
         week: 1,
-        title: "Names & Arrival",
+        title: "Names & Undercover Identities",
         arabicTheme: "الاسم والتحية",
         days: [
           {
             day: 1,
-            title: "Reveal: My Name & Hello",
+            title: "Fast-Draw Duel: Identity Clearance",
             targetWords: "اسْم (Name), أَنَا (I), مَرْحَبًا (Hello)",
             targetPhrase: "مَرْحَبًا! اِسْمِي [الاسم].",
-            teachingTip: "Use a small stuffed animal. Have the animal wave, look at the children and say: 'مَرْحَبًا! اِسْمِي فُسْتُق'. Hand the animal to each child to introduce themselves using the frame.",
-            integrationTip: "Use 'مَرْحَبًا' at the bedroom door every morning when waking the children.",
-            miscAdvice: "Never force the 4-year-old to recite alone. Model it with an older sibling first."
+            teachingTip: "Duel format: Two boys stand back-to-back. On your count '1... 2... Spin!', they whirl around, lock eyes, stand at attention, and deliver the clearance phrase. First clear voice claims the bounty point. Run best 3 of 5.",
+            integrationTip: "Declare the front door an identity checkpoint. No one enters from outside or the car without giving the clearance frame in Arabic.",
+            miscAdvice: "Keep delivery crisp and military-firm. If the 4-year-old participates, let him be the gate sentry."
           },
           {
             day: 2,
-            title: "Action: The Microphone Pass",
+            title: "The Speed Interrogation Challenge",
             targetWords: "أَنْتَ / أَنْتِ (You)",
-            targetPhrase: "مَا اسْمُكَ؟ / مَا اسْمُكِ؟",
-            teachingTip: "Use a toy microphone or whisk. Walk in a circle chanting 'مَا اسْمُكَ؟' to the beat of clapping hands. Stop abruptly at a child who answers: 'اِسْمِي...'",
-            integrationTip: "When meeting family or neighbors, prompt the kids: 'Say مَرْحَبًا'.",
-            miscAdvice: "Keep the rhythm brisk. Total lesson duration should not exceed 10 minutes."
+            targetPhrase: "مَا اسْمُكَ؟ — اِسْمِي [الاسم].",
+            teachingTip: "Use a phone timer set to 45 seconds. One boy plays the Inspector holding a flashlight or notepad. He rushes to his brother, fires 'مَا اسْمُكَ؟', gets the reply, and must sprint across the room to interrogate you next. Count how many clean exchanges happen before the buzzer.",
+            integrationTip: "Before turning on screens or starting a movie, run a rapid-fire interrogation on every viewer in Arabic.",
+            miscAdvice: "Speed and pressure lock in pronoun reflex much faster than passive repetition."
           },
           {
             day: 3,
-            title: "Creative: Name Badges & Pointers",
+            title: "Infiltrator Detection (Bounty Hunt)",
             targetWords: "مَنْ؟ (Who?)",
             targetPhrase: "مَنْ أَنْتَ؟ — أَنَا [الاسم].",
-            teachingTip: "Draw large stickers with their Arabic names. Stick them on chests. Tap your chest firmly while speaking: 'أَنَا...' then point gently: 'أَنْتَ...'",
-            integrationTip: "Knock on the door before entering rooms and ask: 'مَنْ هُنَا؟'",
-            miscAdvice: "Physical touch (hand on heart) helps lock in the first-person pronoun 'أَنَا'."
+            teachingTip: "One boy blindfolds himself in the center of the rug. The other sneaks up silently from anywhere in the room. When the blindfolded guard detects a floor creak, he points and demands: 'مَنْ أَنْتَ؟' The sneaker must halt and identify himself in Arabic.",
+            integrationTip: "Knock on closed bedroom and bathroom doors and mandate 'مَنْ هُنَا؟' before turning any handle.",
+            miscAdvice: "Stealth mechanics turn simple question words into an engaging spy exercise."
           },
           {
             day: 4,
-            title: "Dialogue: Role-Play at the Border Gate",
+            title: "The Checkpoint Gate Latch",
             targetWords: "مَرْحَبًا، اِسْمِي",
             targetPhrase: "— مَرْحَبًا! مَا اسْمُكَ؟ — اِسْمِي زَيْد.",
-            teachingTip: "Two chairs make a gate. The child cannot pass through the gate to get their snack until they complete the 2-line mini exchange with the gatekeeper.",
-            integrationTip: "Before turning on any car engine, have each passenger state their name in Arabic.",
-            miscAdvice: "Keep it playful; if a child freezes, whisper the prompt into their ear."
+            teachingTip: "Set a physical broomstick across the hallway. To cross from bedrooms to dinner, each boy must stop, salute, and complete the full 2-way identity exchange with the border guard.",
+            integrationTip: "Before backing the car out of the driveway, conduct a radio-style identity check with every passenger.",
+            miscAdvice: "Stakes matter: no password, no passage."
           },
           {
             day: 5,
-            title: "Celebration: Puppet Show & Progress Check",
+            title: "The 60-Second Blitz & Badge Award",
             targetWords: "Review of Week 1",
             targetPhrase: "مَرْحَبًا، اِسْمِي...، مَا اسْمُكَ؟",
-            teachingTip: "Put on a 2-minute puppet show where two toy characters meet, introduce themselves, and celebrate finding a new friend.",
-            integrationTip: "Video call a relative and let the children introduce themselves in Arabic.",
-            miscAdvice: "Give a gold star or sticker for completing the first week of Arabic!"
+            teachingTip: "Set a stopwatch for 60 seconds. The boys run a relay: sprint around the sofa, slide to a halt, exchange full introductions with you, high-five, and tag their brother. Track their record time on a whiteboard.",
+            integrationTip: "Award them an official Arabic agent rank/sticker on their chart upon completion.",
+            miscAdvice: "Boys love tracking high scores. Beat yesterday's time."
           }
         ]
       },
       {
         week: 2,
-        title: "Well-being & Courtesies",
+        title: "Field Status & Code Protocol",
         arabicTheme: "الحال والشكر",
         days: [
           {
             day: 1,
-            title: "Reveal: How are you?",
+            title: "Status Check Sprint",
             targetWords: "كَيْفَ (How), حَال (State), بِخَيْر (Fine)",
             targetPhrase: "كَيْفَ حَالُكَ؟ — بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ.",
-            teachingTip: "Use exaggerated thumbs-up and smiling faces. Model the question with open palms, then chest touch for 'بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ'.",
-            integrationTip: "Ask this at the breakfast table every morning as the very first question.",
-            miscAdvice: "Do not explain grammatical endings; let them absorb the melody of the phrase."
+            teachingTip: "Boys do 5 quick jumping jacks or pushups, sprint to the line, and report status. You bark: 'كَيْفَ حَالُكَ؟' They snap back: 'بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ!'",
+            integrationTip: "First question at the breakfast table every morning: mandatory Arabic status report.",
+            miscAdvice: "Deliver it with energy and a crisp voice."
           },
           {
             day: 2,
-            title: "Action: The Emoji Faces Game",
+            title: "The Reflex Slap Match",
             targetWords: "بِخَيْر (Fine), حَمْد (Praise)",
             targetPhrase: "أَنَا بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ.",
-            teachingTip: "Draw happy and neutral smiley faces on cards. When you hold up a smiley face, they jump and shout: 'بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ!'",
-            integrationTip: "Whenever anyone trips or bumps lightly, ask: 'كَيْفَ حَالُك؟' expecting 'بِخَيْر'.",
-            miscAdvice: "Repetition with physical humor beats passive memorization every time."
+            teachingTip: "Place two green foam balls or coasters on opposite sides of a table. Shout 'حَال!' Both boys race to slam their hand down on their marker. The fastest hand gets to demand status and the other must report in Arabic.",
+            integrationTip: "Whenever anyone trips, drops a ball, or bumps into something, ask: 'كَيْفَ حَالُكَ؟' expecting an immediate Arabic reply.",
+            miscAdvice: "Physical competition channels their competitive focus."
           },
           {
             day: 3,
-            title: "Creative: Thank You & You're Welcome",
+            title: "The Supply Depot Exchange",
             targetWords: "شُكْرًا (Thank you), عَفْوًا (You are welcome)",
             targetPhrase: "شُكْرًا جَزِيلًا — عَفْوًا.",
-            teachingTip: "Hand out small building blocks one by one. The child must say 'شُكْرًا' before placing it on the tower, and you respond 'عَفْوًا'. Build a tall tower together.",
-            integrationTip: "Make 'شُكْرًا' mandatory before receiving water, snacks, or juice all day.",
-            miscAdvice: "If they say 'thank you' in English, smile and gently tap your ear until they pivot."
+            teachingTip: "Ration out building bricks, target darts, or markers one by one. The operative cannot receive the piece without saying 'شُكْرًا جَزِيلًا' and receiving your 'عَفْوًا'. Race to build the highest 10-piece tower.",
+            integrationTip: "Total house ban on English 'thanks'. All water, snacks, and phone handoffs require the Arabic exchange.",
+            miscAdvice: "Condition polite habits through high-tempo resource trading."
           },
           {
             day: 4,
-            title: "Dialogue: Tea Party Exchange",
+            title: "Field Medic Rescue Mission",
             targetWords: "شُكْرًا، عَفْوًا، بِخَيْر",
             targetPhrase: "تَفَضَّلْ — شُكْرًا — عَفْوًا.",
-            teachingTip: "Serve pretend or real water cups. Practice passing cups around the table using only the courtesies.",
-            integrationTip: "Pass salt, spoons, or napkins at dinner with 'تَفَضَّلْ' and 'شُكْرًا'.",
-            miscAdvice: "Polite phrases are the easiest habit to cement in children."
+            teachingTip: "Set up a medic rescue station across the rug. One brother crawls through an obstacle course carrying 'field rations' (water cup). When delivered: 'تَفَضَّلْ', the rescued brother replies: 'شُكْرًا', and the medic returns: 'عَفْوًا'.",
+            integrationTip: "Passing food, cups, or tools at the table must use 'تَفَضَّلْ' and 'شُكْرًا'.",
+            miscAdvice: "Role-playing with objectives makes social phrases natural."
           },
           {
             day: 5,
-            title: "Celebration: Freeze & Reply",
-            targetWords: "Full Week 2 Review",
+            title: "The Red Light Status Freeze",
+            targetWords: "Week 2 Complete Code",
             targetPhrase: "كَيْفَ حَالُكَ؟ — بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ. شُكْرًا!",
-            teachingTip: "Kids dance or jump until you shout freeze and point to someone: 'كَيْفَ حَالُكَ؟' If they reply in Arabic, the dance resumes.",
-            integrationTip: "Bedtime reflection: ask how they feel using the target phrase.",
-            miscAdvice: "Keep energy high and end the week on an enthusiastic high note."
+            teachingTip: "High-intensity Red Light / Green Light. When you spin and shout 'قِفْ!', you point laser-focus at one boy and demand status. A flawless response allows him to take two giant leaps forward toward the finish line.",
+            integrationTip: "Bedtime debrief: review the day's successes entirely with the status frame.",
+            miscAdvice: "Celebrate clean pronunciation with high fives and points."
           }
         ]
       },
       {
         week: 3,
-        title: "Commands & Movement I",
+        title: "Tactical Movement Commands",
         arabicTheme: "أوامر الحركة",
         days: [
           {
             day: 1,
-            title: "Reveal: Stand & Sit",
+            title: "Bootcamp Reflex Drill",
             targetWords: "قِفْ (Stand!), اِجْلِسْ (Sit!)",
             targetPhrase: "يَا [الاسم]، قِفْ! / يَا [الاسم]، اِجْلِسْ!",
-            teachingTip: "Pure Total Physical Response (TPR). Never translate. Say 'قِفْ' while springing to your feet. Say 'اِجْلِسْ' while sitting down quickly.",
-            integrationTip: "Use 'اِجْلِسْ' when sitting down for dinner or tying shoes.",
-            miscAdvice: "Speed up and slow down like a funny elevator to make them laugh."
+            teachingTip: "Stand like drill sergeants. Bark rapid-fire commands: 'قِفْ!', 'اِجْلِسْ!', 'قِفْ!', 'قِفْ!' (catching them trying to sit). First boy to make a false move gets 3 jumping jacks. Run at blinding speed.",
+            integrationTip: "Use 'اِجْلِسْ' when sitting down for dinner, car rides, or tying sneakers.",
+            miscAdvice: "Rapid fire eliminates translation lag in their brains."
           },
           {
             day: 2,
-            title: "Action: Simon Says (سيدنا يعقوب يقول)",
+            title: "Operative Simon Says (سيدنا يعقوب)",
             targetWords: "قِفْ، اِجْلِسْ",
             targetPhrase: "سَيِّدُنَا يَعْقُوب يَقُول: قِفْ!",
-            teachingTip: "Play classic Simon Says in Arabic. If you say 'سَيِّدُنَا يَعْقُوب يَقُول: قِفْ', they stand. If you just say 'قِفْ', they must stay still.",
-            integrationTip: "Give commands before getting out of the car: 'قِفْ'.",
-            miscAdvice: "Allow the children to take turns being Simon."
+            teachingTip: "High-stakes Simon Says. Only obey when preceded by 'سَيِّدُنَا يَعْقُوب يَقُول'. If you say bare 'قِفْ' and a boy twitches, he's out. Winner commands the next round.",
+            integrationTip: "Use 'قِفْ' across parking lots or crosswalks as an absolute safety halt.",
+            miscAdvice: "Let the boys command each other—it forces active vocalization."
           },
           {
             day: 3,
-            title: "Creative: Come & Go",
-            targetWords: "تَعَالَ (Come here!), اِذْهَبْ (Go!)",
+            title: "The Spatial Tag Duel",
+            targetWords: "تَعَالَ (Come!), اِذْهَبْ (Go!)",
             targetPhrase: "تَعَالَ هُنَا! / اِذْهَبْ هُنَاكَ!",
-            teachingTip: "Use clear arm beckoning for 'تَعَالَ هُنَا' and a sweeping point away for 'اِذْهَبْ هُنَاكَ'. Race between two cushions.",
-            integrationTip: "Call the kids from another room: 'يَا أَوْلَاد، تَعَالَوْا هُنَا!'",
-            miscAdvice: "Motion and spatial cues make prepositions natural."
+            teachingTip: "Set two target base cushions at opposite ends of the room. When you shout 'تَعَالَ هُنَا!' they sprint to your base. When you point and shout 'اِذْهَبْ هُنَاكَ!' they scramble to the opposite base. Last one to touch base loses a point.",
+            integrationTip: "Call the kids from other rooms: 'يَا أَوْلَاد، تَعَالَوْا هُنَا!'",
+            miscAdvice: "Movement commands burn boy energy while hardwiring verb meaning."
           },
           {
             day: 4,
-            title: "Dialogue: The Traffic Officer",
+            title: "Tactical Laser Grid Navigation",
             targetWords: "قِفْ، تَعَالَ، اِذْهَبْ",
-            targetPhrase: "قِفْ مَكَانَكَ! / اِذْهَبْ إِلَى الْغُرْفَة.",
-            teachingTip: "One child is the officer with a toy sign directing where siblings walk or stop.",
-            integrationTip: "Walking through parking lots or crossing streets: enforce 'قِفْ' as a safety command.",
-            miscAdvice: "Safety commands in Arabic build instinctive comprehension."
+            targetPhrase: "قِفْ مَكَانَكَ! / اِذْهَبْ إِلَى هُنَاكَ.",
+            teachingTip: "Set up masking tape or yarn 'laser beams' in the hallway. One brother is blindfolded; the other guides him safely through the laser maze using strictly Arabic directional commands: 'تَعَالَ هُنَا', 'اِذْهَبْ', 'قِفْ مَكَانَكَ'.",
+            integrationTip: "Direct them around the house using the commands instead of pointing.",
+            miscAdvice: "Blind navigation forces hyper-attentive listening."
           },
           {
             day: 5,
-            title: "Celebration: Obstacle Course Run",
-            targetWords: "Movement verbs combined",
+            title: "The Ultimate Living Room Obstacle Course",
+            targetWords: "Combined Action Verbs",
             targetPhrase: "قِفْ — تَعَالَ هُنَا — اِجْلِسْ هُنَاكَ!",
-            teachingTip: "Design a living room obstacle course navigated entirely by parent voice commands.",
-            integrationTip: "Reward successful course completion with an Arabic celebratory chant: 'أَحْسَنْتَ!'",
-            miscAdvice: "Record a 15-second clip for your family memories."
+            teachingTip: "Time each boy through a cushion-and-chair obstacle course where every transition requires obeying an Arabic command before touching the next station. Record stopwatch times.",
+            integrationTip: "Crown the fastest operative of Week 3.",
+            miscAdvice: "Video record the run to show them their speed."
           }
         ]
       },
       {
         week: 4,
-        title: "Doors, Windows & Objects",
+        title: "Perimeter Breach: Doors & Portals",
         arabicTheme: "الباب والنافذة",
         days: [
           {
             day: 1,
-            title: "Reveal: Open & Close",
+            title: "Breach & Clear: The Heavy Door",
             targetWords: "اِفْتَحْ (Open!), أَغْلِقْ (Close!), الْبَاب (The door)",
             targetPhrase: "اِفْتَحِ الْبَابَ! / أَغْلِقِ الْبَابَ!",
-            teachingTip: "Walk directly to the door. Demonstrate opening and closing with dramatic sound effects while repeating the verbs clearly.",
-            integrationTip: "Permanent house rule: never say 'close the door' in English again.",
-            miscAdvice: "Arabic imperative sounds very crisp; emphasize the consonant endings."
+            teachingTip: "Stage a tactical room entry. On your shout 'اِفْتَحِ الْبَابَ!', the point man throws open the door, checks corners, and the second man secures it on 'أَغْلِقِ الْبَابَ!'. Switch roles and run it fast.",
+            integrationTip: "Permanent household rule: never ask to open or close any door in English again.",
+            miscAdvice: "Emphasize the hard, punchy consonant endings of the imperatives."
           },
           {
             day: 2,
-            title: "Action: The Window Guard",
+            title: "Perimeter Lockdown Sprint",
             targetWords: "النَّافِذَة (The window)",
             targetPhrase: "اِفْتَحِ النَّافِذَةَ / أَغْلِقِ النَّافِذَةَ.",
-            teachingTip: "Have the kids open and shut curtains or blinds matching your commands: 'اِفْتَحِ النَّافِذَةَ'.",
-            integrationTip: "Car windows: use 'اِفْتَحْ' and 'أَغْلِقْ' for rolling up/down windows.",
-            miscAdvice: "Feminine nouns like 'نافذة' introduce soft phonetics naturally."
+            teachingTip: "Call out emergency lockdowns: 'أَغْلِقِ النَّافِذَةَ!' Both boys race to the living room windows to ensure blinds/windows are snapped shut. Fastest operative scores.",
+            integrationTip: "In the car: use 'اِفْتَحِ النَّافِذَةَ' and 'أَغْلِقِ النَّافِذَةَ' for rolling electric windows up/down.",
+            miscAdvice: "Connecting words to real mechanical controls makes them memorable."
           },
           {
             day: 3,
-            title: "Creative: The Secret Box",
+            title: "Safe Cracker: The Secret Chest",
             targetWords: "الصُّنْدُوق (The box), كِتَاب (Book)",
             targetPhrase: "اِفْتَحِ الصُّنْدُوقَ! / اِفْتَحِ الْكِتَابَ!",
-            teachingTip: "Place a small toy inside a lidded container. Child must say 'اِفْتَحِ الصُّنْدُوقَ' before opening to reveal the surprise.",
-            integrationTip: "Bedtime reading: command 'اِفْتَحِ الْكِتَابَ' before starting stories.",
-            miscAdvice: "Using real objects bridges the gap from abstract words to daily life."
+            teachingTip: "Place an exciting reward (snack, card, or toy) inside a locked toolbox or container. The combination opens only when the operative clearly shouts the exact command: 'اِفْتَحِ الصُّنْدُوقَ!'",
+            integrationTip: "Bedtime reading: command 'اِفْتَحِ الْكِتَابَ' before opening any book pages.",
+            miscAdvice: "Real rewards heighten focus and pronunciation clarity."
           },
           {
             day: 4,
-            title: "Dialogue: Polite Requests",
+            title: "The Diplomatic Access Pass",
             targetWords: "مِنْ فَضْلِكَ (Please)",
             targetPhrase: "أَغْلِقِ الْبَابَ مِنْ فَضْلِكَ.",
-            teachingTip: "Practice the whisper-tone request. Exaggerate politeness with hands clasped together.",
-            integrationTip: "Teach siblings to ask each other: 'اِفْتَحِ الْبَابَ مِنْ فَضْلِكِ'.",
-            miscAdvice: "Point out the difference between 'فَضْلِكَ' (boy) and 'فَضْلِكِ' (girl) naturally."
+            teachingTip: "Set up a negotiation scene where screaming commands gets doors slammed shut, but delivering the polite request 'مِنْ فَضْلِكَ' with composure grants instant clearance.",
+            integrationTip: "Siblings must use 'مِنْ فَضْلِكَ' when asking each other to close doors or hand over controllers.",
+            miscAdvice: "Teach them that tone of voice is part of mastery."
           },
           {
             day: 5,
-            title: "Celebration: Fast House Relay",
-            targetWords: "Week 4 combined verbs",
+            title: "Base Defense Speed Relay",
+            targetWords: "Week 4 Verbs Combined",
             targetPhrase: "اِذْهَبْ وَأَغْلِقِ الْبَابَ سَرِيعًا!",
-            teachingTip: "Time each child with a phone stopwatch to see how fast they can run, touch, and close the door upon command.",
-            integrationTip: "Celebrate the fastest time with high fives.",
-            miscAdvice: "Milestone: 1 full month completed! 20 daily lessons in the books."
+            teachingTip: "Start the stopwatch. Boys race from the sofa, sprint to touch the front door, close the pantry door, and secure the window blinds upon command. Goal: sub-15 seconds.",
+            integrationTip: "Celebrate completing the first full month of operations.",
+            miscAdvice: "Acknowledge their speed and discipline."
           }
         ]
       }
     ];
 
+    /* Procedurally Generate Weeks 5 to 52 for Boys 7-10 */
     const TOPIC_ROADMAP = [
-      { w: 5, t: "Pointers & Identity", ar: "هذا وهذه", base: ["هَذَا", "هَذِهِ", "مَا هَذَا؟"], frame: "مَا هَذَا؟ — هَذَا قَلَمٌ." },
-      { w: 6, t: "Primary Colors", ar: "الألوان الأساسية", base: ["أَحْمَر", "أَزْرَق", "أَصْفَر"], frame: "هَذَا قَلَمٌ أَحْمَرُ." },
-      { w: 7, t: "Secondary Colors", ar: "بقية الألوان", base: ["أَخْضَر", "أَبْيَض", "أَسْوَد"], frame: "اللَّوْنُ هُنَا أَخْضَرُ." },
-      { w: 8, t: "Sizes & Opposites", ar: "الكبير والصغير", base: ["كَبِير", "صَغِير", "جِدًّا"], frame: "هَذَا بَيْتٌ كَبِيرٌ." },
-      { w: 9, t: "Active Play Verbs", ar: "أفعال اللعب", base: ["اِجْرِ", "اِمْشِ", "اِقْفِزْ"], frame: "هَيَّا نَجْرِي مَعًا!" },
-      { w: 10, t: "Locations & Hiding", ar: "أين الشيء؟", base: ["أَيْنَ", "هُنَا", "هُنَاكَ"], frame: "أَيْنَ الْحِذَاءُ؟ — هَا هُوَ هُنَا!" },
-      { w: 11, t: "Possession & Mine", ar: "الملكية", base: ["لِي", "لَكَ", "كِتَابِي"], frame: "هَذَا كِتَابِي وَهَذَا لَكَ." },
-      { w: 12, t: "Quarter 1 Integration", ar: "مراجعة شاملة", base: ["تَعَالَ", "اِفْتَحْ", "شُكْرًا"], frame: "تَعَالَ هُنَا وَافْتَحِ الْبَابَ الْكَبِيرَ." },
-      { w: 13, t: "I Want & Desires", ar: "أريد وأطلب", base: ["أُرِيدُ", "مَاذَا", "شَيْئًا"], frame: "مَاذَا تُرِيدُ؟ — أُرِيدُ مَاءً." },
-      { w: 14, t: "Breakfast Essentials", ar: "طعام الفطور", base: ["مَاء", "حَلِيب", "خُبْز", "بَيْض"], frame: "أُرِيدُ خُبْزًا وَحَلِيبًا مِنْ فَضْلِكَ." },
-      { w: 15, t: "Fruits & Snacks", ar: "الفواكه اللذيذة", base: ["تُفَّاح", "مَوْز", "تَمْر", "عَصِير"], frame: "هَلْ تُرِيدُ تُفَّاحَةً؟ — نَعَمْ." },
-      { w: 16, t: "Tableware & Utensils", ar: "أدوات المائدة", base: ["مِلْعَقَة", "شَوْكَة", "صَحْن", "كُوب"], frame: "أَعْطِنِي الْمِلْعَقَةَ مِنْ فَضْلِكَ." },
-      { w: 17, t: "Hungry & Thirsty", ar: "الجوع والعطش", base: ["جَائِع", "عَطْشَان", "شَبْعَان"], frame: "أَنَا جَائِعٌ جِدًّا! أُرِيدُ طَعَامًا." },
-      { w: 18, t: "Taste & Compliments", ar: "طعم الطعام", base: ["لَذِيذ", "حُلْو", "حَامِض"], frame: "هَذَا الطَّعَامُ لَذِيذٌ جِدًّا!" },
-      { w: 19, t: "House & Rooms", ar: "غرف البيت", base: ["غُرْفَة", "مَطْبَخ", "حَمَّام"], frame: "اِذْهَبْ إِلَى الْمَطْبَخِ وَاغْسِلْ يَدَيْكَ." },
-      { w: 20, t: "Living Room Setup", ar: "أثاث الجلوس", base: ["كُرْسِيّ", "طَاوِلَة", "أَرِيكَة"], frame: "اِجْلِسْ عَلَى الْكُرْسِيِّ بِهُدُوءٍ." },
-      { w: 21, t: "Bedtime & Sleep", ar: "وقت النوم", base: ["سَرِير", "وِسَادَة", "نَوْم"], frame: "حَانَ وَقْتُ النَّوْمِ! إِلَى السَّرِيرِ." },
-      { w: 22, t: "Tidying Up Toys", ar: "ترتيب الألعاب", base: ["نَظِّفْ", "رَتِّبْ", "لُعْبَة"], frame: "رَتِّبِ الأَلْعَابَ فِي الصُّنْدُوقِ." },
-      { w: 23, t: "Family Members", ar: "أفراد العائلة", base: ["أَبِي", "أُمِّي", "أَخِي", "أُخْتِي"], frame: "هَذَا أَخِي الْحَبِيبُ." },
-      { w: 24, t: "Feelings & Moods", ar: "المشاعر والوجدان", base: ["سَعِيد", "حَزِين", "تَعْبَان"], frame: "أَنَا سَعِيدٌ الْيَوْمَ وَالْحَمْدُ لِلَّهِ." },
-      { w: 25, t: "Daily Action Verbs", ar: "أفعال اليوم", base: ["آكُلُ", "أَشْرَبُ", "أَلْعَبُ"], frame: "أَنَا آكُلُ التُّفَّاحَ الآنَ." },
-      { w: 26, t: "Mid-Year Milestone", ar: "حصاد نصف السنة", base: ["كُلّ الكَلِمَات", "حِوَار"], frame: "أَنَا جَائِعٌ، أُرِيدُ خُبْزًا لَذِيذًا." },
-      { w: 27, t: "Face & Head", ar: "الرأس والوجه", base: ["رَأْس", "عَيْن", "أَنْف", "فَم"], frame: "اِلْمِسْ رَأْسَكَ وَأَنْفَكَ!" },
-      { w: 28, t: "Hands & Feet", ar: "اليد والرجل", base: ["يَد", "رِجْل", "بَطْن"], frame: "اِغْسِلْ يَدَيْكَ بِالْمَاءِ وَالصَّابُونِ." },
-      { w: 29, t: "Clothes to Wear", ar: "الملابس اليومية", base: ["قَمِيص", "سِرْوَال", "حِذَاء"], frame: "اِلْبَسْ حِذَاءَكَ سَرِيعًا!" },
-      { w: 30, t: "Coats & Bags", ar: "الخروج من البيت", base: ["مِعْطَف", "قُبَّعَة", "حَقِيبَة"], frame: "خُذْ حَقِيبَتَكَ قَبْلَ أَنْ تَخْرُجَ." },
-      { w: 31, t: "Pets & Birds", ar: "حيوانات أليفة", base: ["قِطَّة", "كَلْب", "عُصْفُور"], frame: "اُنْظُرْ إِلَى الْقِطَّةِ الصَّغِيرَةِ!" },
-      { w: 32, t: "Farm Animals", ar: "حيوانات المزرعة", base: ["بَقَرَة", "خِرَاف", "حِصَان"], frame: "الْحِصَانُ يَجْرِي بِسُرْعَةٍ." },
-      { w: 33, t: "Sky & Celestial", ar: "السماء والنجوم", base: ["شَمْس", "قَمَر", "نَجْم"], frame: "الشَّمْسُ طَالِعَةٌ فِي السَّمَاءِ." },
-      { w: 34, t: "Weather Reports", ar: "حالة الطقس", base: ["حَارّ", "بَارِد", "مَطَر"], frame: "الطَّقْسُ الْيَوْمَ بَارِدٌ وَمُمْطِرٌ." },
-      { w: 35, t: "Prepositions: In & On", ar: "في وعلى", base: ["فِي", "عَلَى", "دَاخِل"], frame: "الْكِتَابُ عَلَى الطَّاوِلَةِ." },
-      { w: 36, t: "Prepositions: Under", ar: "تحت وخلف", base: ["تَحْتَ", "أَمَامَ", "خَلْفَ"], frame: "الْكُرَةُ تَحْتَ السَّرِيرِ." },
-      { w: 37, t: "Times of the Day", ar: "الصباح والمساء", base: ["صَبَاح", "مَسَاء", "لَيْل"], frame: "صَبَاحُ الْخَيْرِ يَا أَبِي!" },
-      { w: 38, t: "Sensory Perception", ar: "الحواس الخمس", base: ["اُنْظُرْ", "اِسْمَعْ", "شُمَّ"], frame: "اِسْمَعْ صَوْتَ الْعُصْفُورِ!" },
-      { w: 39, t: "Speed & Manner", ar: "السرعة والهدوء", base: ["بِسُرْعَة", "بِبُطْء", "بِهُدُوء"], frame: "تَكَلَّمْ بِهُدُوءٍ مِنْ فَضْلِكَ." },
-      { w: 40, t: "Numbers: 1 to 3", ar: "الأرقام الأولى", base: ["وَاحِد", "اِثْنَان", "ثَلاثَة"], frame: "كَمْ تُفَّاحَةً هُنَا؟ — ثَلاثَة!" },
-      { w: 41, t: "Numbers: 4 to 7", ar: "الأرقام المتوسطة", base: ["أَرْبَعَة", "خَمْسَة", "سِتَّة", "سَبْعَة"], frame: "عِنْدِي خَمْسُ كُرَاتٍ صَغِيرَةٍ." },
-      { w: 42, t: "Numbers: 8 to 10", ar: "التمام إلى عشرة", base: ["ثَمَانِيَة", "تِسْعَة", "عَشَرَة"], frame: "عُدَّ مَعِي حَتَّى عَشَرَة!" },
-      { w: 43, t: "Places in Town", ar: "الأماكن حولنا", base: ["مَسْجِد", "مَدْرَسَة", "حَدِيقَة"], frame: "نَحْنُ نَذْهَبُ إِلَى الْمَسْجِدِ." },
-      { w: 44, t: "Vehicles & Rides", ar: "وسائل النقل", base: ["سَيَّارَة", "حَافِلَة", "طَائِرَة"], frame: "اِرْكَبِ السَّيَّارَةَ وَارْبِطِ الْحِزَامَ." },
-      { w: 45, t: "Connecting Sentences", ar: "أدوات الربط", base: ["وَ", "ثُمَّ", "لَكِنْ"], frame: "آكُلُ ثُمَّ أَشْرَبُ الْمَاءَ." },
-      { w: 46, t: "Curious Questions", ar: "أسئلة الاستكشاف", base: ["مَنْ؟", "مَاذَا؟", "لِمَاذَا؟"], frame: "مَنْ فِي الْبَابِ؟ — اِفْتَحْ وَانْظُرْ." },
-      { w: 47, t: "Days of Gathering", ar: "أيام الأسبوع", base: ["الْجُمُعَة", "السَّبْت", "الأَحَد"], frame: "الْيَوْمَ يَوْمُ الْجُمُعَةِ الْمُبَارَك." },
-      { w: 48, t: "Sharing & Turns", ar: "اللعب المشترك", base: ["دَوْرِي", "دَوْرُكَ", "مَعًا"], frame: "الآنَ دَوْرِي، ثُمَّ دَوْرُكَ أَنْتَ." },
-      { w: 49, t: "Asking for Help", ar: "طلب المساعدة", base: ["سَاعِدْنِي", "لا أَعْرِفُ", "أَسْتَطِيعُ"], frame: "يَا أَبِي، سَاعِدْنِي مِنْ فَضْلِكَ!" },
-      { w: 50, t: "Story Beginning", ar: "سرد الحكاية", base: ["كَانَ", "مَرَّة", "ذَهَبَ"], frame: "كَانَ هُنَاكَ أَرْنَبٌ صَغِيرٌ يَجْرِي." },
-      { w: 51, t: "My Full Day", ar: "يومي الكامل", base: ["أَسْتَيْقِظُ", "أُصَلِّي", "أَرْجِعُ"], frame: "أَسْتَيْقِظُ فِي الصَّبَاحِ وَأُصَلِّي." },
-      { w: 52, t: "The Home Immersion", ar: "عام كامل من الفصحى", base: ["مُبَارَك", "أَحْسَنْتَ", "تَكَلَّمْ"], frame: "نَحْنُ نَتَكَلَّمُ بِالْعَرَبِيَّةِ فِي بَيْتِنَا!" }
+      { w: 5, t: "Target Scanner & Identification", ar: "هذا وهذه", base: ["هَذَا", "هَذِهِ", "مَا هَذَا؟"], frame: "مَا هَذَا؟ — هَذَا قَلَمٌ.", drill: "Flashcard Fast-Draw Duel", game: "Hold up mystery tools or objects in dim light. First to scan and identify 'هَذَا...' wins the card." },
+      { w: 6, t: "Color Code Laser Targeting", ar: "الألوان الأساسية", base: ["أَحْمَر", "أَزْرَق", "أَصْفَر"], frame: "هَذَا هَدَفٌ أَحْمَرُ.", drill: "Laser Pointer Strike", game: "Flash a laser or flashlight beam onto red, blue, or yellow targets. First boy to tag and shout the color scores." },
+      { w: 7, t: "Secondary Camouflage Codes", ar: "بقية الألوان", base: ["أَخْضَر", "أَبْيَض", "أَسْوَد"], frame: "اللَّوْنُ هُنَا أَخْضَرُ.", drill: "Camouflage Tag", game: "Call out a camo color. Boys have 5 seconds to sprint and touch an object of that exact color in the room." },
+      { w: 8, t: "Payload & Scale Analysis", ar: "الكبير والصغير", base: ["كَبِير", "صَغِير", "جِدًّا"], frame: "هَذَا شَيْءٌ كَبِيرٌ جِدًّا.", drill: "Heavy vs Light Sizing", game: "Present contrasting items (giant dumbbell vs tiny pebble). Boys categorize scale rapidly under time pressure." },
+      { w: 9, t: "Combat Action Verbs", ar: "أفعال اللعب", base: ["اِجْرِ", "اِمْشِ", "اِقْفِزْ"], frame: "هَيَّا نَجْرِي بِسُرْعَةٍ!", drill: "Sprint & Vault Course", game: "Set an indoor obstacle track. Shout movement verbs that dictate sprinting, walking silently, or leaping." },
+      { w: 10, t: "Radar Beacon Search", ar: "أين الشيء؟", base: ["أَيْنَ", "هُنَا", "هُنَاكَ"], frame: "أَيْنَ الْهَدَفُ؟ — هَا هُوَ هُنَا!", drill: "Sonar Search Challenge", game: "Hide a target tracker in the room. Guide the operative purely using spatial queries and declarations." },
+      { w: 11, t: "Gear Confiscation & Ownership", ar: "الملكية", base: ["لِي", "لَكَ", "كِتَابِي"], frame: "هَذَا عَتَادِي وَهَذَا لَكَ.", drill: "Gear Stash Challenge", game: "Divide sports gear and toys. Settle claims rapidly using 'هَذَا لِي' and 'هَذَا لَكَ'." },
+      { w: 12, t: "Q1 Special Operations Gauntlet", ar: "مراجعة شاملة", base: ["تَعَالَ", "اِفْتَحْ", "شُكْرًا"], frame: "تَعَالَ هُنَا وَافْتَحِ الْبَابَ الْكَبِيرَ.", drill: "The Full Base Sweep", game: "Run a continuous 3-room mission combining every command, pointer, and color learned so far." },
+      { w: 13, t: "Rations Request & Requisition", ar: "أريد وأطلب", base: ["أُرِيدُ", "مَاذَا", "شَيْئًا"], frame: "مَاذَا تُرِيدُ؟ — أُرِيدُ مَاءً.", drill: "Quartermaster Requisition", game: "Pantry locked until the operative files a verbal requisition starting with 'أُرِيدُ...'." },
+      { w: 14, t: "High-Energy Field Fuel", ar: "طعام الفطور", base: ["مَاء", "حَلِيب", "خُبْز", "بَيْض"], frame: "أُرِيدُ خُبْزًا وَبَيْضًا مِنْ فَضْلِكَ.", drill: "Mess Hall Speed Order", game: "Breakfast components served only when requested by exact Arabic tactical names." },
+      { w: 15, t: "Energy Boosters & Fruits", ar: "الفواكه اللذيذة", base: ["تُفَّاح", "مَوْز", "تَمْر", "عَصِير"], frame: "هَلْ تُرِيدُ تُفَّاحَةً؟ — نَعَمْ.", drill: "Blindfold Taste Test", game: "Blindfolded taste test. Operative takes a bite and must identify the fruit in Arabic script." },
+      { w: 16, t: "Mess Hall Arsenal", ar: "أدوات المائدة", base: ["مِلْعَقَة", "شَوْكَة", "صَحْن", "كُوب"], frame: "أَعْطِنِي السِّكِّينَ أَوِ الْمِلْعَقَةَ.", drill: "Table Setting Sprint", game: "Time how fast they can assemble plates, cups, forks, and spoons matching spoken Arabic calls." },
+      { w: 17, t: "Endurance & Fuel Reserves", ar: "الجوع والعطش", base: ["جَائِع", "عَطْشَان", "شَبْعَان"], frame: "أَنَا جَائِعٌ جِدًّا! أُرِيدُ طَعَامًا.", drill: "Post-Workout Fuel Check", game: "Check in after running outside or workouts. Require full energy reports before snacks." },
+      { w: 18, t: "Ration Taste Rating", ar: "طعم الطعام", base: ["لَذِيذ", "حُلْو", "حَامِض"], frame: "هَذَا الطَّعَامُ لَذِيذٌ جِدًّا!", drill: "The Food Critic Judge", game: "Rate every dish at dinner with a 1-to-5 star verdict using target taste adjectives." },
+      { w: 19, t: "Base Sector Navigation", ar: "غرف البيت", base: ["غُرْفَة", "مَطْبَخ", "حَمَّام"], frame: "اِذْهَبْ إِلَى الْمَطْبَخِ سَرِيعًا.", drill: "Sector Infiltration Run", game: "Dispatch operatives to specific sectors of the house against a 10-second timer." },
+      { w: 20, t: "Command Post Furniture", ar: "أثاث الجلوس", base: ["كُرْسِيّ", "طَاوِلَة", "أَرِيكَة"], frame: "اِجْلِسْ عَلَى الْكُرْسِيِّ لِلْمُهِمَّةِ.", drill: "Musical Chairs Lockdown", game: "Play high-energy nasheed/beats. When stopped, shout the target furniture item to scramble onto." },
+      { w: 21, t: "Bivouac & Sleep Protocol", ar: "وقت النوم", base: ["سَرِير", "وِسَادَة", "نَوْم"], frame: "حَانَ وَقْتُ النَّوْمِ! إِلَى السَّرِيرِ.", drill: "Nightfall Evacuation", game: "Timer set for 3 minutes to clear shoes, brush teeth, and reach bed stations on command." },
+      { w: 22, t: "Equipment Armory Cleanup", ar: "ترتيب الألعاب", base: ["نَظِّفْ", "رَتِّبْ", "عَتَاد"], frame: "رَتِّبِ الأَلْعَابَ فِي الصُّنْدُوقِ.", drill: "60-Second Armory Scramble", game: "Beat the clock putting all gear, balls, and books into storage crates." },
+      { w: 23, t: "Operative Squad Hierarchy", ar: "أفراد العائلة", base: ["أَبِي", "أُمِّي", "أَخِي", "أُخْتِي"], frame: "هَذَا أَخِي فِي فَرِيقِي.", drill: "Squad Roster Roll Call", game: "Line up for squad inspection; declare family roles and allies in full frames." },
+      { w: 24, t: "Combat Readiness & Morale", ar: "المشاعر والوجدان", base: ["سَعِيد", "حَزِين", "تَعْبَان"], frame: "أَنَا سَعِيدٌ الْيَوْمَ وَمُسْتَعِدٌّ.", drill: "Morale Interrogation", game: "Act out extreme fatigue, anger, or victory poses. Sibling must diagnose status in Arabic." },
+      { w: 25, t: "Live Action Bodycam Log", ar: "أفعال اليوم", base: ["آكُلُ", "أَشْرَبُ", "أَلْعَبُ"], frame: "أَنَا أَلْعَبُ الآنَ مَعَ أَخِي.", drill: "Bodycam Narration Duel", game: "Shadow each other's movements around the room, narrating the live actions out loud." },
+      { w: 26, t: "Mid-Year Tactical Assessment", ar: "حصاد نصف السنة", base: ["حِوَار", "كُلّ الكَلِمَات"], frame: "أَنَا جَائِعٌ، أُرِيدُ خُبْزًا لَذِيذًا.", drill: "The Solo Boss Mission", game: "Operatives must complete a 5-step unassisted household transaction completely in Arabic." },
+      { w: 27, t: "Anatomy Armor Scan: Head", ar: "الرأس والوجه", base: ["رَأْس", "عَيْن", "أَنْف", "فَم"], frame: "اِلْمِسْ رَأْسَكَ وَعَيْنَيْكَ!", drill: "Target Lock Body Tap", game: "Rapid-fire calls: touch body parts without making a single error. Speed doubles every 30 seconds." },
+      { w: 28, t: "Tactical Limbs & Agility", ar: "اليد والرجل", base: ["يَد", "رِجْل", "بَطْن"], frame: "اِغْسِلْ يَدَيْكَ بِالْمَاءِ سَرِيعًا.", drill: "The Handwash Sprint", game: "Timer-based race to the sink: wash hands thoroughly reciting the Arabic frame." },
+      { w: 29, t: "Uniform & Combat Gear", ar: "الملابس اليومية", base: ["قَمِيص", "سِرْوَال", "حِذَاء"], frame: "اِلْبَسْ حِذَاءَكَ فِي ثَوَانٍ!", drill: "Speed Dressing Championship", game: "Time who can put on socks, pants, and shoes fastest on the Arabic starting pistol." },
+      { w: 30, t: "Field Deployment Bags", ar: "الخروج من البيت", base: ["مِعْطَف", "قُبَّعَة", "حَقِيبَة"], frame: "خُذْ حَقِيبَتَكَ وَالْبَسْ مِعْطَفَكَ.", drill: "Doorway Scramble Drill", game: "Pack bags, grab coats, and report to the launch doorway in under 45 seconds." },
+      { w: 31, t: "Predators & Recon Beasts", ar: "حيوانات أليفة", base: ["قِطَّة", "كَلْب", "عُصْفُور"], frame: "اُنْظُرْ إِلَى الْقِطَّةِ السَّرِيعَةِ!", drill: "Recon Animal Hunt", game: "Spot real neighborhood animals outside and log them with Arabic calls." },
+      { w: 32, t: "Heavy Armored Beasts", ar: "حيوانات المزرعة", base: ["بَقَرَة", "خَيْل", "أَسَد"], frame: "الْخَيْلُ يَجْرِي بِسُرْعَةٍ هَائِلَةٍ.", drill: "Beast Charades Duel", game: "Act out heavy animals or fierce lions; first brother to identify scores." },
+      { w: 33, t: "Atmospheric & Celestial Grid", ar: "السماء والنجوم", base: ["شَمْس", "قَمَر", "نَجْم"], frame: "الشَّمْسُ سَاطِعَةٌ فِي السَّمَاءِ.", drill: "Stargazer Reconnaissance", game: "Step outside at sunset or night; point lasers at sky elements and declare them." },
+      { w: 34, t: "Field Weather Briefing", ar: "حالة الطقس", base: ["حَارّ", "بَارِد", "مَطَر"], frame: "الطَّقْسُ الْيَوْمَ بَارِدٌ وَمُمْطِرٌ.", drill: "Morning Weather Command", game: "One boy checks the weather report and gives the morning tactical briefing to the family." },
+      { w: 35, t: "Grid Coordinates: In & On", ar: "في وعلى", base: ["فِي", "عَلَى", "دَاخِل"], frame: "الْكِتَابُ عَلَى الطَّاوِلَةِ هُنَا.", drill: "Precision Placement Duel", game: "Call out specific drop coordinates for gear; test precision under speed." },
+      { w: 36, t: "Grid Coordinates: Under", ar: "تحت وخلف", base: ["تَحْتَ", "أَمَامَ", "خَلْفَ"], frame: "الْهَدَفُ تَحْتَ السَّرِيرِ تَمَامًا.", drill: "Cover & Concealment Hide", game: "Hide small targets under or behind furniture; navigate sibling using strictly prepositions." },
+      { w: 37, t: "Chrono Watch & Timelines", ar: "الصباح والمساء", base: ["صَبَاح", "مَسَاء", "لَيْل"], frame: "صَبَاحُ الْخَيْرِ أَيُّهَا الْقَائِدُ!", drill: "Time Check Salute", game: "Check watch hours and deliver formal time greetings to kick off study or exercise blocks." },
+      { w: 38, t: "Sensory Reconnaissance", ar: "الحواس الخمس", base: ["اُنْظُرْ", "اِسْمَعْ", "شُمَّ"], frame: "اِسْمَعْ هَذَا الصَّوْتَ الْغَرِيبَ!", drill: "The Blindfold Sound Track", game: "Make mysterious noises in the dark room; operative must track and identify using sensory verbs." },
+      { w: 39, t: "Tactical Velocity Controls", ar: "السرعة والهدوء", base: ["بِسُرْعَة", "بِبُطْء", "بِهُدُوء"], frame: "تَحَرَّكْ بِسُرْعَةٍ ثُمَّ بِهُدُوءٍ.", drill: "Stealth Infiltration Walk", game: "Walk across a floor covered with bubble wrap or squeaky boards while matching speed commands." },
+      { w: 40, t: "Cipher Numbers: 1 to 3", ar: "الأرقام الأولى", base: ["وَاحِد", "اِثْنَان", "ثَلاثَة"], frame: "كَمْ عُنْصُرًا هُنَا؟ — ثَلاثَةٌ!", drill: "Fast Math Slap (1-3)", game: "Flash fingers or cards; first boy to slam table and call Arabic count wins." },
+      { w: 41, t: "Cipher Numbers: 4 to 7", ar: "الأرقام المتوسطة", base: ["أَرْبَعَة", "خَمْسَة", "سِتَّة", "سَبْعَة"], frame: "عِنْدِي سَبْعُ طَلَقَاتٍ فِي يَدِي.", drill: "Ammo Count Scramble", game: "Count Nerf darts or lego pieces out loud in rapid-fire succession under 5 seconds." },
+      { w: 42, t: "Launch Countdown: 8 to 10", ar: "التمام إلى عشرة", base: ["ثَمَانِيَة", "تِسْعَة", "عَشَرَة"], frame: "عُدَّ تَنَازُلِيًّا: عَشَرَة، تِسْعَة...", drill: "Rocket Launch Countdown", game: "Run countdown from 10 to 1 in Arabic to trigger sprints or race starts." },
+      { w: 43, t: "Urban Sector Recon", ar: "الأماكن حولنا", base: ["مَسْجِد", "مَدْرَسَة", "حَدِيقَة"], frame: "نَحْنُ نَتَوَجَّهُ إِلَى الْمَسْجِدِ.", drill: "Navigator Car Check", game: "Announce every trip destination in the car before the vehicle puts into drive." },
+      { w: 44, t: "Mobile Transport Units", ar: "وسائل النقل", base: ["سَيَّارَة", "حَافِلَة", "طَائِرَة"], frame: "اِرْكَبِ السَّيَّارَةَ لِلانْطِلاقِ.", drill: "Vehicle Spotting Race", game: "Spot buses, airplanes, and bikes on highways and call them out first." },
+      { w: 45, t: "Tactical Sequence Linking", ar: "أدوات الربط", base: ["وَ", "ثُمَّ", "لَكِنْ"], frame: "أَجْرِي ثُمَّ أَقْفِزُ فَوْقَ الْحَاجِزِ.", drill: "Combo Move Execution", game: "Chain two athletic maneuvers together while narrating with 'ثُمَّ' (then)." },
+      { w: 46, t: "Intel Interrogation Queries", ar: "أسئلة الاستكشاف", base: ["مَنْ؟", "مَاذَا؟", "لِمَاذَا؟"], frame: "مَنْ هُنَاكَ؟ وَمَاذَا تُرِيدُ؟", drill: "The Detective Cross-Exam", game: "One boy hides evidence; the other cross-examines him using only question words." },
+      { w: 47, t: "Strategic Day Scheduling", ar: "أيام الأسبوع", base: ["الْجُمُعَة", "السَّبْت", "الأَحَد"], frame: "الْيَوْمَ يَوْمُ الْجُمُعَةِ لِلصَّلاةِ.", drill: "Calendar War Room", game: "Plan weekend sports and missions using the target Arabic day names." },
+      { w: 48, t: "Tactical Co-op & Turns", ar: "اللعب المشترك", base: ["دَوْرِي", "دَوْرُكَ", "مَعًا"], frame: "الآنَ دَوْرِي، انْتَظِرْ لَحْظَةً!", drill: "Controller & Turn Trading", game: "Video game or turn-taking rules: enforce 'دَوْرِي' and 'دَوْرُكَ' without English." },
+      { w: 49, t: "Mayday & Backup Calls", ar: "طلب المساعدة", base: ["سَاعِدْنِي", "لا أَعْرِفُ", "أَسْتَطِيعُ"], frame: "يَا أَخِي، سَاعِدْنِي فِي هَذَا!", drill: "Heavy Lift Backup Call", game: "Pick a heavy box or awkward item. Operative must hail 'سَاعِدْنِي' to get team assistance." },
+      { w: 50, t: "Mission Debrief Chronicles", ar: "سرد الحكاية", base: ["كَانَ", "مَرَّة", "ذَهَبَ"], frame: "كَانَ هُنَاكَ بَطَلٌ شُجَاعٌ انْطَلَقَ.", drill: "Epic Story Chain", game: "Build a dramatic action story sentence by sentence, each brother adding a tactical event." },
+      { w: 51, t: "Daily Recon Cycle", ar: "يومي الكامل", base: ["أَسْتَيْقِظُ", "أُصَلِّي", "أَرْجِعُ"], frame: "أَسْتَيْقِظُ فِي الصَّبَاحِ وَأَتَدَرَّبُ.", drill: "Solo Day Briefing", game: "Recite your full morning routine in Arabic like an officer giving an operations briefing." },
+      { w: 52, t: "Full Immersion Graduation", ar: "عام كامل من الفصحى", base: ["مُبَارَك", "أَحْسَنْتَ", "تَكَلَّمْ"], frame: "نَحْنُ أَبْطَالُ الْفُصْحَى فِي هَذَا الْبَيْتِ!", drill: "The Arabic-Only Dinner Gauntlet", game: "20 full minutes of family dinner completely in Arabic. Award graduation badges and rewards." }
     ];
 
     TOPIC_ROADMAP.forEach(meta => {
       const dayThemes = [
-        { d: 1, type: "Reveal & Object Association", note: "Introduce the core physical objects and verbs without translating." },
-        { d: 2, type: "Movement & Physical Action", note: "Tie the words to jumping, touching, or racing across the living room." },
-        { d: 3, type: "Sensory & Mystery Challenge", note: "Use blindfolds, boxes, or hide-and-seek to discover target items." },
-        { d: 4, type: "Role-Play & Real Dialogue", note: "Staged interactions where one person orders or requests and the other fulfills." },
-        { d: 5, type: "Review & Celebration", note: "End-of-week sticker award and short showcase performance." }
+        { d: 1, type: "Fast-Draw Reveal & Object ID", note: `Field drill: ${meta.drill}.` },
+        { d: 2, type: "High-Speed Sprint & Reflex Action", note: `Physical challenge: ${meta.game}.` },
+        { d: 3, type: "Tactical Stealth & Recon Hunt", note: `Stealth detection drill using '${meta.frame}'.` },
+        { d: 4, type: "Head-to-Head Checkpoint Interrogation", note: `Operative face-off: exchange target phrases under pressure.` },
+        { d: 5, type: "Timed Gauntlet & Bounty Score", note: `60-second obstacle run to set the weekly household record.` }
       ];
 
       const daysArr = dayThemes.map(item => ({
         day: item.d,
-        title: `${item.d === 1 ? 'Reveal' : item.d === 2 ? 'Action' : item.d === 3 ? 'Sensory' : item.d === 4 ? 'Dialogue' : 'Review'}: ${meta.t}`,
+        title: `${item.d === 1 ? 'Fast-Draw' : item.d === 2 ? 'Speed Drill' : item.d === 3 ? 'Stealth Recon' : item.d === 4 ? 'Checkpoint' : 'Gauntlet'}: ${meta.t}`,
         targetWords: meta.base.join("، "),
         targetPhrase: meta.frame,
-        teachingTip: `${item.note} Drill the target frame '${meta.frame}' using call-and-response rhythm.`,
-        integrationTip: `Replace the corresponding English words with Arabic throughout today's family routine.`,
-        miscAdvice: `Keep it under 10 minutes. If the kids laugh, the language is being absorbed.`
+        teachingTip: `${item.note} Run rapid repetitions with strict rules. Keep the stopwatch running and award points for clean, confident execution.`,
+        integrationTip: `Enforce a strict household bounty: English is locked for this item today. Access requires the Arabic frame.`,
+        miscAdvice: `Keep it competitive and fast. If the boys laugh and push themselves to beat each other's times, fluency follows.`
       }));
 
       CURRICULUM.push({
@@ -1083,38 +1084,39 @@
       });
     });
 
+    /* Boy-Centric High-Intensity Games Roster */
     const GAMES_POOL = [
       {
-        title: "The Mystery Bag (صندوق المفاجآت)",
-        desc: "Put 3 everyday objects inside an opaque bag. The child reaches in, feels the item without looking, and guesses in Arabic before pulling it out."
+        title: "Fast-Draw Duel (المبارزة السريعة)",
+        desc: "Two boys stand back-to-back. On your count of 3, they spin, lock eyes, stand at attention, and deliver the target phrase. The first clean, loud execution earns the bounty point."
       },
       {
-        title: "Simon Says (سيدنا يعقوب يقول)",
-        desc: "Give command verbs: stand, sit, jump, freeze. If preceded by 'سَيِّدُنَا يَعْقُوب يَقُول', they obey; otherwise, freeze!"
+        title: "The Stopwatch Border Checkpoint (حاجز التفتيش)",
+        desc: "Place a broomstick across a door. Operative must sprint from the far wall, slide to a halt, stand at attention, and deliver the clearance frame before you lift the gate."
       },
       {
-        title: "Flyswatter Slap (ضرب البطاقات)",
-        desc: "Tape two pictures or paper sketches to the wall. Shout an Arabic word. Two siblings race to tap the correct card with a flyswatter or hand."
+        title: "Flashcard Target Slap (ضرب الأهداف)",
+        desc: "Stick two target cards on opposite walls. Shout the Arabic word. Both boys sprint and slap the correct target with their palm. First slap claims the card."
       },
       {
-        title: "Living Room Scavenger Hunt (أبحث عن...)",
-        desc: "Say 'أَبْحَثُ عَنْ شَيْءٍ أَحْمَرَ' (I am looking for something red) or name an object. The children race to bring it to you."
+        title: "Laser Grid Navigation (متاهة الليزر)",
+        desc: "One boy is blindfolded in a cluttered room. His brother must guide him through the obstacle zone using only Arabic movement commands (قِفْ, تَعَالَ, اِذْهَبْ)."
       },
       {
-        title: "The Animal Puppet Clinic",
-        desc: "Stuffed animals only speak Arabic. A child must ask the animal 'كَيْفَ حَالُكَ؟' or feed it toy food using polite Arabic phrases."
+        title: "The Infiltrator Stalker (كشف المتسلل)",
+        desc: "One boy sits blindfolded in the center of the rug. The other sneaks up silently. The moment the guard detects movement, he shouts 'مَنْ هُنَا؟' and the sneaker must freeze and identify himself in Arabic."
       },
       {
-        title: "Hot and Cold (حار وبارد)",
-        desc: "Hide an Arabic target object. As the child searches around the room, guide them by calling 'بَارِد' (cold) or 'حَارّ' (hot)."
+        title: "60-Second Armory Scramble (سباق الدقيقة الواحدة)",
+        desc: "Scatter 5 target items across the house. Call out Arabic targets one by one. The operative has 60 seconds to find, retrieve, and deposit every single item into the command box."
       },
       {
-        title: "The Living Room Toll Gate",
-        desc: "Block the doorway between kitchen and hallway with a broomstick. The 'toll' to pass is producing the week's target phrase in Arabic."
+        title: "The Secret Password Bounty (كلمة السر اليومية)",
+        desc: "Lock access to snacks, water bottles, or the TV until the operative delivers the day's Arabic password with proper vocal projection."
       }
     ];
 
-    const STORAGE_KEY = "fushaflow_progress_canvas";
+    const STORAGE_KEY = "fushaflow_progress_boys_v1";
 
     function getCompletedMap() {
       try {
@@ -1248,17 +1250,17 @@
                 </div>
 
                 <div class="detail-section">
-                  <span class="section-tag">How to Teach (10-Min Session)</span>
+                  <span class="section-tag">Mission Protocol (10-Min Session)</span>
                   <p>${d.teachingTip}</p>
                 </div>
 
                 <div class="detail-section">
-                  <span class="section-tag">Everyday Home Integration</span>
+                  <span class="section-tag">Home Bounty & Enforcement</span>
                   <p>${d.integrationTip}</p>
                 </div>
 
                 <div class="detail-section">
-                  <span class="section-tag">Facilitator Tip</span>
+                  <span class="section-tag">Commander Tip</span>
                   <p style="font-size:0.88rem; color:var(--text-muted); font-style:italic;">${d.miscAdvice}</p>
                 </div>
               </div>
