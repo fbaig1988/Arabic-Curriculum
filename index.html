@@ -139,6 +139,10 @@
       --game-box-border: #78350f;
       --game-title: #fde68a;
       --game-text: #fcd34d;
+
+      --playbook-card-bg: #162032;
+      --playbook-card-border: #23354d;
+      --playbook-accent: #38bdf8;
     }
 
     [data-theme="light"] {
@@ -177,6 +181,10 @@
       --game-box-border: #fde68a;
       --game-title: #92400e;
       --game-text: #78350f;
+
+      --playbook-card-bg: #f0f9ff;
+      --playbook-card-border: #bae6fd;
+      --playbook-accent: #0284c7;
     }
 
     *, *::before, *::after {
@@ -196,7 +204,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.5;
       padding-top: env(safe-area-inset-top);
-      padding-bottom: calc(env(safe-area-inset-bottom) + 80px);
+      padding-bottom: calc(env(safe-area-inset-bottom) + 90px);
       transition: background-color 0.25s ease, color 0.25s ease;
       direction: ltr;
     }
@@ -282,27 +290,47 @@
       padding: 16px 14px;
     }
 
-    .fab-btn {
+    /* Dual Floating Action Buttons */
+    .fab-dock {
       position: fixed;
-      right: 18px;
-      bottom: calc(env(safe-area-inset-bottom) + 20px);
+      left: 0;
+      right: 0;
+      bottom: calc(env(safe-area-inset-bottom) + 14px);
       z-index: 60;
-      background: linear-gradient(135deg, #fbbf24, #f59e0b);
-      color: #022c22;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 14px;
+      pointer-events: none;
+    }
+
+    .fab-btn {
+      pointer-events: auto;
       border: none;
-      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
       border-radius: 30px;
-      padding: 12px 18px;
+      padding: 11px 16px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      transition: transform 0.15s ease;
     }
 
     .fab-btn:active {
-      transform: scale(0.95);
+      transform: scale(0.94);
+    }
+
+    .fab-ops {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #022c22;
+    }
+
+    .fab-playbook {
+      background: linear-gradient(135deg, #38bdf8, #0284c7);
+      color: #ffffff;
     }
 
     .week-card {
@@ -398,7 +426,6 @@
       display: block;
     }
 
-    /* Theme Switcher Bar inside Week */
     .theme-switcher-bar {
       display: flex;
       align-items: center;
@@ -579,6 +606,7 @@
       text-align: right;
     }
 
+    /* Drawers */
     .drawer-overlay {
       position: fixed;
       inset: 0;
@@ -712,6 +740,57 @@
       color: var(--text-muted);
       margin-top: 4px;
     }
+
+    /* Playbook Card Styles */
+    .playbook-card {
+      background: var(--playbook-card-bg);
+      border: 1px solid var(--playbook-card-border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .playbook-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .playbook-num {
+      background: var(--playbook-accent);
+      color: #022c22;
+      width: 22px;
+      height: 22px;
+      border-radius: 11px;
+      display: grid;
+      place-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .playbook-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .playbook-body {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .playbook-callout {
+      margin-top: 6px;
+      padding: 8px 10px;
+      background: rgba(0, 0, 0, 0.18);
+      border-left: 3px solid var(--playbook-accent);
+      border-radius: 0 6px 6px 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
   </style>
 </head>
 <body>
@@ -731,11 +810,19 @@
 
   <main id="appContainer"></main>
 
-  <button class="fab-btn" onclick="openActivityDrawer()">
-    <span>🎲</span>
-    <span>Ops & Theme Scavenger</span>
-  </button>
+  <!-- Persistent Floating Dock with Dual Action Buttons -->
+  <div class="fab-dock">
+    <button class="fab-btn fab-ops" onclick="openActivityDrawer()">
+      <span>🎲</span>
+      <span>Ops & Search</span>
+    </button>
+    <button class="fab-btn fab-playbook" onclick="openPlaybookDrawer()">
+      <span>📘</span>
+      <span>Parent Playbook</span>
+    </button>
+  </div>
 
+  <!-- Ops & Search Drawer -->
   <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawerOnOutside(event)">
     <div class="drawer-panel" id="drawerPanel">
       <div class="drawer-drag-pill"></div>
@@ -760,9 +847,102 @@
     </div>
   </div>
 
+  <!-- Parent Playbook Drawer -->
+  <div class="drawer-overlay" id="playbookOverlay" onclick="closePlaybookOnOutside(event)">
+    <div class="drawer-panel" id="playbookPanel">
+      <div class="drawer-drag-pill"></div>
+      <div class="drawer-header">
+        <h2 class="drawer-title">Parent Coaching Playbook</h2>
+        <button class="btn-close" onclick="closePlaybookDrawer()">✕</button>
+      </div>
+
+      <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--playbook-accent); margin-bottom: 12px; letter-spacing: 0.05em;">
+        Foundational Rules of Engagement
+      </div>
+
+      <div class="playbook-card">
+        <div class="playbook-card-header">
+          <span class="playbook-num">1</span>
+          <span class="playbook-title">Zero Grammar Lectures</span>
+        </div>
+        <p class="playbook-body">
+          Never explain verb conjugation, past vs. present tense, or case endings (ḍammah, fatḥah). Treat full sentences like musical sound chunks or martial-arts combos. Let their subconscious grammar engine infer patterns through physical action and repetition.
+        </p>
+        <div class="playbook-callout">
+          Rule: If an error occurs, simply echo the correct frame with higher energy—do not analyze the mistake.
+        </div>
+      </div>
+
+      <div class="playbook-card">
+        <div class="playbook-card-header">
+          <span class="playbook-num">2</span>
+          <span class="playbook-title">The 10-Minute Hard Stop</span>
+        </div>
+        <p class="playbook-body">
+          Always conclude the daily micro-session while enthusiasm and adrenaline are still peaking. Even if the boys plead for another round of duels or scavenger hunts, call the mission accomplished.
+        </p>
+        <div class="playbook-callout">
+          Rule: Leaving them wanting more prevents cognitive burnout and guarantees eager buy-in tomorrow.
+        </div>
+      </div>
+
+      <div class="playbook-card">
+        <div class="playbook-card-header">
+          <span class="playbook-num">3</span>
+          <span class="playbook-title">Eliminate the Translation Layer</span>
+        </div>
+        <p class="playbook-body">
+          Do not ask: <em>"What does 'bāb' mean in English?"</em> Instead, say <strong>"اِفْتَحِ الْبَابَ"</strong> while kicking or pointing at the actual door. The brain must link the sound directly to the physical reality, skipping the English translation intermediary.
+        </p>
+        <div class="playbook-callout">
+          Rule: Physical action (sprinting, touching, throwing) locks vocabulary 4x faster than flashcards.
+        </div>
+      </div>
+
+      <div class="playbook-card">
+        <div class="playbook-card-header">
+          <span class="playbook-num">4</span>
+          <span class="playbook-title">Managing the Sibling Dynamic</span>
+        </div>
+        <p class="playbook-body">
+          Give the older boy high-speed leadership roles (Squad Leader, Border Guard, Detective) to satisfy his need for mastery and competition. Assign the younger boy sidekick, scout, or buzzer roles where he can mimic without performance anxiety.
+        </p>
+        <div class="playbook-callout">
+          Rule: Model every new exchange with the older brother first so the younger sibling sees a winning demo.
+        </div>
+      </div>
+
+      <div class="playbook-card">
+        <div class="playbook-card-header">
+          <span class="playbook-num">5</span>
+          <span class="playbook-title">Household Choke-Point Bounties</span>
+        </div>
+        <p class="playbook-body">
+          Anchor the language into non-negotiable household thresholds. Lock physical access to high-value items (pantry door, iPad, refrigerator, car ignition) behind the day's Arabic passcode.
+        </p>
+        <div class="playbook-callout">
+          Rule: When they ask in English, smile, point to your ear, and say: "بِالْعَرَبِيَّةِ مِنْ فَضْلِكَ!"
+        </div>
+      </div>
+
+      <div class="playbook-card">
+        <div class="playbook-card-header">
+          <span class="playbook-num">6</span>
+          <span class="playbook-title">Pronunciation via Vocal Projection</span>
+        </div>
+        <p class="playbook-body">
+          Boys naturally enunciate Arabic gutturals (ح, خ, ع, ق) better when projecting their voices with confidence during action drills rather than muttering seated at a desk. Encourage full-chested vocal delivery.
+        </p>
+        <div class="playbook-callout">
+          Rule: Reward volume, swagger, and speed over mechanical textbook perfection.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    const THEME_KEY = "fushaflow_ui_theme_v3";
-    const THEME_SELECTION_KEY = "fushaflow_selected_themes_v1";
+    const THEME_KEY = "fushaflow_ui_theme_vfinal";
+    const THEME_SELECTION_KEY = "fushaflow_selected_themes_vfinal";
 
     function initTheme() {
       const savedTheme = localStorage.getItem(THEME_KEY);
@@ -854,7 +1034,6 @@
       current[weekNum] = themeKey;
       localStorage.setItem(THEME_SELECTION_KEY, JSON.stringify(current));
       renderApp();
-      // Keep week open
       const card = document.getElementById(`weekCard_${weekNum}`);
       if (card) card.classList.add("open");
     }
@@ -957,7 +1136,7 @@
       });
     });
 
-    const STORAGE_KEY = "fushaflow_progress_vmulti";
+    const STORAGE_KEY = "fushaflow_progress_vfinal";
 
     function getCompletedMap() {
       try {
@@ -1066,7 +1245,6 @@
             </div>
             
             <div class="week-content">
-              <!-- Interactive Theme Switcher -->
               <div class="theme-switcher-bar" onclick="event.stopPropagation()">
                 <span class="theme-switcher-label">Theme:</span>
                 <button class="theme-chip ${activeThemeKey === 'spy' ? 'active' : ''}" onclick="switchWeekTheme(${w.week}, 'spy', event)">🕵️ Spy</button>
@@ -1075,7 +1253,6 @@
                 <button class="theme-chip ${activeThemeKey === 'space' ? 'active' : ''}" onclick="switchWeekTheme(${w.week}, 'space', event)">🚀 Space</button>
               </div>
 
-              <!-- Shared Target Script -->
               <div class="detail-section" style="margin-bottom: 10px;">
                 <span class="section-tag">Core Vocabulary (Target Script)</span>
                 <div class="arabic-display-box ar">${w.targetWords}</div>
@@ -1168,6 +1345,20 @@
     function closeDrawerOnOutside(e) {
       if (e.target.id === "drawerOverlay") {
         closeActivityDrawer();
+      }
+    }
+
+    function openPlaybookDrawer() {
+      document.getElementById("playbookOverlay").classList.add("active");
+    }
+
+    function closePlaybookDrawer() {
+      document.getElementById("playbookOverlay").classList.remove("active");
+    }
+
+    function closePlaybookOnOutside(e) {
+      if (e.target.id === "playbookOverlay") {
+        closePlaybookDrawer();
       }
     }
 
